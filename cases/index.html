@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case Notes — Applied engineering cases from manufacturing, automation and energy management.">
+  <title>Case Notes — BESSÓ Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAV (depth: 1) -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="nav-logo">
+        <span class="logo-sigil">BS</span>
+        <span>BESSÓ Systems</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../toolbox/">Toolbox</a></li>
+        <li><a href="../knowledge/">Knowledge</a></li>
+        <li><a href="../cases/" class="active">Cases</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-body">
+    <div class="container">
+
+      <!-- PAGE HEADER ========================================== -->
+      <div class="page-header">
+        <p class="overline">Case Notes</p>
+        <h1>Applied Cases</h1>
+        <p>Cases from manufacturing, automation and energy management. Describing methods and learnings — not claiming metrics.</p>
+      </div>
+
+      <!-- DISCLAIMER =========================================== -->
+      <div style="background:var(--bg-card); border:1px solid var(--border-sub); border-radius:var(--radius); padding:14px 18px; margin-bottom:36px; max-width:680px;">
+        <p style="font-family:var(--mono); font-size:.78rem; color:var(--text-3); margin:0; line-height:1.6;">
+          These are case notes, not case studies. They describe approaches, methods and learnings from professional experience. Identifying details have been generalised. No specific metrics are claimed.
+        </p>
+      </div>
+
+      <!-- CASE CARDS =========================================== -->
+      <div class="grid-3">
+
+        <a href="manufacturing.html" class="case-card">
+          <p class="c-cat">Process Improvement</p>
+          <h3>Manufacturing Process Improvement</h3>
+          <p>Applying structured problem-solving to reduce recurring quality escapes in a high-volume discrete manufacturing environment.</p>
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag">VSM</span>
+            <span class="tag">A3</span>
+            <span class="tag">5-Why</span>
+          </div>
+        </a>
+
+        <a href="automation.html" class="case-card">
+          <p class="c-cat">Digital Operations / MES &amp; SCADA</p>
+          <h3>Automation &amp; Shopfloor Systems</h3>
+          <p>Integrating shopfloor data into a production tracking system to replace manual reporting and enable real-time visibility.</p>
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag">MES</span>
+            <span class="tag">SCADA</span>
+            <span class="tag">OPC-UA</span>
+          </div>
+        </a>
+
+        <a href="energy.html" class="case-card">
+          <p class="c-cat">Energy &amp; ISO 50001</p>
+          <h3>Energy Management / ISO 50001</h3>
+          <p>Implementing a systematic energy management framework in an industrial plant — from energy review to certified management system.</p>
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag">ISO 50001</span>
+            <span class="tag">EnPIs</span>
+            <span class="tag">SEUs</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-sigil">BS</span>
+          <span>BESSÓ Systems</span>
+        </div>
+        <div class="footer-meta">
+          <span class="status-dot"></span>
+          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 BESSÓ Systems</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/nav.js"></script>
+
+</body>
+</html>

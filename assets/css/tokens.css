@@ -1,0 +1,52 @@
+/* ================================================================
+   BESSO Systems — tokens.css
+   Design tokens: all CSS custom properties.
+   Edit here to retheme the entire site.
+================================================================ */
+
+:root {
+  /* Backgrounds */
+  --bg:           #0f1117;
+  --bg-card:      #161b27;
+  --bg-hover:     #1c2235;
+  --bg-input:     #181e2e;
+  --bg-code:      #0c1020;
+
+  /* Borders */
+  --border:       #232d42;
+  --border-sub:   #1c2438;
+
+  /* Text */
+  --text:         #d4daf0;
+  --text-2:       #8a96b0;
+  --text-3:       #53607a;
+
+  /* Accent — blue */
+  --accent:       #4f8ef7;
+  --accent-bg:    #152040;
+  --accent-hi:    #6ba3ff;
+
+  /* Status colors */
+  --green:        #3ecf8e;
+  --green-bg:     #0c2820;
+  --amber:        #f5a623;
+  --amber-bg:     #281f08;
+  --red:          #e55b5b;
+
+  /* Tags */
+  --tag-bg:       #1c2540;
+  --tag-txt:      #8aabf0;
+
+  /* Shape */
+  --radius:       6px;
+  --radius-lg:    12px;
+
+  /* Typography */
+  --font:         'Inter', system-ui, -apple-system, sans-serif;
+  --mono:         'Space Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --max:          1080px;
+  --pad:          clamp(16px, 4vw, 32px);
+  --nav-h:        64px;
+}

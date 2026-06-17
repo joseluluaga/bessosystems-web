@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Knowledge Base — Technical articles on process improvement, SCADA/MES, Lean, energy management and digital operations.">
+  <title>Knowledge Base — BESSÓ Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAV (depth: 1) -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="nav-logo">
+        <span class="logo-sigil">BS</span>
+        <span>BESSÓ Systems</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../toolbox/">Toolbox</a></li>
+        <li><a href="../knowledge/" class="active">Knowledge</a></li>
+        <li><a href="../cases/">Cases</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-body">
+    <div class="container">
+
+      <!-- PAGE HEADER ========================================== -->
+      <div class="page-header">
+        <p class="overline">Knowledge Base</p>
+        <h1>Technical Articles</h1>
+        <p>Structured articles on process improvement, SCADA/MES, Lean and digital operations. Written to be practical, not theoretical.</p>
+      </div>
+
+      <!-- CATEGORY FILTER ====================================== -->
+      <div class="cat-filter">
+        <button class="cat-btn active" onclick="filterArticles(this, 'all')">All</button>
+        <button class="cat-btn" onclick="filterArticles(this, 'Process Improvement')">Process Improvement</button>
+        <button class="cat-btn" onclick="filterArticles(this, 'MES / SCADA')">MES / SCADA</button>
+        <button class="cat-btn" onclick="filterArticles(this, 'Lean &amp; Industrial Engineering')">Lean &amp; Industrial Engineering</button>
+      </div>
+
+      <!-- ARTICLE CARDS ======================================== -->
+      <div class="grid-3" id="articleGrid">
+
+        <a href="diagnose.html" class="article-card" data-cat="Process Improvement">
+          <p class="a-cat">Process Improvement</p>
+          <h3>How to Diagnose a Process Before Automating It</h3>
+          <p>A systematic approach to understanding what a process actually does before applying technology or redesigning it.</p>
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag">VSM</span>
+            <span class="tag">PDCA</span>
+            <span class="tag">Process Mapping</span>
+          </div>
+        </a>
+
+        <a href="scada-mes.html" class="article-card" data-cat="MES / SCADA">
+          <p class="a-cat">MES / SCADA</p>
+          <h3>SCADA vs MES: Practical Differences That Matter</h3>
+          <p>What the two systems actually do, where they overlap, and how to decide which you need — or whether you need both.</p>
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag">SCADA</span>
+            <span class="tag">MES</span>
+            <span class="tag">OT/IT</span>
+          </div>
+        </a>
+
+        <a href="shopfloor-a3.html" class="article-card" data-cat="Lean &amp; Industrial Engineering">
+          <p class="a-cat">Lean &amp; Industrial Engineering</p>
+          <h3>From Shopfloor Observation to A3</h3>
+          <p>How to translate what you see on the floor into a structured A3 — without losing the nuance that makes the analysis useful.</p>
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag">A3</span>
+            <span class="tag">Lean</span>
+            <span class="tag">Gemba</span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+  function filterArticles(btn, cat) {
+    document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('#articleGrid .article-card').forEach(function(card) {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-sigil">BS</span>
+          <span>BESSÓ Systems</span>
+        </div>
+        <div class="footer-meta">
+          <span class="status-dot"></span>
+          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 BESSÓ Systems</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/nav.js"></script>
+
+</body>
+</html>

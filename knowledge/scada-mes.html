@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SCADA vs MES: practical differences for industrial operations — when to use each and how they integrate.">
+  <title>SCADA vs MES: Practical Differences — BESSÓ Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAV (depth: 1) -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="nav-logo">
+        <span class="logo-sigil">BS</span>
+        <span>BESSÓ Systems</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../toolbox/">Toolbox</a></li>
+        <li><a href="../knowledge/" class="active">Knowledge</a></li>
+        <li><a href="../cases/">Cases</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-body">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../">Home</a><span>/</span>
+        <a href="./">Knowledge</a><span>/</span>
+        <span>SCADA vs MES</span>
+      </nav>
+
+      <div class="article-wrap">
+
+        <div class="page-header">
+          <p class="overline">MES / SCADA</p>
+          <h1>SCADA vs MES: Practical Differences That Matter</h1>
+        </div>
+
+        <div class="article-meta">
+          <span class="m-item">7 min read</span>
+          <span class="m-item">·</span>
+          <span class="m-item">MES / SCADA</span>
+          <span class="m-item">·</span>
+          <span class="m-item">BESSÓ Systems</span>
+        </div>
+
+        <div class="tags" style="margin-bottom: 32px;">
+          <span class="tag">SCADA</span>
+          <span class="tag">MES</span>
+          <span class="tag">OT/IT</span>
+          <span class="tag">ISA-95</span>
+          <span class="tag">OPC-UA</span>
+        </div>
+
+        <div class="article-body">
+
+          <h2>What SCADA is</h2>
+          <p><strong>SCADA</strong> (Supervisory Control and Data Acquisition) is a system for real-time monitoring and control of industrial equipment. It sits at Level 2 of the ISA-95 automation hierarchy, interfacing directly with PLCs, RTUs and sensors at Level 1.</p>
+          <p>Core SCADA functions include:</p>
+          <ul>
+            <li>Real-time data acquisition from field devices (temperatures, pressures, flows, states)</li>
+            <li>Alarm management — detecting out-of-range conditions and notifying operators</li>
+            <li>Operator interface — HMI screens showing the current state of equipment</li>
+            <li>Data historian — time-series recording of process variables for trend analysis</li>
+            <li>Supervisory control — sending setpoints and commands back to PLCs</li>
+          </ul>
+          <p>SCADA is fundamentally equipment-oriented. Its subject is the machine, the line, the physical asset.</p>
+
+          <h2>What MES is</h2>
+          <p><strong>MES</strong> (Manufacturing Execution System) is a system for managing production operations. It sits at Level 3 of the ISA-95 hierarchy, between the shopfloor (SCADA/PLCs) and the enterprise systems (ERP) above.</p>
+          <p>Core MES functions include:</p>
+          <ul>
+            <li>Production order management — releasing, tracking and closing work orders</li>
+            <li>WIP tracking — knowing where each unit or batch is in the process at any time</li>
+            <li>Scheduling — sequencing work orders across resources to meet demand</li>
+            <li>Quality management — recording inspection results, managing holds and non-conformances</li>
+            <li>Traceability — linking inputs (materials, parameters, operators) to outputs</li>
+            <li>OEE calculation — using real-time data to compute availability, performance and quality</li>
+          </ul>
+          <p>MES is fundamentally order-oriented. Its subject is the production order, the batch, the lot.</p>
+
+          <h2>The key difference</h2>
+          <p><strong>SCADA watches the machine. MES tracks the order.</strong> A SCADA system knows that Line 3 has been running at 87°C for the last four hours. A MES knows that Work Order #4521 was started at 08:15, is 72% complete and is consuming Material Lot #B-009.</p>
+          <p>Both pieces of information are valuable. They answer different questions. SCADA tells you what the equipment is doing. MES tells you what production is doing.</p>
+
+          <div class="callout">
+            <p>"Before selecting a system, ask: am I trying to control equipment and monitor its condition, or am I trying to manage production operations and track what is being made? The answer determines which system — or which combination — you actually need."</p>
+          </div>
+
+          <h2>Where they overlap</h2>
+          <p>In modern implementations, the boundary is intentionally permeable. SCADA data flows into MES to populate production records automatically — machine states drive OEE calculation, sensor readings become quality parameters, downtime events become maintenance records.</p>
+          <p>This integration typically occurs via <strong>OPC-UA</strong> (the industrial communication standard for interoperability) or through data historian middleware. The historian collects time-series data from SCADA and exposes it to MES as structured events.</p>
+
+          <h2>When you need which</h2>
+          <p>A practical decision framework:</p>
+          <ul>
+            <li><strong>You need SCADA</strong> if: you need real-time visibility of equipment states, have multiple distributed assets to monitor, or need to detect and respond to process alarms quickly.</li>
+            <li><strong>You need MES</strong> if: you have production orders that need tracking, traceability is a regulatory or quality requirement, you are losing visibility of WIP, or scheduling is done manually and causing delays.</li>
+            <li><strong>You need both</strong> if: you need to correlate production outcomes with process conditions — i.e., you want to know not just that an order was completed, but at what temperature, speed and by whom.</li>
+          </ul>
+          <p>Many facilities start with SCADA and add MES as their operational maturity grows. Others install MES first and add SCADA integration incrementally by machine or cell. Both paths are valid.</p>
+
+          <h2>Integration considerations</h2>
+          <p>The most common integration challenge is not technical — it is definitional. Before connecting SCADA to MES, you need to agree on what constitutes an "event" in each system, what triggers a state change, and how clock synchronisation is handled.</p>
+          <p>OPC-UA is the dominant standard for shopfloor integration and is supported by most modern SCADA platforms and MES vendors. For legacy environments, custom middleware or edge devices (acting as protocol converters) are typically required. Evaluate integration complexity before selecting platforms — some combinations are significantly easier to connect than others.</p>
+
+        </div><!-- /article-body -->
+
+        <div class="article-nav">
+          <a href="diagnose.html" class="btn btn-ghost">← Diagnose Before Automating</a>
+          <a href="shopfloor-a3.html" class="btn btn-ghost">Shopfloor to A3 →</a>
+        </div>
+
+      </div><!-- /article-wrap -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-sigil">BS</span>
+          <span>BESSÓ Systems</span>
+        </div>
+        <div class="footer-meta">
+          <span class="status-dot"></span>
+          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 BESSÓ Systems</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/nav.js"></script>
+
+</body>
+</html>

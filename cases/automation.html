@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case note: Automation & Shopfloor Systems — moving from manual data collection to near-real-time production visibility.">
+  <title>Automation & Shopfloor Systems — Case Notes — BESSÓ Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAV (depth: 1) -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="nav-logo">
+        <span class="logo-sigil">BS</span>
+        <span>BESSÓ Systems</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../toolbox/">Toolbox</a></li>
+        <li><a href="../knowledge/">Knowledge</a></li>
+        <li><a href="../cases/" class="active">Cases</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-body">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../">Home</a><span>/</span>
+        <a href="./">Case Notes</a><span>/</span>
+        <span>Automation &amp; Shopfloor Systems</span>
+      </nav>
+
+      <div class="page-header">
+        <p class="overline">Digital Operations / MES &amp; SCADA</p>
+        <h1>Automation &amp; Shopfloor Systems</h1>
+        <p>Moving from manual data collection to near-real-time production visibility.</p>
+      </div>
+
+      <div class="tags" style="margin-bottom:32px;">
+        <span class="tag">SCADA</span>
+        <span class="tag">MES</span>
+        <span class="tag">OPC-UA</span>
+        <span class="tag">OEE</span>
+        <span class="tag">Data Historian</span>
+        <span class="tag">Dashboard</span>
+      </div>
+
+      <div class="case-grid">
+
+        <div class="case-section">
+          <p class="cs-label">01 — Context</p>
+          <p>Industrial production plant where shopfloor data was collected manually. Operators recorded output counts, downtime events and quality results in paper forms or end-of-shift spreadsheet entries. Management reporting was delayed by at least 24 hours and depended on data entry accuracy that varied significantly between shifts.</p>
+          <p>The plant had a SCADA system in place for equipment monitoring, but its data was not being extracted for production management purposes.</p>
+        </div>
+
+        <div class="case-section">
+          <p class="cs-label">02 — Problem</p>
+          <p>Decisions were made on stale data. When a production shortfall occurred, it was only visible at end of shift or the following morning — too late to intervene. Downtime events were categorised inconsistently because operators assigned them manually without a defined taxonomy. No comparison of actual production rate against target was visible during the shift.</p>
+          <p>The consequence was reactive management: problems were investigated after they had impacted delivery, not while there was still time to recover.</p>
+        </div>
+
+        <div class="case-section">
+          <p class="cs-label">03 — Approach</p>
+          <p>The project proceeded in phases:</p>
+          <ul>
+            <li><strong>Data availability review:</strong> mapping the existing SCADA data points (OPC tags) against the information required for production tracking. Counter signals, machine states, alarm events.</li>
+            <li><strong>Gap analysis:</strong> identifying what was available but not extracted, what required additional instrumentation, and what required process definition (downtime taxonomy, shift definitions).</li>
+            <li><strong>Requirements workshop:</strong> structured sessions with production supervisors, maintenance and quality to define what visibility they actually needed — rather than what the technology could theoretically provide.</li>
+            <li><strong>Architecture design:</strong> data flow from SCADA historian to reporting layer, transformation logic for OEE calculation, dashboard structure.</li>
+            <li><strong>Prototype:</strong> Power BI dashboard connected to extracted historian data, reviewed and iterated with end users before finalising.</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <p class="cs-label">04 — Tools &amp; Methods</p>
+          <ul>
+            <li>SCADA OPC data point mapping</li>
+            <li>OEE framework (Availability × Performance × Quality)</li>
+            <li>Downtime taxonomy definition and standardisation</li>
+            <li>Stakeholder requirements workshops</li>
+            <li>Power BI prototype dashboard</li>
+            <li>Data historian extraction and transformation</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <p class="cs-label">05 — Outcome &amp; Learning</p>
+          <p>The most significant finding was that most of the required data already existed in the SCADA historian. The gap was not technical — it was architectural and process-related. No one had defined what questions the data should answer, and no one had built the extraction path to a usable format.</p>
+          <p>The requirements workshop was the highest-value activity in the project. It surfaced a significant disagreement between what management thought they needed (granular production counts per order) and what operators needed (real-time rate vs. target per shift). Both were addressed in the final design, but only because the conversation was structured early.</p>
+          <p>The experience reinforced a general principle: in data projects, the data architecture question should follow the business question, not precede it.</p>
+        </div>
+
+        <div class="case-section">
+          <p class="cs-label">06 — What This Demonstrates</p>
+          <ul>
+            <li>OT/IT integration — SCADA to reporting layer</li>
+            <li>SCADA data architecture and OPC data point mapping</li>
+            <li>OEE framework implementation from raw machine signals</li>
+            <li>Requirements definition for operational dashboards</li>
+            <li>Data-driven operations design from a process-first perspective</li>
+          </ul>
+        </div>
+
+      </div><!-- /case-grid -->
+
+      <div class="case-disclaimer">
+        Case note based on professional experience. Identifying details have been generalised. No specific metrics are claimed.
+      </div>
+
+      <div class="article-nav">
+        <a href="manufacturing.html" class="btn btn-ghost">← Manufacturing Improvement</a>
+        <a href="energy.html" class="btn btn-ghost">Energy Management →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-sigil">BS</span>
+          <span>BESSÓ Systems</span>
+        </div>
+        <div class="footer-meta">
+          <span class="status-dot"></span>
+          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 BESSÓ Systems</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/nav.js"></script>
+
+</body>
+</html>

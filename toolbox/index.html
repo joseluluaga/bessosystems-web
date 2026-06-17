@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Engineering Toolbox — Calculators and templates for industrial engineering and process improvement.">
+  <title>Engineering Toolbox — BESSÓ Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAV (depth: 1) -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="nav-logo">
+        <span class="logo-sigil">BS</span>
+        <span>BESSÓ Systems</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../toolbox/" class="active">Toolbox</a></li>
+        <li><a href="../knowledge/">Knowledge</a></li>
+        <li><a href="../cases/">Cases</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-body">
+    <div class="container">
+
+      <!-- PAGE HEADER ========================================== -->
+      <div class="page-header">
+        <p class="overline">Engineering Toolbox</p>
+        <h1>Calculators &amp; Templates</h1>
+        <p>Practical tools for shopfloor analysis, process improvement and industrial operations.<br>
+        Calculators run entirely in the browser — no data is sent anywhere.</p>
+      </div>
+
+      <!-- TOOL GRID ============================================ -->
+      <div class="grid-2">
+
+        <!-- TAKT TIME CALCULATOR -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <h3>Takt Time Calculator</h3>
+              <p>Net Available Time ÷ Customer Demand</p>
+            </div>
+            <span class="badge badge-green">Live</span>
+          </div>
+          <div class="tool-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="tt-shift">Shift Duration</label>
+                <input id="tt-shift" type="number" min="0" placeholder="480" value="480">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">minutes</span>
+              </div>
+              <div class="form-group">
+                <label for="tt-breaks">Planned Breaks</label>
+                <input id="tt-breaks" type="number" min="0" placeholder="30" value="30">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">minutes</span>
+              </div>
+              <div class="form-group">
+                <label for="tt-demand">Daily Demand</label>
+                <input id="tt-demand" type="number" min="1" placeholder="200">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">units / shift</span>
+              </div>
+            </div>
+            <div class="form-action">
+              <button class="btn btn-primary" onclick="calcTaktTime()">Calculate</button>
+            </div>
+            <div class="calc-result" id="tt-result">
+              <div class="r-empty">Enter demand to calculate.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OEE CALCULATOR -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <h3>OEE Calculator</h3>
+              <p>Availability × Performance × Quality</p>
+            </div>
+            <span class="badge badge-green">Live</span>
+          </div>
+          <div class="tool-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="oee-a">Availability</label>
+                <input id="oee-a" type="number" min="0" max="100" placeholder="90">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">%</span>
+              </div>
+              <div class="form-group">
+                <label for="oee-p">Performance</label>
+                <input id="oee-p" type="number" min="0" max="100" placeholder="95">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">%</span>
+              </div>
+              <div class="form-group">
+                <label for="oee-q">Quality</label>
+                <input id="oee-q" type="number" min="0" max="100" placeholder="99">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">%</span>
+              </div>
+            </div>
+            <div class="form-action">
+              <button class="btn btn-primary" onclick="calcOEE()">Calculate</button>
+            </div>
+            <div class="calc-result" id="oee-result">
+              <div class="r-empty">Enter A, P and Q values.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAPACITY CALCULATOR -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <h3>Capacity Calculator</h3>
+              <p>Theoretical daily and weekly output based on machines, shifts and cycle time</p>
+            </div>
+            <span class="badge badge-green">Live</span>
+          </div>
+          <div class="tool-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="cap-machines">Machines</label>
+                <input id="cap-machines" type="number" min="1" placeholder="1" value="1">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">workstations</span>
+              </div>
+              <div class="form-group">
+                <label for="cap-shifts">Shifts / Day</label>
+                <input id="cap-shifts" type="number" min="1" placeholder="2" value="2">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">shifts</span>
+              </div>
+              <div class="form-group">
+                <label for="cap-hours">Hours / Shift</label>
+                <input id="cap-hours" type="number" min="1" placeholder="8" value="8">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">hours</span>
+              </div>
+              <div class="form-group">
+                <label for="cap-cycle">Cycle Time</label>
+                <input id="cap-cycle" type="number" min="1" placeholder="45">
+                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">seconds / unit</span>
+              </div>
+            </div>
+            <div class="form-action">
+              <button class="btn btn-primary" onclick="calcCapacity()">Calculate</button>
+            </div>
+            <div class="calc-result" id="cap-result">
+              <div class="r-empty">Enter cycle time to calculate.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A3 TEMPLATE (STUB) -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <h3>A3 Problem Solving Template</h3>
+              <p>Structured format for problem definition, root cause analysis and countermeasures</p>
+            </div>
+            <span class="badge badge-muted">Template</span>
+          </div>
+          <div class="tool-body">
+            <div class="tool-placeholder">
+              <p>Single-page A3 template following the standard sections: Background, Current State, Target State, Root Cause Analysis, Countermeasures, Implementation Plan and Follow-Up.</p>
+              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROCESS AUDIT CHECKLIST (STUB) -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <h3>Process Audit Checklist</h3>
+              <p>Structured checklist for shopfloor and production process audits</p>
+            </div>
+            <span class="badge badge-muted">Checklist</span>
+          </div>
+          <div class="tool-body">
+            <div class="tool-placeholder">
+              <p>Covers standard work compliance, material flow, workplace organisation, visual management, safety conditions and documentation status. Adaptable to discrete and process manufacturing.</p>
+              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MES / SCADA READINESS (STUB) -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <h3>MES / SCADA Readiness Checklist</h3>
+              <p>Functional and technical readiness assessment before system implementation</p>
+            </div>
+            <span class="badge badge-muted">Checklist</span>
+          </div>
+          <div class="tool-body">
+            <div class="tool-placeholder">
+              <p>Evaluates data availability, OT/IT network readiness, process variable definition, alarm philosophy, operator acceptance and integration requirements with ERP or other upstream systems.</p>
+              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ISO 50001 CHECKLIST (STUB) -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <h3>ISO 50001 Readiness Checklist</h3>
+              <p>Energy management system compliance and gap assessment</p>
+            </div>
+            <span class="badge badge-muted">Checklist</span>
+          </div>
+          <div class="tool-body">
+            <div class="tool-placeholder">
+              <p>Structured assessment aligned with ISO 50001:2018 clause structure. Covers energy review, SEU identification, energy baseline, EnPIs, action plans and management review requirements.</p>
+              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /grid-2 -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-sigil">BS</span>
+          <span>BESSÓ Systems</span>
+        </div>
+        <div class="footer-meta">
+          <span class="status-dot"></span>
+          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 BESSÓ Systems</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/calc.js"></script>
+
+</body>
+</html>

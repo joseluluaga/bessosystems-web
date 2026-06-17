@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How to diagnose a process before automating it — a structured approach to process analysis using Lean and BPMN.">
+  <title>How to Diagnose a Process Before Automating It — BESSÓ Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAV (depth: 1) -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="nav-logo">
+        <span class="logo-sigil">BS</span>
+        <span>BESSÓ Systems</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../toolbox/">Toolbox</a></li>
+        <li><a href="../knowledge/" class="active">Knowledge</a></li>
+        <li><a href="../cases/">Cases</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-body">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../">Home</a><span>/</span>
+        <a href="./">Knowledge</a><span>/</span>
+        <span>Diagnose Before Automating</span>
+      </nav>
+
+      <div class="article-wrap">
+
+        <div class="page-header">
+          <p class="overline">Process Improvement</p>
+          <h1>How to Diagnose a Process Before Automating It</h1>
+        </div>
+
+        <div class="article-meta">
+          <span class="m-item">6 min read</span>
+          <span class="m-item">·</span>
+          <span class="m-item">Process Improvement</span>
+          <span class="m-item">·</span>
+          <span class="m-item">BESSÓ Systems</span>
+        </div>
+
+        <div class="tags" style="margin-bottom: 32px;">
+          <span class="tag">VSM</span>
+          <span class="tag">PDCA</span>
+          <span class="tag">Process Mapping</span>
+          <span class="tag">TIMWOOD</span>
+          <span class="tag">Lean</span>
+        </div>
+
+        <div class="article-body">
+
+          <h2>The common mistake: automate first, understand later</h2>
+          <p>The most frequent failure pattern in industrial digitalization is not a technology failure — it is a process failure. Teams select a platform, budget the project and begin integration before anyone has properly mapped what the process actually does today. The result is an automated version of a broken process, delivered on time and on budget.</p>
+          <p>Automation does not fix poor flow, missing standards or unclear accountability. It locks them in. A good process diagnosis, done before any technology decision, is the highest-leverage activity in a transformation project.</p>
+
+          <h2>Step 1 — Map the current state</h2>
+          <p>Go to the floor. Do not rely on the existing documentation — most process documents describe the intended process, not the actual one. Use a <strong>Value Stream Map (VSM)</strong> to follow the material and information flow from raw input to finished output.</p>
+          <p>At minimum, record:</p>
+          <ul>
+            <li>Each operation step and its operator</li>
+            <li>Observed cycle time (not standard time)</li>
+            <li>Wait times and queue lengths between steps</li>
+            <li>Where the process deviates from the documented version</li>
+            <li>Information triggers: what tells each step to start?</li>
+          </ul>
+          <p>If the process is too long to map in one observation session, split it. Do not fill gaps with assumptions.</p>
+
+          <h2>Step 2 — Identify waste</h2>
+          <p>Use the <strong>TIMWOOD framework</strong> as a structured lens: Transportation, Inventory, Motion, Waiting, Overproduction, Overprocessing, Defects, and — often the most costly — non-Utilised talent.</p>
+          <p>For each waste type identified, note the location, frequency and estimated impact. Do not attempt to solve anything yet. The goal at this stage is to see clearly.</p>
+
+          <h2>Step 3 — Measure what matters</h2>
+          <p>Three baseline measurements are almost always worth collecting before proceeding:</p>
+          <ul>
+            <li><strong>Takt time:</strong> the available production time divided by customer demand. This is your target rhythm.</li>
+            <li><strong>Cycle time at each step:</strong> how long each operation actually takes. Compare it to takt. Where cycle time exceeds takt, you have a bottleneck.</li>
+            <li><strong>Defect or rework rate:</strong> what fraction of units require correction at each stage.</li>
+          </ul>
+          <p>These three numbers, even roughly estimated, will define most of the diagnostic conversation that follows.</p>
+
+          <h2>Step 4 — Root cause analysis</h2>
+          <p>For the problems identified, resist the first plausible explanation. Use <strong>5-Why analysis</strong> to follow the chain of causes to a root level, or a <strong>fishbone diagram</strong> when multiple causal categories (machine, method, material, human, environment) are in play.</p>
+          <p>Root cause analysis is most useful when done with the people who operate the process — not as an interview subject, but as co-analysts. They will surface causes you will not find from observation alone.</p>
+
+          <h2>Step 5 — Define the target state</h2>
+          <p>With the current state understood, you can specify a target state: what the process should look like once the identified problems are resolved. This is distinct from designing an ideal state. A target state is achievable in the near term with the existing constraints. An ideal state is useful for direction, but not for planning.</p>
+          <p>Document the gap between current and target with specific, measurable terms. Avoid vague improvement language ("more efficient", "less waste"). Specify: what operation, what metric, from what value to what value.</p>
+
+          <div class="callout">
+            <p>"Automation amplifies both strengths and weaknesses. A well-understood process automated well performs predictably. A poorly-understood process automated fast creates problems at machine speed."</p>
+          </div>
+
+          <h2>Only then: design for automation</h2>
+          <p>Once the target state is defined, the technology question becomes much more tractable. Instead of asking "what system should we buy?", you can ask "what does this specific target state require in terms of data, logic and control?" The answer is usually much simpler — and much cheaper — than the platform selected at the beginning of the project.</p>
+          <p>Process diagnosis is not a preliminary phase before the real work. It is the real work. Everything else is implementation.</p>
+
+        </div><!-- /article-body -->
+
+        <div class="article-nav">
+          <a href="./" class="btn btn-ghost">← Back to Knowledge Base</a>
+          <a href="scada-mes.html" class="btn btn-ghost">SCADA vs MES →</a>
+        </div>
+
+      </div><!-- /article-wrap -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-sigil">BS</span>
+          <span>BESSÓ Systems</span>
+        </div>
+        <div class="footer-meta">
+          <span class="status-dot"></span>
+          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 BESSÓ Systems</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/nav.js"></script>
+
+</body>
+</html>
