@@ -1,0 +1,20 @@
+:root {
+  /* palette */
+  --ink: #13171c;
+  --ink-soft: #1b212a;
+  --ink-2: #10141a;
+  --paper: #eceef0;
+  --paper-2: #f6f7f8;
+  --text: #e9ebee;
+  --muted: #94a0ac;
+  --text-ink: #1b212a;
+  --muted-ink: #5d6b78;
+  --line: #2a323c;
+  --line-ink: #d6dbe0;
+  --accent: #f2b01e;
+  --accent-deep: #b97f08;
+
+  /* layout */
+  --maxw: 980px;
+  --maxw-wide: 1120px;
+}

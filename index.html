@@ -1,188 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BESSÓ Systems — Engineering Toolbox & Digital Operations Lab. Tools, methods and case notes from applied industrial engineering.">
-  <title>BESSÓ Systems — Engineering Toolbox & Digital Operations Lab</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BESSÓ Systems — Home</title>
+<link rel="stylesheet" href="assets/css/v3-style.css">
 </head>
 <body>
 
-  <!-- NAV (depth: 0 — links have no ../ prefix) -->
-  <nav class="site-nav">
-    <div class="container nav-inner">
-      <a href="." class="nav-logo">
-        <span class="logo-sigil">BS</span>
-        <span>BESSÓ Systems</span>
+<!-- top bar -->
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="./">BESSÓ <span>Systems</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="cases/">Cases</a><a href="knowledge/">Knowledge</a><a href="Lab/">Lab</a>
+      <a href="toolbox/">Toolbox</a><a href="about/">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO — opaque -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Process engineering · <b>by Facundo Luluaga</b></p>
+    <h1>People don't resist change.<br><span class="dim">They resist changing what they can't&nbsp;see.</span></h1>
+    <p class="lede">Most industrial projects aren't lost on the technology. They're lost on an operation nobody can fully see — and a change that gets handed down on top of it.</p>
+
+    <!-- signature: opaque tangle resolving into a legible, measured flow -->
+    <svg class="signature" viewBox="0 0 1080 220" role="img"
+         aria-label="A tangled, unreadable process on the left resolving into a clear, measured sequence of steps on the right.">
+      <!-- opaque side -->
+      <text x="0" y="20" fill="#5b6672" font-family="Space Mono, monospace" font-size="12" letter-spacing="2">OPAQUE</text>
+      <path d="M20,150 C70,60 90,190 140,120 C180,70 150,180 210,140 C250,115 230,60 280,110 C300,130 270,170 320,150"
+            fill="none" stroke="#3a434e" stroke-width="2"/>
+      <path d="M30,110 C80,170 120,80 160,160 C200,120 180,180 240,120 C280,80 260,160 300,120"
+            fill="none" stroke="#2f3640" stroke-width="2"/>
+      <text x="120" y="200" fill="#4a535d" font-family="Space Mono, monospace" font-size="22">? ? ?</text>
+      <!-- arrow -->
+      <line x1="360" y1="120" x2="470" y2="120" stroke="#f2b01e" stroke-width="2"/>
+      <path d="M470,120 l-12,-6 v12 z" fill="#f2b01e"/>
+      <text x="368" y="105" fill="#f2b01e" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">MAKE LEGIBLE</text>
+      <!-- legible side: measured node flow -->
+      <text x="540" y="20" fill="#f2b01e" font-family="Space Mono, monospace" font-size="12" letter-spacing="2">LEGIBLE</text>
+      <g class="sig-draw" pathLength="1" stroke="#9aa6b2" stroke-width="2" fill="none">
+        <line x1="560" y1="120" x2="980" y2="120"/>
+      </g>
+      <g font-family="Space Mono, monospace" font-size="10" fill="#94a0ac">
+        <circle cx="560" cy="120" r="6" fill="#13171c" stroke="#f2b01e" stroke-width="2"/>
+        <text x="548" y="148">obs.</text>
+        <circle cx="700" cy="120" r="6" fill="#13171c" stroke="#f2b01e" stroke-width="2"/>
+        <text x="678" y="148">standard</text>
+        <circle cx="840" cy="120" r="6" fill="#13171c" stroke="#f2b01e" stroke-width="2"/>
+        <text x="822" y="148">measure</text>
+        <circle cx="980" cy="120" r="6" fill="#f2b01e"/>
+        <text x="958" y="148">change</text>
+      </g>
+    </svg>
+
+    <span class="scrollcue mono"><span class="ln"></span>read on</span>
+  </div>
+</section>
+
+<!-- BODY — legible -->
+<section class="legible">
+  <div class="wrap grid">
+    <div class="body-copy">
+      <p class="kicker">The idea this site runs on</p>
+      <p>Walk onto a factory floor and the resistance is everywhere — the operator who won't trust the new system, the team that nods at the new procedure and keeps doing it the old way. It's easy to call that people being difficult. Usually it isn't. They're being asked to change an operation nobody can fully see: processes that live in someone's head, data nobody trusts, output that depends on who's on shift. Changing what's invisible is a gamble, and they know it. <span class="pull">The fear is rational.</span></p>
+      <p>So I don't start with the change. I start by making the operation legible — turning what people do into something visible, shared and repeatable. That's what standardization really is, and it's why it comes first: you can't safely change what you can't see, and you can't automate what you haven't standardized. The technical half has right answers you can buy. The human half — the one that gets the least planning and carries at least as much weight — is where projects are actually won or lost, usually at the seam where a sound system meets the people who never trusted it.</p>
+
+      <div class="diptych" role="img" aria-label="The same line shown twice: opaque with question marks, then legible with measured steps.">
+        <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="760" height="200" fill="#f6f7f8"/>
+          <line x1="380" y1="20" x2="380" y2="180" stroke="#d6dbe0" stroke-width="1"/>
+          <!-- left opaque -->
+          <text x="28" y="40" fill="#9aa6b2" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">THE LINE, UNSEEN</text>
+          <path d="M40,120 C90,60 110,170 160,110 C200,70 180,160 240,120 C290,90 270,150 330,120"
+                fill="none" stroke="#c2c9d0" stroke-width="6" stroke-linecap="round"/>
+          <text x="150" y="165" fill="#b6bdc4" font-family="Space Mono, monospace" font-size="20">?</text>
+          <text x="250" y="95" fill="#b6bdc4" font-family="Space Mono, monospace" font-size="20">?</text>
+          <!-- right legible -->
+          <text x="408" y="40" fill="#b97f08" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">THE LINE, MADE LEGIBLE</text>
+          <line x1="430" y1="120" x2="720" y2="120" stroke="#5d6b78" stroke-width="3"/>
+          <g font-family="Space Mono, monospace" font-size="10" fill="#5d6b78">
+            <circle cx="430" cy="120" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+            <circle cx="527" cy="120" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+            <circle cx="624" cy="120" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+            <circle cx="720" cy="120" r="7" fill="#f2b01e"/>
+            <text x="412" y="150">step 1</text><text x="509" y="150">step 2</text>
+            <text x="606" y="150">step 3</text><text x="700" y="150">done</text>
+            <text x="452" y="108" fill="#b97f08">42s</text>
+            <text x="549" y="108" fill="#b97f08">31s</text>
+            <text x="646" y="108" fill="#b97f08">55s</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- side panels / evidence rail -->
+    <aside class="rail" aria-label="Evidence">
+      <div class="rail-h">// what the research says</div>
+
+      <div class="card">
+        <p>In manufacturing tech adoption, the organizational factors outrank the technology itself.</p>
+        <div class="chips">
+          <span class="chip">STRATEGY <b>21.3%</b></span>
+          <span class="chip">ORG <b>21.0%</b></span>
+          <span class="chip">MGMT <b>20.9%</b></span>
+          <span class="chip">TECH <b>19.0%</b></span>
+        </div>
+        <div class="src">Sukathong et al., 2021 · SEM · n=212 SMEs</div>
+      </div>
+
+      <div class="card">
+        <p>The famous “70% of change fails” figure has no valid empirical basis — the sources just cite each other.</p>
+        <div class="src">Hughes, 2011 · J. of Change Management</div>
+      </div>
+
+      <div class="card">
+        <p>Of 336 Industry&nbsp;4.0 manufacturing studies, only 37 examined the human side at all.</p>
+        <div class="chips"><span class="chip">37 / 336</span></div>
+        <div class="src">Reiman et al., 2021 · scoping review</div>
+      </div>
+
+      <div class="card">
+        <p>Whether improvements stick is decided 9–18 months out — the window almost no one keeps measuring.</p>
+        <div class="src">Glover et al., 2011 · 65 Kaizen events</div>
+      </div>
+
+      <p class="rail-note">Not “people matter, technology doesn’t.” The two interact — and most failures happen at the seam between them.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- TRIGGER — frontier -->
+<section class="trigger">
+  <div class="wrap">
+    <h2>So how do you make an operation legible — and keep it that way?</h2>
+    <p class="sub">Three ways into the same idea. Pick where you want to start.</p>
+    <div class="paths">
+      <a class="path" href="knowledge/">
+        <span class="no">01 · the thinking</span>
+        <div class="t">Knowledge</div>
+        <div class="d">The frameworks behind the method — Cynefin, the 70% myth, why tacit knowledge resists the binder.</div>
+        <span class="go mono">Read the theory →</span>
       </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="toolbox/">Toolbox</a></li>
-        <li><a href="knowledge/">Knowledge</a></li>
-        <li><a href="cases/">Cases</a></li>
-        <li><a href="about/">About</a></li>
-        <li><a href="contact/">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <a class="path" href="toolbox/">
+        <span class="no">02 · the tools</span>
+        <div class="t">Toolbox</div>
+        <div class="d">Make one thing measurable right now — takt time, OEE, line capacity. No sign-up.</div>
+        <span class="go mono">Open the tools →</span>
+      </a>
+      <a class="path" href="Lab/">
+        <span class="no">03 · what's next</span>
+        <div class="t">AI on the floor — Lab</div>
+        <div class="d">What AI actually changes once the work is legible, and what stays human.</div>
+        <span class="go mono">See the Lab →</span>
+      </a>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- MAIN -->
-  <main>
-
-    <!-- HERO ================================================== -->
-    <section class="hero">
-      <div class="container">
-        <p class="hero-label">BESSÓ Systems</p>
-        <h1>Engineering Toolbox<br>&amp; Digital Operations Lab</h1>
-        <p>Tools, methods and case notes from applied industrial engineering.<br>
-        Process improvement &nbsp;·&nbsp; SCADA/MES &nbsp;·&nbsp; Lean &nbsp;·&nbsp; Energy management &nbsp;·&nbsp; Digital operations.</p>
-        <div class="hero-actions">
-          <a href="toolbox/" class="btn btn-primary">Explore the toolbox</a>
-          <a href="cases/" class="btn btn-ghost">View case notes</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT THIS SITE IS ===================================== -->
-    <section class="section">
-      <div class="container">
-        <p class="section-label">What this site is</p>
-        <h2>A working reference, not a pitch.</h2>
-        <p class="section-sub">A structured collection of engineering tools, technical articles and applied case notes. Built from direct experience in manufacturing, logistics, energy management and operational digitalization — not from templates or borrowed theory.</p>
-        <p style="color: var(--text-2); font-size: .95rem; max-width: 560px;">
-          If you work in industrial operations, process improvement or digital transformation,
-          you will find tools you can use today and cases you will recognise.
-        </p>
-      </div>
-    </section>
-
-    <!-- CORE AREAS ============================================ -->
-    <section class="section">
-      <div class="container">
-        <p class="section-label">Coverage</p>
-        <h2>Core areas</h2>
-        <div class="areas-grid" style="margin-top: 28px;">
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>Process Improvement</h4>
-              <p>Lean, Kaizen, PDCA, VSM, root cause analysis</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>SCADA / MES</h4>
-              <p>Shopfloor systems, PLC integration, OT/IT, production data</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>Energy Management</h4>
-              <p>ISO 50001, energy baselines, SEUs, EnPIs</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>Project Engineering</h4>
-              <p>Technical delivery, coordination, commissioning</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>Lean &amp; Industrial Engineering</h4>
-              <p>Standard work, flow, pull systems, OEE</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>BPMN &amp; Process Documentation</h4>
-              <p>Process mapping, as-is/to-be, documentation standards</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>Digital Operations</h4>
-              <p>Data-driven ops, dashboards, digitalization of manual processes</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <span class="area-icon text-mono text-muted">▸</span>
-            <div>
-              <h4>ISO Systems</h4>
-              <p>ISO 9001, 14001, 50001 — management systems in practice</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- START HERE ============================================ -->
-    <section class="section">
-      <div class="container">
-        <p class="section-label">Start here</p>
-        <div class="nav-cards" style="margin-top: 20px;">
-
-          <a href="toolbox/" class="nav-card">
-            <p class="card-tag">Engineering Toolbox</p>
-            <h3>Calculators &amp; Templates</h3>
-            <p>Takt time, OEE, capacity and more. Practical tools for shopfloor and process analysis.</p>
-          </a>
-
-          <a href="knowledge/" class="nav-card">
-            <p class="card-tag">Knowledge Base</p>
-            <h3>Technical Articles</h3>
-            <p>Structured articles on process improvement, SCADA/MES, Lean and digital operations.</p>
-          </a>
-
-          <a href="cases/" class="nav-card">
-            <p class="card-tag">Case Notes</p>
-            <h3>Applied Cases</h3>
-            <p>Case notes from manufacturing, automation and energy management. Methods over metrics.</p>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-sigil">BS</span>
-          <span>BESSÓ Systems</span>
-        </div>
-        <div class="footer-meta">
-          <span class="status-dot"></span>
-          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
-        </div>
-      </div>
-      <p class="footer-copy">© 2026 BESSÓ Systems</p>
-    </div>
-  </footer>
-
-  <script src="assets/js/nav.js"></script>
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="#">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="#">Contact</a></span>
+  </div>
+</footer>
 
 </body>
 </html>
