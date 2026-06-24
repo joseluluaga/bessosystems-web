@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BESSÓ Systems — About (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13171c; --ink-soft:#1b212a;
+    --paper:#eceef0; --paper-2:#f6f7f8;
+    --text:#e9ebee; --muted:#94a0ac;
+    --text-ink:#1b212a; --muted-ink:#5d6b78;
+    --line:#2a323c; --line-ink:#d6dbe0;
+    --accent:#f2b01e; --accent-deep:#b97f08;
+    --brand:#4d8dff;
+    --maxw:1000px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--text-ink);
+    font-family:Inter,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:"Space Mono",monospace}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .bar{background:var(--ink);color:var(--text);border-bottom:1px solid var(--line)}
+  .bar .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.04em;font-size:15px}
+  .brand span{color:var(--brand)}
+  .nav{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+  .nav a{text-decoration:none}
+  .nav a:hover,.nav a.active{color:var(--text)}
+  .nav a.active{border-bottom:2px solid var(--accent);padding-bottom:3px}
+  @media(max-width:680px){.nav{display:none}}
+
+  /* header */
+  .pagehead{background:var(--ink);color:var(--text)}
+  .pagehead .wrap{padding:60px 24px 52px;display:grid;grid-template-columns:1.6fr 1fr;gap:36px;align-items:center}
+  @media(max-width:720px){.pagehead .wrap{grid-template-columns:1fr}}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--accent);font-weight:700}
+  .pagehead h1{font-weight:800;letter-spacing:-.02em;line-height:1.06;font-size:clamp(28px,4.6vw,46px);margin:16px 0 0}
+  .pagehead .sub{margin:16px 0 0;font-size:clamp(15px,2vw,18px);color:#c3ccd5;max-width:40ch}
+  .portrait{aspect-ratio:4/5;border:1px dashed #3a434e;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:repeating-linear-gradient(135deg,#171c22,#171c22 11px,#1c222a 11px,#1c222a 22px);text-align:center;padding:16px}
+  .portrait span{font-family:"Space Mono",monospace;font-size:11px;color:#7c8893;line-height:1.5}
+
+  /* body: a single spine the reader follows down */
+  .life{background:var(--paper)}
+  .life .wrap{padding:8px 24px;max-width:760px}
+  .block{position:relative;padding:38px 0 38px 34px;border-left:2px solid var(--line-ink)}
+  .block:before{content:"";position:absolute;left:-7px;top:46px;width:12px;height:12px;border-radius:50%;
+    background:#fff;border:2px solid var(--accent)}
+  .block:last-child:before{background:var(--accent)}
+  .block .l{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
+  .block h2{font-size:clamp(19px,2.6vw,24px);font-weight:700;margin:8px 0 0;letter-spacing:-.01em}
+  .block p{font-size:16.5px;color:#28323c;margin:12px 0 0}
+  .seed{background:#fffdf6;border:1px dashed #e6c77f;border-radius:8px;padding:12px 14px;margin-top:12px;
+    font-size:14px;color:#8a6d1f}
+  .seed b{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+  .lenses{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+  .lens{font-family:"Space Mono",monospace;font-size:11.5px;background:#fff;border:1px solid var(--line-ink);
+    border-radius:4px;padding:4px 8px;color:#3a444d}
+
+  /* close */
+  .close{background:var(--ink);color:var(--text);border-top:1px solid var(--line)}
+  .close .wrap{max-width:1120px;padding:50px 24px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .close h2{font-size:clamp(19px,2.6vw,24px);font-weight:700;margin:0;max-width:30ch;letter-spacing:-.01em}
+  .close-cta{text-decoration:none;font-family:"Space Mono",monospace;font-size:13px;color:var(--ink);
+    background:var(--accent);padding:13px 22px;border-radius:8px;font-weight:700;white-space:nowrap}
+  .close-cta:hover{background:#ffc23f}
+
+  .foot{background:var(--ink);color:var(--muted);border-top:1px solid var(--line);font-size:13px}
+  .foot .wrap{max-width:1120px;padding:26px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .foot a{color:var(--text);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">BESSÓ <span>Systems</span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#">Cases</a><a href="#">Knowledge</a><a href="#">Lab</a>
+      <a href="#">Toolbox</a><a href="#" class="active">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">About · <b>where the way of seeing comes from</b></p>
+      <h1>I never stopped watching the whole operation.</h1>
+      <p class="sub">Not a CV. The origin of a lens — why I read a floor the way the rest of this site does.</p>
+    </div>
+    <div class="portrait"><span>IMAGE · a real, plain portrait — or a shot of you on a plant floor. Human, not corporate.</span></div>
+  </div>
+</section>
+
+<section class="life">
+  <div class="wrap">
+
+    <div class="block">
+      <div class="l">Who</div>
+      <h2>The anchor</h2>
+      <p>I'm Facundo Luluaga, an industrial engineer (Universidad Nacional de San Juan; Lean Six Sigma Green Belt), with about a decade spent between the plant floor and the systems that run it — a robotic cell in Argentina, Lean warehouse operations in the Netherlands, energy and production systems in Spain.</p>
+      <p class="seed"><b>your voice →</b> one honest line on the decade; here you <em>can</em> name BGH / DHL / Knauf — this is your CV, not an anonymized case.</p>
+    </div>
+
+    <div class="block">
+      <div class="l">The curiosity</div>
+      <h2>The motor</h2>
+      <p class="seed"><b>your voice →</b> wherever you worked, whatever the role, you couldn't stop watching the whole operation — not just your part. <em>One concrete anecdote beats ten adjectives</em> (e.g. the day-2 fault you spotted that wasn't your job).</p>
+    </div>
+
+    <div class="block">
+      <div class="l">Looking wider</div>
+      <h2>From the process to its world</h2>
+      <p class="seed"><b>your voice →</b> the same curiosity pulled outward — to the economy, to the culture of the place. Why a process makes no sense without its environment. Your travels live here.</p>
+    </div>
+
+    <div class="block">
+      <div class="l">Looking deeper</div>
+      <h2>From the system to the people in it</h2>
+      <p>Watching the parts led me to watch what happens <em>between</em> them — and that almost always ends in something human: the trust, the fear, the quiet politics that decide whether an improvement lives or dies.</p>
+      <p class="seed"><b>your voice →</b> make this yours; it's the heart of the page. Name your lenses as a <em>way of seeing</em>, not as theory (that's Knowledge):</p>
+      <div class="lenses"><span class="lens">systems thinking</span><span class="lens">Cynefin</span><span class="lens">sociotechnical</span><span class="lens">the psychology between the parts</span></div>
+    </div>
+
+    <div class="block">
+      <div class="l">Why this site</div>
+      <h2>What I do with all that</h2>
+      <p>This site is where I keep what I see when I look at an operation that way — the tools, the cases, the thinking. If any of it resonates, the door's open.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>That's the lens. The rest of the site is what it sees.</h2>
+    <a class="close-cta" href="#">Connect on LinkedIn ↗</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="#">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="#">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

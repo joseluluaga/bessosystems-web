@@ -1,111 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Case Notes — Applied engineering cases from manufacturing, automation and energy management.">
-  <title>Case Notes — BESSÓ Systems</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BESSÓ Systems — Cases</title>
+<link rel="stylesheet" href="../assets/css/v3-style.css">
 </head>
 <body>
 
-  <!-- NAV (depth: 1) -->
-  <nav class="site-nav">
-    <div class="container nav-inner">
-      <a href="../" class="nav-logo">
-        <span class="logo-sigil">BS</span>
-        <span>BESSÓ Systems</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="../toolbox/">Toolbox</a></li>
-        <li><a href="../knowledge/">Knowledge</a></li>
-        <li><a href="../cases/" class="active">Cases</a></li>
-        <li><a href="../about/">About</a></li>
-        <li><a href="../contact/">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../">BESSÓ <span>Systems</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../cases/" class="active">Cases</a><a href="../knowledge/">Knowledge</a><a href="../Lab/">Lab</a>
+      <a href="../toolbox/">Toolbox</a><a href="../about/">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Cases · <b>the lens applied</b></p>
+    <h1>The same move, in real operations.</h1>
+    <p class="lede">Names and numbers are left out on purpose — what carries across is the pattern, not the logo. Each case below started as something nobody could fully see, in a different industry, country and culture. The work was the same every time: make the operation legible, and the right change stops being a leap. What changes is what legibility uncovers — and how the people around it react once they can finally see.</p>
+  </div>
+</section>
+
+<section class="cases">
+  <div class="wrap">
+
+    <!-- CASE 01 — screens -->
+    <article class="case">
+      <div class="case-top"><span class="case-num">01</span>
+        <span class="case-tag">Appliance / electronics mfg · Latin America · high-mix line</span></div>
+      <h2 class="case-h">The standard, where the work happens</h2>
+
+      <figure class="figure" aria-label="Line sections with digital work instructions shown on screens at the post.">
+        <img src="../Assets/cases/bgh-screens/image134ready.png" alt="Digital work instruction shown on a production screen" style="width:33.33%;height:100%;object-fit:cover;border-radius:6px">
+        <img src="../Assets/cases/bgh-screens/image143ready.png" alt="Line station screen with current work instruction" style="width:33.33%;height:100%;object-fit:cover;border-radius:6px">
+        <img src="../Assets/cases/bgh-screens/image164ready.png" alt="Digital instruction reference used at the workstation" style="width:33.33%;height:100%;object-fit:cover;border-radius:6px">
+      </figure>
+
+      <div class="block"><div class="lbl">Context</div>
+        <p>Appliance / electronics manufacturing · Latin America · high-mix assembly line with a rotating operator base and a very large spare-parts catalogue. Work instructions existed — in binders, on a shared drive, in the memory of the longest-serving operator — but not where they were needed: at each section of the line, in the moment, for whoever was on shift. Paper instructions were handed out section by section; they got stained and worn, and took real effort to distribute and keep current. So the real method drifted from the documented one, and quality tracked whoever happened to be working that day.</p></div>
+
+      <div class="block"><div class="lbl">Problems it surfaced</div>
+        <p>Documentation that exists but isn't legible at the point of use; the drift between the documented method and the real one; spare-part identification (many parts, many codes) with no reliable reference at hand; standard work treated as paperwork instead of visual management.</p></div>
+
+      <div class="block"><div class="lbl">Tools</div>
+        <div class="chips"><a class="chip" href="../knowledge/">standard work</a><a class="chip" href="../knowledge/">visual management</a><a class="chip" href="../Lab/">digital work instructions</a><a class="chip" href="../knowledge/">Lean</a><a class="chip" href="../knowledge/">5S</a></div></div>
+
+      <div class="outcomes"><div class="lbl">Outcomes &amp; conclusions</div>
+        <p>I put the documentation on screens at each section of the line — every station showing its current instruction right where the task is done, updated the moment the method changed. Zero budget: the monitors were pulled from scrap in the plant's own monitor-production area. People were skeptical at first; by the end they were asking for it. They leaned on it hardest for spare parts — checking features and part codes against the screen — and began flagging wrong documentation themselves, which pushed the team into structured, shared work instead of private know-how. The paper that used to stain and wear was gone; the line looked clean, ordered, deliberate — and stayed that way. The client's external audits read the change as 9001-compliant. The lesson under all of it: the resistance was never to change — it was to changing something invisible. Make the standard visible, literally at the post, and the same people who resisted start demanding it.</p></div>
+
+      <figure class="figure small" aria-label="Outcome images of clean digital work instructions on the line.">
+        <img src="../Assets/cases/bgh-screens/image186ready.png" alt="Clean production line with digital work instruction screen" style="width:50%;height:100%;object-fit:cover;border-radius:6px">
+        <img src="../Assets/cases/bgh-screens/image187ready.png" alt="Workstation screen replacing paper instruction at the point of use" style="width:50%;height:100%;object-fit:cover;border-radius:6px">
+      </figure>
+
+      <div class="block"><div class="lbl">Go deeper</div>
+        <div class="branches">
+          <a class="branch" href="../knowledge/"><span class="k">theory</span> Standard work · visual management · tacit vs explicit knowledge <span class="ar">→</span></a>
+          <a class="branch" href="../Lab/"><span class="k">ai lab</span> AI-drafted and auto-updated instructions; vision to check method adherence <span class="ar">→</span></a>
+        </div></div>
+    </article>
+
+    <!-- CASE 02 — FANUC -->
+    <article class="case">
+      <div class="case-top"><span class="case-num">02</span>
+        <span class="case-tag">Appliance / electronics mfg · Latin America · ~54 launches/yr</span></div>
+      <h2 class="case-h">Automation the floor could actually run</h2>
+
+      <figure class="figure" aria-label="FANUC robotic cell and safety fencing on the production floor.">
+        <img src="../Assets/cases/bgh-cell/image191ready.png" alt="Robotic cell on a high-mix production line" style="width:33.33%;height:100%;object-fit:cover;border-radius:6px">
+        <img src="../Assets/cases/bgh-cell/image192ready.png" alt="FANUC robotic cell with safety enclosure" style="width:33.33%;height:100%;object-fit:cover;border-radius:6px">
+        <img src="../Assets/cases/bgh-cell/image195ready.png" alt="Robot cell operating inside the production area" style="width:33.33%;height:100%;object-fit:cover;border-radius:6px">
+      </figure>
+
+      <div class="block"><div class="lbl">Context</div>
+        <p>Appliance / electronics manufacturing · Latin America · high-mix plant running ~54 product launches a year, with an established line and a rotating operator base. A new FANUC robotic cell had to enter that rhythm. The risk was never the robot — it was everything around it: a cell the floor couldn't run, sitting on a process that changed every few weeks.</p></div>
+
+      <div class="block"><div class="lbl">Problems it surfaced</div>
+        <p>A cell the floor couldn't run on its own; changeover discipline across dozens of launches; standard work for a rotating operator base; the gap between <em>installed</em> and <em>owned</em>.</p></div>
+
+      <div class="block"><div class="lbl">Tools</div>
+        <div class="chips"><a class="chip" href="../Lab/">FANUC programming</a><a class="chip" href="../knowledge/">cell layout</a><a class="chip" href="../knowledge/">safety / risk</a><a class="chip" href="../knowledge/">SMED</a><a class="chip" href="../knowledge/">standard work</a></div></div>
+
+      <div class="outcomes"><div class="lbl">Outcomes &amp; conclusions</div>
+        <p>I took the cell end to end — layout, robot programming, the safety envelope, operator training — with one goal beyond "it works": make the cell legible to the people who'd live with it. What it does, where it stops, how to recover it, how to change it over for the next product. Automation that's understood is automation that survives the next launch. The cell became part of the floor's routine instead of an island only engineering could touch.</p></div>
+
+      <figure class="figure small" aria-label="Robotic cell outcome and detail images.">
+        <img src="../Assets/cases/bgh-cell/image197ready.png" alt="Robotic cell layout or detail from the implementation" style="width:40%;height:100%;object-fit:cover;border-radius:6px">
+        <img src="../Assets/cases/bgh-cell/image194ready.png" alt="Production team view of the automated cell" style="width:60%;height:100%;object-fit:cover;border-radius:6px">
+      </figure>
+
+      <div class="block"><div class="lbl">Go deeper</div>
+        <div class="branches">
+          <a class="branch" href="../knowledge/"><span class="k">theory</span> Standard work &amp; SMED <span class="ar">→</span></a>
+          <a class="branch" href="../Lab/"><span class="k">ai lab</span> AI-assisted changeover &amp; vision on the cell <span class="ar">→</span></a>
+        </div></div>
+    </article>
+
+    <!-- CASE 03 — ISO 50001 / OEE -->
+    <article class="case">
+      <div class="case-top"><span class="case-num">03</span>
+        <span class="case-tag">Building materials · Europe · energy-intensive</span></div>
+      <h2 class="case-h">The metric that was hiding the problem</h2>
+
+      <div class="block"><div class="lbl">Context</div>
+        <p>Building materials · Europe · an energy-intensive, established plant with a traditional manufacturing culture — one that saw itself as a leader of change. I led the plant through ISO 50001 certification. Under the certificate, an energy management system is really a discipline of measurement: you commit to watching numbers you used to ignore.</p></div>
+
+      <div class="block"><div class="lbl">Problems it surfaced</div>
+        <p>A vanity OEE that looked healthy; rework formally defined as part of the standard process, so it never counted as a loss; cost masked by overtime; and beneath all of it, an implicit cultural resistance dressed as change-leadership. (Pull that thread and more incoherences follow.)</p></div>
+
+      <div class="block"><div class="lbl">Tools</div>
+        <div class="chips"><a class="chip" href="../knowledge/">ISO 50001 / EnPI</a><a class="chip" href="../toolbox/">OEE (and how it's gamed)</a><a class="chip" href="../knowledge/">cost &amp; SCADA analysis</a><a class="chip" href="../knowledge/">Cynefin</a></div></div>
+
+      <div class="outcomes"><div class="lbl">Outcomes &amp; conclusions</div>
+        <p>The energy discipline is what pulled the thread. Watching consumption and cost against output, the production figures stopped adding up: the OEE was green, but the costs didn't behave like a green OEE does. Underneath, rework was defined as part of the standard process — so a reworked unit still counted as good and on-time, and OEE never saw it. Production leaned on that rework, plus overtime, to hit its targets. The rework never touched the metric everyone trusted; it quietly touched the cost line. Fixing the metric was the easy part. The hard part was what the metric protected: rework-as-process and overtime-as-normal weren't accidents — they were how a traditional culture preserved the status quo while calling itself a precursor of change. The resistance was never stated; it was encoded — in the categories, in the metrics, in what got counted as success. Making energy legible exposed that the OEE wasn't; making the OEE legible exposed the cost; the cost exposed the culture. Each layer of legibility uncovered the next. The most stubborn resistance to change is the kind that describes itself as leading it — invisible by design.</p>
+
+        <!-- conceptual illustration: layers of legibility -->
+        <svg class="layers" viewBox="0 0 880 130" role="img" aria-label="Four layers, each uncovering the next: making energy legible exposed the OEE, which exposed the cost, which exposed the culture.">
+          <g font-family="Space Mono, monospace" font-size="12">
+            <rect x="0"   y="40" width="190" height="48" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="16" y="60" fill="#5d6b78">ENERGY</text><text x="16" y="78" fill="#9aa6b2" font-size="10">made legible</text>
+            <rect x="228" y="40" width="190" height="48" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="244" y="60" fill="#5d6b78">OEE</text><text x="244" y="78" fill="#9aa6b2" font-size="10">exposed as vanity</text>
+            <rect x="456" y="40" width="190" height="48" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="472" y="60" fill="#5d6b78">COST</text><text x="472" y="78" fill="#9aa6b2" font-size="10">where rework hid</text>
+            <rect x="684" y="40" width="196" height="48" rx="8" fill="#13171c" stroke="#f2b01e"/>
+            <text x="700" y="60" fill="#f2b01e">CULTURE</text><text x="700" y="78" fill="#cbb27a" font-size="10">resisting, quietly</text>
+            <g stroke="#f2b01e" stroke-width="2" fill="#f2b01e">
+              <line x1="190" y1="64" x2="226" y2="64"/><path d="M226,64 l-10,-5 v10 z"/>
+              <line x1="418" y1="64" x2="454" y2="64"/><path d="M454,64 l-10,-5 v10 z"/>
+              <line x1="646" y1="64" x2="682" y2="64"/><path d="M682,64 l-10,-5 v10 z"/>
+            </g>
+            <text x="0" y="20" fill="#b97f08" font-size="11" letter-spacing="2">EACH LAYER UNCOVERED THE NEXT</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="block"><div class="lbl">Go deeper</div>
+        <div class="branches">
+          <a class="branch" href="../knowledge/"><span class="k">theory</span> What OEE hides · metrics that lie · ISO 50001/EnPI · Cynefin &amp; resistance <span class="ar">→</span></a>
+          <a class="branch" href="../Lab/"><span class="k">ai lab</span> Cross-data anomaly detection (energy + production + cost) to surface incoherences automatically <span class="ar">→</span></a>
+        </div></div>
+    </article>
+
+  </div>
+</section>
+
+<section class="fwd">
+  <div class="wrap">
+    <div>
+      <h2>Each of these was made legible by hand.</h2>
+      <p>Same order, new tools. The Lab is where AI extends these cases — without skipping the step that makes it safe.</p>
     </div>
-  </nav>
+    <a class="fwd-cta" href="../Lab/">See the Lab →</a>
+  </div>
+</section>
 
-  <!-- MAIN -->
-  <main class="page-body">
-    <div class="container">
-
-      <!-- PAGE HEADER ========================================== -->
-      <div class="page-header">
-        <p class="overline">Case Notes</p>
-        <h1>Applied Cases</h1>
-        <p>Cases from manufacturing, automation and energy management. Describing methods and learnings — not claiming metrics.</p>
-      </div>
-
-      <!-- DISCLAIMER =========================================== -->
-      <div style="background:var(--bg-card); border:1px solid var(--border-sub); border-radius:var(--radius); padding:14px 18px; margin-bottom:36px; max-width:680px;">
-        <p style="font-family:var(--mono); font-size:.78rem; color:var(--text-3); margin:0; line-height:1.6;">
-          These are case notes, not case studies. They describe approaches, methods and learnings from professional experience. Identifying details have been generalised. No specific metrics are claimed.
-        </p>
-      </div>
-
-      <!-- CASE CARDS =========================================== -->
-      <div class="grid-3">
-
-        <a href="manufacturing.html" class="case-card">
-          <p class="c-cat">Process Improvement</p>
-          <h3>Manufacturing Process Improvement</h3>
-          <p>Applying structured problem-solving to reduce recurring quality escapes in a high-volume discrete manufacturing environment.</p>
-          <div class="tags" style="margin-top:14px;">
-            <span class="tag">VSM</span>
-            <span class="tag">A3</span>
-            <span class="tag">5-Why</span>
-          </div>
-        </a>
-
-        <a href="automation.html" class="case-card">
-          <p class="c-cat">Digital Operations / MES &amp; SCADA</p>
-          <h3>Automation &amp; Shopfloor Systems</h3>
-          <p>Integrating shopfloor data into a production tracking system to replace manual reporting and enable real-time visibility.</p>
-          <div class="tags" style="margin-top:14px;">
-            <span class="tag">MES</span>
-            <span class="tag">SCADA</span>
-            <span class="tag">OPC-UA</span>
-          </div>
-        </a>
-
-        <a href="energy.html" class="case-card">
-          <p class="c-cat">Energy &amp; ISO 50001</p>
-          <h3>Energy Management / ISO 50001</h3>
-          <p>Implementing a systematic energy management framework in an industrial plant — from energy review to certified management system.</p>
-          <div class="tags" style="margin-top:14px;">
-            <span class="tag">ISO 50001</span>
-            <span class="tag">EnPIs</span>
-            <span class="tag">SEUs</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-sigil">BS</span>
-          <span>BESSÓ Systems</span>
-        </div>
-        <div class="footer-meta">
-          <span class="status-dot"></span>
-          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
-        </div>
-      </div>
-      <p class="footer-copy">© 2026 BESSÓ Systems</p>
-    </div>
-  </footer>
-
-  <script src="../assets/js/nav.js"></script>
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="../about/">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../about/">Contact</a></span>
+  </div>
+</footer>
 
 </body>
 </html>

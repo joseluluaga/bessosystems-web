@@ -15,30 +15,25 @@
   background: linear-gradient(90deg, var(--accent), transparent);
 }
 
-.signature {
-  margin-top: 48px;
+.hero-chart {
+  margin: 48px 0 0;
+  max-width: 640px;
+}
+
+.hero-chart-title {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.hero-chart svg {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-}
-
-.sig-draw {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw 1.6s ease forwards .3s;
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sig-draw {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
+  overflow: visible;
 }
 
 .grid {
@@ -68,18 +63,28 @@
   color: var(--text-ink);
 }
 
-.diptych {
-  margin-top: 34px;
+.study-chart {
+  margin: 28px 0 0;
+  padding: 18px 20px 14px;
   border: 1px solid var(--line-ink);
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 8px;
   background: var(--paper-2);
 }
 
-.diptych svg {
+.chart-title {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+  margin-bottom: 14px;
+}
+
+.study-chart svg {
   display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 .rail {

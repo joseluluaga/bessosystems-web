@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BESSÓ Systems — Home (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13171c; --ink-soft:#1b212a;
+    --paper:#eceef0; --paper-2:#f6f7f8;
+    --text:#e9ebee; --muted:#94a0ac;
+    --text-ink:#1b212a; --muted-ink:#5d6b78;
+    --line:#2a323c; --line-ink:#d6dbe0;
+    --accent:#f2b01e; --accent-deep:#b97f08;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--text-ink);
+    font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:"Space Mono",monospace}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* ---------- top bar ---------- */
+  .bar{background:var(--ink);color:var(--text);border-bottom:1px solid var(--line)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.04em;font-size:15px}
+  .brand span{color:var(--accent)}
+  .nav{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+  .nav a{text-decoration:none}
+  .nav a:hover{color:var(--text)}
+  @media(max-width:680px){.nav{display:none}}
+
+  /* ---------- hero (opaque) ---------- */
+  .hero{background:var(--ink);color:var(--text);position:relative;overflow:hidden}
+  .hero .wrap{padding:72px 24px 84px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--accent);font-weight:700}
+  h1{font-weight:800;letter-spacing:-.02em;line-height:1.05;
+    font-size:clamp(34px,6vw,62px);margin:18px 0 0;max-width:16ch}
+  h1 .dim{color:#5b6672}
+  .lede{margin:22px 0 0;max-width:54ch;font-size:clamp(16px,2vw,19px);color:#c3ccd5}
+  .scrollcue{margin-top:54px;font-size:12px;letter-spacing:.18em;color:var(--muted);
+    display:inline-flex;align-items:center;gap:10px;text-transform:uppercase}
+  .scrollcue .ln{width:46px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+
+  /* signature visual: opaque -> legible */
+  .signature{margin-top:48px;width:100%;height:auto;display:block}
+  .sig-draw{stroke-dasharray:1;stroke-dashoffset:1;
+    animation:draw 1.6s ease forwards .3s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @media(prefers-reduced-motion:reduce){.sig-draw{animation:none;stroke-dashoffset:0}}
+
+  /* ---------- body (legible) ---------- */
+  .legible{background:var(--paper)}
+  .legible .wrap{padding:64px 24px}
+  .grid{display:grid;grid-template-columns:1.55fr 1fr;gap:52px;align-items:start}
+  @media(max-width:840px){.grid{grid-template-columns:1fr;gap:40px}}
+  .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .body-copy p{font-size:17px;color:#26303a;margin:14px 0 0;max-width:60ch}
+  .body-copy p:first-of-type{margin-top:14px}
+  .pull{font-weight:600;color:var(--text-ink)}
+
+  /* diptych */
+  .diptych{margin-top:34px;border:1px solid var(--line-ink);border-radius:10px;overflow:hidden;background:var(--paper-2)}
+  .diptych svg{display:block;width:100%;height:auto}
+
+  /* evidence rail (side panels) */
+  .rail{position:sticky;top:20px;display:flex;flex-direction:column;gap:14px}
+  @media(max-width:840px){.rail{position:static}}
+  .rail-h{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-ink)}
+  .card{background:#fff;border:1px solid var(--line-ink);border-radius:10px;padding:16px 16px 14px;
+    border-left:3px solid var(--accent)}
+  .card p{margin:0;font-size:14px;color:#2b343d;line-height:1.5}
+  .chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:"Space Mono",monospace;font-size:11px;background:#f1f3f5;border:1px solid var(--line-ink);
+    border-radius:4px;padding:3px 7px;color:#3a444d;white-space:nowrap}
+  .chip b{color:var(--accent-deep)}
+  .src{margin-top:10px;font-family:"Space Mono",monospace;font-size:11px;color:var(--muted-ink)}
+  .rail-note{font-size:12.5px;color:var(--muted-ink);font-style:italic;line-height:1.5;padding:2px 2px 0}
+
+  /* ---------- trigger band (frontier) ---------- */
+  .trigger{background:var(--ink);color:var(--text);border-top:1px solid var(--line)}
+  .trigger .wrap{padding:60px 24px 68px}
+  .trigger h2{font-size:clamp(22px,3.4vw,30px);font-weight:700;letter-spacing:-.01em;margin:0;max-width:22ch}
+  .trigger .sub{color:var(--muted);margin:12px 0 0;max-width:56ch;font-size:15px}
+  .paths{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:760px){.paths{grid-template-columns:1fr}}
+  .path{display:block;text-decoration:none;background:var(--ink-soft);border:1px solid var(--line);
+    border-radius:12px;padding:22px 20px;transition:border-color .18s,transform .18s,background .18s}
+  .path:hover{border-color:var(--accent);transform:translateY(-3px);background:#202833}
+  .path .no{font-family:"Space Mono",monospace;font-size:12px;color:var(--accent)}
+  .path .t{font-size:18px;font-weight:600;margin:10px 0 6px}
+  .path .d{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .path .go{margin-top:14px;font-family:"Space Mono",monospace;font-size:12px;color:var(--text);
+    display:inline-flex;gap:8px;align-items:center}
+  .path:hover .go{color:var(--accent)}
+
+  /* ---------- footer ---------- */
+  .foot{background:var(--ink);color:var(--muted);border-top:1px solid var(--line);font-size:13px}
+  .foot .wrap{padding:26px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .foot a{color:var(--text);text-decoration:none}
+  .foot a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- top bar -->
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">BESSÓ <span>Systems</span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#">Cases</a><a href="#">Knowledge</a><a href="#">Lab</a>
+      <a href="#">Toolbox</a><a href="#">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO — opaque -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Process engineering · <b>by Facundo Luluaga</b></p>
+    <h1>People don't resist change.<br><span class="dim">They resist changing what they can't&nbsp;see.</span></h1>
+    <p class="lede">Most industrial projects aren't lost on the technology. They're lost on an operation nobody can fully see — and a change that gets handed down on top of it.</p>
+
+    <!-- signature: opaque tangle resolving into a legible, measured flow -->
+    <svg class="signature" viewBox="0 0 1080 220" role="img"
+         aria-label="A tangled, unreadable process on the left resolving into a clear, measured sequence of steps on the right.">
+      <!-- opaque side -->
+      <text x="0" y="20" fill="#5b6672" font-family="Space Mono, monospace" font-size="12" letter-spacing="2">OPAQUE</text>
+      <path d="M20,150 C70,60 90,190 140,120 C180,70 150,180 210,140 C250,115 230,60 280,110 C300,130 270,170 320,150"
+            fill="none" stroke="#3a434e" stroke-width="2"/>
+      <path d="M30,110 C80,170 120,80 160,160 C200,120 180,180 240,120 C280,80 260,160 300,120"
+            fill="none" stroke="#2f3640" stroke-width="2"/>
+      <text x="120" y="200" fill="#4a535d" font-family="Space Mono, monospace" font-size="22">? ? ?</text>
+      <!-- arrow -->
+      <line x1="360" y1="120" x2="470" y2="120" stroke="#f2b01e" stroke-width="2"/>
+      <path d="M470,120 l-12,-6 v12 z" fill="#f2b01e"/>
+      <text x="368" y="105" fill="#f2b01e" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">MAKE LEGIBLE</text>
+      <!-- legible side: measured node flow -->
+      <text x="540" y="20" fill="#f2b01e" font-family="Space Mono, monospace" font-size="12" letter-spacing="2">LEGIBLE</text>
+      <g class="sig-draw" pathLength="1" stroke="#9aa6b2" stroke-width="2" fill="none">
+        <line x1="560" y1="120" x2="980" y2="120"/>
+      </g>
+      <g font-family="Space Mono, monospace" font-size="10" fill="#94a0ac">
+        <circle cx="560" cy="120" r="6" fill="#13171c" stroke="#f2b01e" stroke-width="2"/>
+        <text x="548" y="148">obs.</text>
+        <circle cx="700" cy="120" r="6" fill="#13171c" stroke="#f2b01e" stroke-width="2"/>
+        <text x="678" y="148">standard</text>
+        <circle cx="840" cy="120" r="6" fill="#13171c" stroke="#f2b01e" stroke-width="2"/>
+        <text x="822" y="148">measure</text>
+        <circle cx="980" cy="120" r="6" fill="#f2b01e"/>
+        <text x="958" y="148">change</text>
+      </g>
+    </svg>
+
+    <span class="scrollcue mono"><span class="ln"></span>read on</span>
+  </div>
+</section>
+
+<!-- BODY — legible -->
+<section class="legible">
+  <div class="wrap grid">
+    <div class="body-copy">
+      <p class="kicker">The idea this site runs on</p>
+      <p>Walk onto a factory floor and the resistance is everywhere — the operator who won't trust the new system, the team that nods at the new procedure and keeps doing it the old way. It's easy to call that people being difficult. Usually it isn't. They're being asked to change an operation nobody can fully see: processes that live in someone's head, data nobody trusts, output that depends on who's on shift. Changing what's invisible is a gamble, and they know it. <span class="pull">The fear is rational.</span></p>
+      <p>So I don't start with the change. I start by making the operation legible — turning what people do into something visible, shared and repeatable. That's what standardization really is, and it's why it comes first: you can't safely change what you can't see, and you can't automate what you haven't standardized. The technical half has right answers you can buy. The human half — the one that gets the least planning and carries at least as much weight — is where projects are actually won or lost, usually at the seam where a sound system meets the people who never trusted it.</p>
+
+      <div class="diptych" role="img" aria-label="The same line shown twice: opaque with question marks, then legible with measured steps.">
+        <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="760" height="200" fill="#f6f7f8"/>
+          <line x1="380" y1="20" x2="380" y2="180" stroke="#d6dbe0" stroke-width="1"/>
+          <!-- left opaque -->
+          <text x="28" y="40" fill="#9aa6b2" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">THE LINE, UNSEEN</text>
+          <path d="M40,120 C90,60 110,170 160,110 C200,70 180,160 240,120 C290,90 270,150 330,120"
+                fill="none" stroke="#c2c9d0" stroke-width="6" stroke-linecap="round"/>
+          <text x="150" y="165" fill="#b6bdc4" font-family="Space Mono, monospace" font-size="20">?</text>
+          <text x="250" y="95" fill="#b6bdc4" font-family="Space Mono, monospace" font-size="20">?</text>
+          <!-- right legible -->
+          <text x="408" y="40" fill="#b97f08" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">THE LINE, MADE LEGIBLE</text>
+          <line x1="430" y1="120" x2="720" y2="120" stroke="#5d6b78" stroke-width="3"/>
+          <g font-family="Space Mono, monospace" font-size="10" fill="#5d6b78">
+            <circle cx="430" cy="120" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+            <circle cx="527" cy="120" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+            <circle cx="624" cy="120" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+            <circle cx="720" cy="120" r="7" fill="#f2b01e"/>
+            <text x="412" y="150">step 1</text><text x="509" y="150">step 2</text>
+            <text x="606" y="150">step 3</text><text x="700" y="150">done</text>
+            <text x="452" y="108" fill="#b97f08">42s</text>
+            <text x="549" y="108" fill="#b97f08">31s</text>
+            <text x="646" y="108" fill="#b97f08">55s</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- side panels / evidence rail -->
+    <aside class="rail" aria-label="Evidence">
+      <div class="rail-h">// what the research says</div>
+
+      <div class="card">
+        <p>In manufacturing tech adoption, the organizational factors outrank the technology itself.</p>
+        <div class="chips">
+          <span class="chip">STRATEGY <b>21.3%</b></span>
+          <span class="chip">ORG <b>21.0%</b></span>
+          <span class="chip">MGMT <b>20.9%</b></span>
+          <span class="chip">TECH <b>19.0%</b></span>
+        </div>
+        <div class="src">Sukathong et al., 2021 · SEM · n=212 SMEs</div>
+      </div>
+
+      <div class="card">
+        <p>The famous “70% of change fails” figure has no valid empirical basis — the sources just cite each other.</p>
+        <div class="src">Hughes, 2011 · J. of Change Management</div>
+      </div>
+
+      <div class="card">
+        <p>Of 336 Industry&nbsp;4.0 manufacturing studies, only 37 examined the human side at all.</p>
+        <div class="chips"><span class="chip">37 / 336</span></div>
+        <div class="src">Reiman et al., 2021 · scoping review</div>
+      </div>
+
+      <div class="card">
+        <p>Whether improvements stick is decided 9–18 months out — the window almost no one keeps measuring.</p>
+        <div class="src">Glover et al., 2011 · 65 Kaizen events</div>
+      </div>
+
+      <p class="rail-note">Not “people matter, technology doesn’t.” The two interact — and most failures happen at the seam between them.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- TRIGGER — frontier -->
+<section class="trigger">
+  <div class="wrap">
+    <h2>So how do you make an operation legible — and keep it that way?</h2>
+    <p class="sub">Three ways into the same idea. Pick where you want to start.</p>
+    <div class="paths">
+      <a class="path" href="#">
+        <span class="no">01 · the thinking</span>
+        <div class="t">Knowledge</div>
+        <div class="d">The frameworks behind the method — Cynefin, the 70% myth, why tacit knowledge resists the binder.</div>
+        <span class="go mono">Read the theory →</span>
+      </a>
+      <a class="path" href="#">
+        <span class="no">02 · the tools</span>
+        <div class="t">Toolbox</div>
+        <div class="d">Make one thing measurable right now — takt time, OEE, line capacity. No sign-up.</div>
+        <span class="go mono">Open the tools →</span>
+      </a>
+      <a class="path" href="#">
+        <span class="no">03 · what's next</span>
+        <div class="t">AI on the floor — Lab</div>
+        <div class="d">What AI actually changes once the work is legible, and what stays human.</div>
+        <span class="go mono">See the Lab →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="#">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="#">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

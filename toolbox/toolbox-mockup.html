@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BESSÓ Systems — Toolbox (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13171c; --ink-soft:#1b212a;
+    --paper:#eceef0; --paper-2:#f6f7f8;
+    --text:#e9ebee; --muted:#94a0ac;
+    --text-ink:#1b212a; --muted-ink:#5d6b78;
+    --line:#2a323c; --line-ink:#d6dbe0;
+    --accent:#f2b01e; --accent-deep:#b97f08;
+    --brand:#4d8dff;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--text-ink);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:"Space Mono",monospace}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+  .bar{background:var(--ink);color:var(--text);border-bottom:1px solid var(--line)}
+  .bar .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.04em;font-size:15px}
+  .brand span{color:var(--brand)}
+  .nav{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+  .nav a{text-decoration:none}.nav a:hover,.nav a.active{color:var(--text)}
+  .nav a.active{border-bottom:2px solid var(--accent);padding-bottom:3px}
+  @media(max-width:680px){.nav{display:none}}
+
+  .pagehead{background:var(--ink);color:var(--text)}
+  .pagehead .wrap{padding:60px 24px 50px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--accent);font-weight:700}
+  .pagehead h1{font-weight:800;letter-spacing:-.02em;font-size:clamp(30px,5vw,48px);margin:16px 0 0}
+  .pagehead .lede{margin:16px 0 0;max-width:60ch;color:#c3ccd5;font-size:clamp(15px,2vw,17px)}
+
+  .tier{background:var(--paper)}
+  .tier.alt{background:var(--paper-2)}
+  .tier .wrap{padding:44px 24px 30px}
+  .sec-lbl{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-ink)}
+  .sec-h{font-size:clamp(20px,2.6vw,25px);font-weight:700;margin:6px 0 4px}
+  .sec-sub{color:var(--muted-ink);font-size:14px;margin:0 0 24px;max-width:62ch}
+
+  /* tier 1 instruments */
+  .igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.igrid{grid-template-columns:1fr}}
+  .inst{background:#fff;border:1px solid var(--line-ink);border-radius:12px;padding:20px;display:flex;flex-direction:column;border-top:3px solid var(--accent)}
+  .inst .gly{height:54px;margin-bottom:12px}
+  .inst h3{font-size:18px;margin:0 0 8px;font-weight:700}
+  .inst p{font-size:13.5px;color:#39434d;margin:0 0 12px;flex:1}
+  .inst .meta{font-family:"Space Mono",monospace;font-size:10.5px;color:var(--muted-ink);margin-bottom:12px}
+  .inst .meta b{color:var(--accent-deep);font-weight:400}
+  .inst .cta{font-family:"Space Mono",monospace;font-size:12px;text-decoration:none;background:var(--ink);color:#fff;
+    border-radius:8px;padding:10px 14px;text-align:center}
+  .inst .cta.soon{background:#fff;color:var(--muted-ink);border:1px dashed var(--line-ink)}
+  .inst .cta:hover{background:#000}
+
+  /* tier 2 calculators */
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.cgrid{grid-template-columns:1fr}}
+  .calc{background:#fff;border:1px solid var(--line-ink);border-radius:12px;padding:18px;display:flex;gap:16px}
+  .calc .viz{flex:none;width:120px}
+  .calc .viz svg{display:block;width:100%;height:auto}
+  .calc .body{flex:1}
+  .calc h3{font-size:16px;margin:0 0 4px;font-weight:700}
+  .calc .status{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    border:1px solid var(--line-ink);border-radius:3px;padding:1px 5px;color:var(--muted-ink);margin-left:6px;vertical-align:middle}
+  .calc .status.live{color:#2f8a52;border-color:#bfe0cc}
+  .hides{font-size:13px;color:#39434d;margin:8px 0 0}
+  .hides b{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep);font-weight:400}
+  .calc .links{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-family:"Space Mono",monospace;font-size:10.5px;background:#f6f7f8;border:1px solid var(--line-ink);border-radius:4px;padding:3px 7px;color:#3a444d;text-decoration:none}
+  .chip:hover{border-color:var(--accent);color:var(--accent-deep)}
+  .simple{background:#fff;border:1px solid var(--line-ink);border-radius:10px;padding:14px 16px}
+  .simple h4{font-size:14.5px;margin:0 0 4px}.simple p{font-size:12.5px;color:#5d6b78;margin:0}
+
+  .note{background:var(--paper);border-top:1px solid var(--line-ink)}
+  .note .wrap{padding:22px 24px;font-size:13px;color:var(--muted-ink)}
+  .note b{color:var(--accent-deep)}
+
+  .close{background:var(--ink);color:var(--text);border-top:1px solid var(--line)}
+  .close .wrap{max-width:1120px;padding:48px 24px 54px}
+  .close h2{font-size:clamp(19px,2.6vw,24px);font-weight:700;margin:0 0 14px}
+  .close .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .close a{font-family:"Space Mono",monospace;font-size:13px;text-decoration:none;border:1px solid var(--line);color:var(--text);padding:11px 18px;border-radius:8px}
+  .close a:hover{border-color:var(--accent);color:var(--accent)}
+
+  .foot{background:var(--ink);color:var(--muted);border-top:1px solid var(--line);font-size:13px}
+  .foot .wrap{max-width:1120px;padding:26px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .foot a{color:var(--text);text-decoration:none}
+  text{font-family:"Space Mono",monospace}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">BESSÓ <span>Systems</span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#">Cases</a><a href="#">Knowledge</a><a href="#">Lab</a>
+      <a href="#" class="active">Toolbox</a><a href="#">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Toolbox · <b>legibility you can touch</b></p>
+    <h1>Tools that make a number honest.</h1>
+    <p class="lede">A calculator gives you a number. These give you the number — and tell you what it's hiding and what to look at next. Each ties back to a frame and a case. Use them now; no sign-up.</p>
+  </div>
+</section>
+
+<!-- TIER 1 -->
+<section class="tier">
+  <div class="wrap">
+    <div class="sec-lbl">Instruments</div>
+    <h2 class="sec-h">Tools that make you think</h2>
+    <p class="sec-sub">Frames turned usable. Knowledge explains the idea; here you apply it to your own problem.</p>
+    <div class="igrid">
+
+      <article class="inst">
+        <svg class="gly" viewBox="0 0 120 54" aria-hidden="true">
+          <line x1="60" y1="6" x2="60" y2="48" stroke="#e2e6ea"/><line x1="18" y1="27" x2="102" y2="27" stroke="#e2e6ea"/>
+          <circle cx="40" cy="17" r="9" fill="rgba(242,176,30,.2)"/><circle cx="40" cy="17" r="4.5" fill="#f2b01e"/>
+          <text x="22" y="52" font-size="7" fill="#9aa6b2">your problem → its domain</text>
+        </svg>
+        <h3>Cynefin sorter</h3>
+        <p>Five questions about a problem; watch it land on the map and get the way of acting that fits.</p>
+        <div class="meta">embodies <b>F1 · Cynefin</b> → routes complex to Agile</div>
+        <a class="cta" href="#">Open the sorter →</a>
+      </article>
+
+      <article class="inst">
+        <svg class="gly" viewBox="0 0 120 54" aria-hidden="true">
+          <path d="M24,46 A26,26 0 0 1 96,46" fill="none" stroke="#e3e7eb" stroke-width="7"/>
+          <path d="M24,46 A26,26 0 0 1 84,28" fill="none" stroke="#3fae66" stroke-width="7"/>
+          <text x="34" y="40" font-size="8" fill="#c0463a">rework?</text>
+        </svg>
+        <h3>OEE honesty check</h3>
+        <p>Compute OEE, then answer what the number won't: rework counted as process? overtime masking the gap?</p>
+        <div class="meta">embodies <b>F4 · vanity metrics</b></div>
+        <a class="cta soon" href="#">Build next ◷</a>
+      </article>
+
+      <article class="inst">
+        <svg class="gly" viewBox="0 0 120 54" aria-hidden="true">
+          <g stroke="#f2b01e" stroke-width="2" fill="none"><path d="M16,16 l4,4 l7,-9"/><path d="M16,34 l4,4 l7,-9"/></g>
+          <line x1="36" y1="18" x2="104" y2="18" stroke="#d6dbe0" stroke-width="6" stroke-linecap="round"/>
+          <line x1="36" y1="36" x2="80" y2="36" stroke="#d6dbe0" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <h3>Automate-readiness check</h3>
+        <p>Is it legible? standardized? measured? trusted? Returns "ready" — or "you're about to build on sand."</p>
+        <div class="meta">embodies <b>F2 · standardize → automate</b></div>
+        <a class="cta soon" href="#">Build next ◷</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIER 2 -->
+<section class="tier alt">
+  <div class="wrap">
+    <div class="sec-lbl">Calculators &amp; templates</div>
+    <h2 class="sec-h">Direct utility — with the catch built in</h2>
+    <p class="sec-sub">Each outputs a live graphic that updates as you type — and a line on what it hides.</p>
+    <div class="cgrid">
+
+      <article class="calc">
+        <div class="viz"><svg viewBox="0 0 120 90" aria-hidden="true">
+          <rect x="14" y="16" width="92" height="14" rx="3" fill="#3fae66"/>
+          <rect x="14" y="38" width="64" height="14" rx="3" fill="#f2b01e"/>
+          <rect x="78" y="38" width="28" height="14" rx="3" fill="#e9b9b3"/>
+          <rect x="14" y="60" width="80" height="14" rx="3" fill="#86b8e8"/>
+          <text x="14" y="86" font-size="7" fill="#9aa6b2">A · P · Q (live)</text>
+        </svg></div>
+        <div class="body">
+          <h3>OEE calculator <span class="status live">live</span></h3>
+          <p class="hides"><b>what it hides</b> a green OEE can mask rework and overtime — run it through the honesty check.</p>
+          <div class="links"><a class="chip" href="#">F4</a><a class="chip" href="#">Case 03</a><a class="chip" href="#">→ honesty check</a></div>
+        </div>
+      </article>
+
+      <article class="calc">
+        <div class="viz"><svg viewBox="0 0 120 90" aria-hidden="true">
+          <line x1="14" y1="70" x2="106" y2="70" stroke="#d6dbe0"/>
+          <rect x="20" y="40" width="16" height="30" fill="#86b8e8"/><rect x="44" y="28" width="16" height="42" fill="#f2b01e"/>
+          <rect x="68" y="48" width="16" height="22" fill="#86b8e8"/><rect x="92" y="52" width="14" height="18" fill="#86b8e8"/>
+          <text x="44" y="22" font-size="7" fill="#b97f08">bottleneck</text>
+        </svg></div>
+        <div class="body">
+          <h3>Takt time calculator <span class="status live">live</span></h3>
+          <p class="hides"><b>what it hides</b> takt assumes steady demand and uptime — look at the variation and changeovers it smooths over.</p>
+          <div class="links"><a class="chip" href="#">Flow (S4)</a><a class="chip" href="#">Case · logistics</a></div>
+        </div>
+      </article>
+
+      <article class="calc">
+        <div class="viz"><svg viewBox="0 0 120 90" aria-hidden="true">
+          <line x1="14" y1="45" x2="106" y2="45" stroke="#d6dbe0" stroke-width="6"/>
+          <circle cx="30" cy="45" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+          <circle cx="60" cy="45" r="11" fill="#f2b01e"/><circle cx="90" cy="45" r="7" fill="#fff" stroke="#f2b01e" stroke-width="3"/>
+          <text x="48" y="74" font-size="7" fill="#b97f08">the constraint</text>
+        </svg></div>
+        <div class="body">
+          <h3>Capacity calculator <span class="status live">live</span></h3>
+          <p class="hides"><b>what it hides</b> theoretical capacity ≠ real; the constraint decides the line, not the average.</p>
+          <div class="links"><a class="chip" href="#">Flow / TOC</a><a class="chip" href="#">Case 02</a></div>
+        </div>
+      </article>
+
+      <article class="calc">
+        <div class="viz"><svg viewBox="0 0 120 90" aria-hidden="true">
+          <rect x="20" y="14" width="80" height="62" rx="4" fill="#f6f7f8" stroke="#d6dbe0"/>
+          <line x1="60" y1="14" x2="60" y2="76" stroke="#d6dbe0"/><line x1="20" y1="34" x2="100" y2="34" stroke="#d6dbe0"/>
+          <text x="30" y="28" font-size="7" fill="#9aa6b2">A3</text>
+        </svg></div>
+        <div class="body">
+          <h3>A3 template <span class="status">placeholder</span></h3>
+          <p class="hides"><b>what it hides</b> the discipline is the structure, not the form.</p>
+          <div class="links"><a class="chip" href="#">A3 method</a></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div class="simple"><h4>Standard work sheet</h4><p>Externalizes tacit knowledge — the drift is the signal. F3 · Case 01.</p></div>
+      <div class="simple"><h4>SMED split worksheet</h4><p>Internal vs external is the game. S1 · Case 02 · Lab 01.</p></div>
+      <div class="simple"><h4>Readiness checklists</h4><p>Process audit · MES/SCADA · ISO 50001. A frame made portable.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="note">
+  <div class="wrap"><b>Note:</b> nothing here is "just another calculator." If a tool doesn't make something legible — or can't tie to a frame and a case — it doesn't belong on this page.</div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Every tool here came from a real problem.</h2>
+    <div class="ctas">
+      <a href="#">The thinking behind them → Knowledge</a>
+      <a href="#">Where I used them → Cases</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="#">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="#">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BESSÓ Systems — Cases (mockup v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13171c; --ink-soft:#1b212a;
+    --paper:#eceef0; --paper-2:#f6f7f8;
+    --text:#e9ebee; --muted:#94a0ac;
+    --text-ink:#1b212a; --muted-ink:#5d6b78;
+    --line:#2a323c; --line-ink:#d6dbe0;
+    --accent:#f2b01e; --accent-deep:#b97f08;
+    --brand:#4d8dff;            /* logo stays blue */
+    --maxw:980px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--text-ink);
+    font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:"Space Mono",monospace}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* top bar */
+  .bar{background:var(--ink);color:var(--text);border-bottom:1px solid var(--line)}
+  .bar .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.04em;font-size:15px}
+  .brand span{color:var(--brand)}
+  .nav{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+  .nav a{text-decoration:none}
+  .nav a:hover,.nav a.active{color:var(--text)}
+  .nav a.active{border-bottom:2px solid var(--accent);padding-bottom:3px}
+  @media(max-width:680px){.nav{display:none}}
+
+  /* page header (opaque) */
+  .pagehead{background:var(--ink);color:var(--text)}
+  .pagehead .wrap{padding:62px 24px 56px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--accent);font-weight:700}
+  .pagehead h1{font-weight:800;letter-spacing:-.02em;line-height:1.06;
+    font-size:clamp(30px,5vw,48px);margin:16px 0 0;max-width:18ch}
+  .pagehead .lede{margin:18px 0 0;max-width:60ch;font-size:clamp(15px,2vw,17px);color:#c3ccd5}
+
+  /* cases */
+  .cases{background:var(--paper)}
+  .cases .wrap{padding:8px 24px 10px}
+  .case{padding:54px 0;border-bottom:1px solid var(--line-ink)}
+  .case-top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .case-num{font-family:"Space Mono",monospace;font-size:13px;color:var(--accent-deep)}
+  .case-tag{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;
+    color:var(--muted-ink);text-transform:uppercase}
+  .case-h{font-size:clamp(23px,3.4vw,32px);font-weight:700;letter-spacing:-.01em;margin:10px 0 0;color:var(--text-ink)}
+
+  /* figure placeholders */
+  .figure{margin:24px 0 4px;aspect-ratio:16/7;border:1px dashed #b9c1c9;border-radius:10px;
+    background:repeating-linear-gradient(135deg,#fff,#fff 11px,#f3f5f7 11px,#f3f5f7 22px);
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:18px}
+  .figure span{font-family:"Space Mono",monospace;font-size:12px;color:#7c8893;max-width:60ch;line-height:1.5}
+  .figure span b{color:var(--accent-deep)}
+  .figure.small{aspect-ratio:16/6}
+
+  /* blocks */
+  .block{margin-top:24px}
+  .lbl{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted-ink);margin-bottom:8px}
+  .block p{margin:0;font-size:16px;color:#28323c;max-width:68ch}
+  .outcomes{background:#fffdf6;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+    padding:18px 20px;margin-top:26px}
+  .outcomes .lbl{color:var(--accent-deep)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:"Space Mono",monospace;font-size:11.5px;background:#fff;border:1px solid var(--line-ink);
+    border-radius:4px;padding:4px 8px;color:#3a444d;text-decoration:none}
+  .chip:hover{border-color:var(--accent);color:var(--accent-deep)}
+  .branches{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+  .branch{text-decoration:none;font-size:14px;color:var(--text-ink);display:inline-flex;align-items:center;gap:9px}
+  .branch:hover{color:var(--accent-deep)}
+  .branch .ar{font-family:"Space Mono",monospace;color:var(--accent-deep)}
+  .branch .k{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted-ink);border:1px solid var(--line-ink);border-radius:3px;padding:1px 5px}
+
+  /* ISO layers svg */
+  .layers{margin-top:14px;width:100%;height:auto;display:block}
+
+  /* forward band */
+  .fwd{background:var(--ink);color:var(--text);border-top:1px solid var(--line)}
+  .fwd .wrap{max-width:1120px;padding:52px 24px 58px;display:flex;justify-content:space-between;
+    align-items:center;gap:28px;flex-wrap:wrap}
+  .fwd h2{font-size:clamp(20px,3vw,26px);font-weight:700;margin:0;max-width:24ch;letter-spacing:-.01em}
+  .fwd p{color:var(--muted);margin:10px 0 0;max-width:46ch;font-size:14.5px}
+  .fwd-cta{text-decoration:none;font-family:"Space Mono",monospace;font-size:13px;color:var(--ink);
+    background:var(--accent);padding:13px 22px;border-radius:8px;white-space:nowrap;font-weight:700}
+  .fwd-cta:hover{background:#ffc23f}
+
+  /* footer */
+  .foot{background:var(--ink);color:var(--muted);border-top:1px solid var(--line);font-size:13px}
+  .foot .wrap{max-width:1120px;padding:26px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .foot a{color:var(--text);text-decoration:none}
+  .foot a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">BESSÓ <span>Systems</span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#" class="active">Cases</a><a href="#">Knowledge</a><a href="#">Lab</a>
+      <a href="#">Toolbox</a><a href="#">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Cases · <b>the lens applied</b></p>
+    <h1>The same move, in real operations.</h1>
+    <p class="lede">Names and numbers are left out on purpose — what carries across is the pattern, not the logo. Each case started as something nobody could fully see, in a different industry, country and culture. The work was the same every time: make the operation legible, and the right change stops being a leap.</p>
+  </div>
+</section>
+
+<section class="cases">
+  <div class="wrap">
+
+    <!-- CASE 01 — screens -->
+    <article class="case">
+      <div class="case-top"><span class="case-num">01</span>
+        <span class="case-tag">Appliance mfg · Latin America · high-mix line</span></div>
+      <h2 class="case-h">The standard, where the work happens</h2>
+
+      <figure class="figure"><span>IMAGE · <b>Context</b> — a line section with a monitor mounted at the post, showing the current work instruction where the task is done</span></figure>
+
+      <div class="block"><div class="lbl">Context</div>
+        <p>A high-mix assembly line with a rotating operator base and a very large spare-parts catalogue. Work instructions existed — in binders, on a shared drive, in the memory of the longest-serving operator — but not where they were needed: at each section of the line, in the moment, for whoever was on shift. Paper instructions were handed out section by section; they got stained and worn, and took real effort to distribute and keep current. So the real method drifted from the documented one, and quality tracked whoever happened to be working that day.</p></div>
+
+      <div class="block"><div class="lbl">Problems it surfaced</div>
+        <p>Documentation that exists but isn't legible at the point of use; the drift between the documented method and the real one; spare-part identification (many parts, many codes) with no reliable reference at hand; standard work treated as paperwork instead of visual management.</p></div>
+
+      <div class="block"><div class="lbl">Tools</div>
+        <div class="chips"><a class="chip" href="#">standard work</a><a class="chip" href="#">visual management</a><a class="chip" href="#">digital work instructions</a><a class="chip" href="#">Lean</a><a class="chip" href="#">5S</a></div></div>
+
+      <div class="outcomes"><div class="lbl">Outcomes &amp; conclusions</div>
+        <p>I put the documentation on screens at each section of the line — every station showing its current instruction right where the task is done, updated the moment the method changed. Zero budget: the monitors were pulled from scrap in the plant's own monitor-production area. People were skeptical at first; by the end they were asking for it. They leaned on it hardest for spare parts — checking features and part codes against the screen — and began flagging wrong documentation themselves, which pushed the team into structured, shared work instead of private know-how. The paper that used to stain and wear was gone; the line looked clean, ordered, deliberate — and stayed that way. The client's external audits read the change as 9001-compliant. The lesson under all of it: the resistance was never to change — it was to changing something invisible. Make the standard visible, literally at the post, and the same people who resisted start demanding it.</p></div>
+
+      <figure class="figure small"><span>IMAGE · <b>Outcome</b> — before/after: a stained, worn paper sheet ↔ the same instruction clean on a screen · and/or the finished clean, ordered 5S line</span></figure>
+
+      <div class="block"><div class="lbl">Go deeper</div>
+        <div class="branches">
+          <a class="branch" href="#"><span class="k">theory</span> Standard work · visual management · tacit vs explicit knowledge <span class="ar">→</span></a>
+          <a class="branch" href="#"><span class="k">ai lab</span> AI-drafted, auto-updated instructions; vision to check adherence <span class="ar">→</span></a>
+        </div></div>
+    </article>
+
+    <!-- CASE 02 — FANUC -->
+    <article class="case">
+      <div class="case-top"><span class="case-num">02</span>
+        <span class="case-tag">Appliance mfg · Latin America · ~54 launches/yr</span></div>
+      <h2 class="case-h">Automation the floor could actually run</h2>
+
+      <figure class="figure"><span>IMAGE · <b>Context</b> — FANUC robot arm mid-operation, safety fencing visible (neutral, no brand marks)</span></figure>
+
+      <div class="block"><div class="lbl">Context</div>
+        <p>A high-mix plant running about fifty-four product launches a year, with an established line and a rotating operator base. A new FANUC robotic cell had to enter that rhythm. The risk was never the robot — it was everything around it: a cell the floor couldn't run, sitting on a process that changed every few weeks.</p></div>
+
+      <div class="block"><div class="lbl">Problems it surfaced</div>
+        <p>A cell the floor couldn't run on its own; changeover discipline across dozens of launches; standard work for a rotating operator base; the gap between <em>installed</em> and <em>owned</em>.</p></div>
+
+      <div class="block"><div class="lbl">Tools</div>
+        <div class="chips"><a class="chip" href="#">FANUC programming</a><a class="chip" href="#">cell layout</a><a class="chip" href="#">safety / risk</a><a class="chip" href="#">SMED</a><a class="chip" href="#">standard work</a></div></div>
+
+      <div class="outcomes"><div class="lbl">Outcomes &amp; conclusions</div>
+        <p>I took the cell end to end — layout, robot programming, the safety envelope, operator training — with one goal beyond "it works": make the cell legible to the people who'd live with it. What it does, where it stops, how to recover it, how to change it over for the next product. Automation that's understood is automation that survives the next launch. The cell became part of the floor's routine instead of an island only engineering could touch.</p></div>
+
+      <figure class="figure small"><span>IMAGE · <b>Outcome</b> — operator at the cell HMI / a training moment · optional: cell layout diagram &nbsp;|&nbsp; <b>(Facundo: material local)</b></span></figure>
+
+      <div class="block"><div class="lbl">Go deeper</div>
+        <div class="branches">
+          <a class="branch" href="#"><span class="k">theory</span> Standard work &amp; SMED <span class="ar">→</span></a>
+          <a class="branch" href="#"><span class="k">ai lab</span> AI-assisted changeover &amp; vision on the cell <span class="ar">→</span></a>
+        </div></div>
+    </article>
+
+    <!-- CASE 03 — ISO 50001 / OEE -->
+    <article class="case">
+      <div class="case-top"><span class="case-num">03</span>
+        <span class="case-tag">Building materials · Europe · energy-intensive</span></div>
+      <h2 class="case-h">The metric that was hiding the problem</h2>
+
+      <figure class="figure"><span>IMAGE · <b>Context</b> — an energy dashboard / SCADA consumption trend, or an industrial energy meter (neutral, no logos)</span></figure>
+
+      <div class="block"><div class="lbl">Context</div>
+        <p>An energy-intensive, established plant with a traditional manufacturing culture — one that saw itself as a leader of change. I led the plant through ISO 50001 certification. Under the certificate, an energy management system is really a discipline of measurement: you commit to watching numbers you used to ignore.</p></div>
+
+      <div class="block"><div class="lbl">Problems it surfaced</div>
+        <p>A vanity OEE that looked healthy; rework formally defined as part of the standard process, so it never counted as a loss; cost masked by overtime; and beneath all of it, an implicit cultural resistance dressed as change-leadership. (Pull that thread and more incoherences follow.)</p></div>
+
+      <div class="block"><div class="lbl">Tools</div>
+        <div class="chips"><a class="chip" href="#">ISO 50001 / EnPI</a><a class="chip" href="#">OEE (and how it's gamed)</a><a class="chip" href="#">cost &amp; SCADA analysis</a><a class="chip" href="#">Cynefin</a></div></div>
+
+      <div class="outcomes"><div class="lbl">Outcomes &amp; conclusions</div>
+        <p>The energy discipline is what pulled the thread. Watching consumption and cost against output, the production figures stopped adding up: the OEE was green, but the costs didn't behave like a green OEE does. Underneath, rework was defined as part of the standard process — so a reworked unit still counted as good and on-time, and OEE never saw it. Production leaned on that rework, plus overtime, to hit its targets. The rework never touched the metric everyone trusted; it quietly touched the cost line. Fixing the metric was the easy part. The hard part was what the metric protected: rework-as-process and overtime-as-normal weren't accidents — they were how a traditional culture preserved the status quo while calling itself a precursor of change. The resistance was never stated; it was encoded — in the categories, in the metrics, in what got counted as success. Making energy legible exposed that the OEE wasn't; making the OEE legible exposed the cost; the cost exposed the culture. Each layer of legibility uncovered the next. The most stubborn resistance to change is the kind that describes itself as leading it — invisible by design.</p>
+
+        <!-- conceptual illustration: layers of legibility -->
+        <svg class="layers" viewBox="0 0 880 130" role="img" aria-label="Four layers, each uncovering the next: making energy legible exposed the OEE, which exposed the cost, which exposed the culture.">
+          <g font-family="Space Mono, monospace" font-size="12">
+            <rect x="0"   y="40" width="190" height="48" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="16" y="60" fill="#5d6b78">ENERGY</text><text x="16" y="78" fill="#9aa6b2" font-size="10">made legible</text>
+            <rect x="228" y="40" width="190" height="48" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="244" y="60" fill="#5d6b78">OEE</text><text x="244" y="78" fill="#9aa6b2" font-size="10">exposed as vanity</text>
+            <rect x="456" y="40" width="190" height="48" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="472" y="60" fill="#5d6b78">COST</text><text x="472" y="78" fill="#9aa6b2" font-size="10">where rework hid</text>
+            <rect x="684" y="40" width="196" height="48" rx="8" fill="#13171c" stroke="#f2b01e"/>
+            <text x="700" y="60" fill="#f2b01e">CULTURE</text><text x="700" y="78" fill="#cbb27a" font-size="10">resisting, quietly</text>
+            <g stroke="#f2b01e" stroke-width="2" fill="#f2b01e">
+              <line x1="190" y1="64" x2="226" y2="64"/><path d="M226,64 l-10,-5 v10 z"/>
+              <line x1="418" y1="64" x2="454" y2="64"/><path d="M454,64 l-10,-5 v10 z"/>
+              <line x1="646" y1="64" x2="682" y2="64"/><path d="M682,64 l-10,-5 v10 z"/>
+            </g>
+            <text x="0" y="20" fill="#b97f08" font-size="11" letter-spacing="2">EACH LAYER UNCOVERED THE NEXT</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="block"><div class="lbl">Go deeper</div>
+        <div class="branches">
+          <a class="branch" href="#"><span class="k">theory</span> What OEE hides · metrics that lie · ISO 50001/EnPI · Cynefin &amp; resistance <span class="ar">→</span></a>
+          <a class="branch" href="#"><span class="k">ai lab</span> Cross-data anomaly detection (energy + production + cost) <span class="ar">→</span></a>
+        </div></div>
+    </article>
+
+  </div>
+</section>
+
+<section class="fwd">
+  <div class="wrap">
+    <div>
+      <h2>Each of these was made legible by hand.</h2>
+      <p>Same order, new tools. The Lab is where AI extends these cases — without skipping the step that makes it safe.</p>
+    </div>
+    <a class="fwd-cta" href="#">See the Lab →</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="#">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="#">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
