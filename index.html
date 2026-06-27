@@ -22,52 +22,59 @@
 <!-- HERO — opaque -->
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Process engineering · <b>by Facundo Luluaga</b></p>
-    <h1>People don't resist change.<br><span class="dim">They resist changing what they can't&nbsp;see.</span></h1>
-    <p class="lede">Most industrial projects aren't lost on the technology. They're lost on an operation nobody can fully see — and a change that gets handed down on top of it.</p>
+    <div class="hero-cols">
 
-    <!-- research chart: what actually drives manufacturing tech adoption -->
-    <figure class="hero-chart" aria-label="Bar chart showing factor weights for manufacturing technology adoption">
-      <figcaption class="hero-chart-title mono">What drives technology adoption in manufacturing</figcaption>
-      <svg viewBox="0 0 640 174" role="img"
-           aria-label="Four horizontal bars. Strategy 21.3%, Org Culture 21.0%, Management 20.9%, Technology 19.0% — technology ranks last.">
-        <style>
-          .hc-lbl   { font-family:"Space Mono",monospace; font-size:11px; fill:#94a0ac; }
-          .hc-pct   { font-family:"Space Mono",monospace; font-size:11px; fill:#e9ebee; font-weight:700; }
-          .hc-track { fill:#1e2830; }
-          .hc-human { fill:#f2b01e; opacity:.45; }
-          .hc-tech  { fill:#4e6070; }
-        </style>
-        <!-- scale = 400px represents 25%; bars = value/25*400 -->
-        <!-- background tracks (100% reference) -->
-        <rect x="148" y="8"   width="400" height="14" rx="2" class="hc-track"/>
-        <rect x="148" y="44"  width="400" height="14" rx="2" class="hc-track"/>
-        <rect x="148" y="80"  width="400" height="14" rx="2" class="hc-track"/>
-        <rect x="148" y="116" width="400" height="14" rx="2" class="hc-track"/>
-        <!-- Strategy 21.3% → 21.3/25*400 = 341px -->
-        <text x="0"   y="22"  class="hc-lbl">STRATEGY</text>
-        <rect x="148" y="8"   width="341" height="14" rx="2" class="hc-human"/>
-        <text x="557" y="22"  class="hc-pct">21.3%</text>
-        <!-- Org Culture 21.0% → 336px -->
-        <text x="0"   y="58"  class="hc-lbl">ORG CULTURE</text>
-        <rect x="148" y="44"  width="336" height="14" rx="2" class="hc-human"/>
-        <text x="557" y="58"  class="hc-pct">21.0%</text>
-        <!-- Management 20.9% → 334px -->
-        <text x="0"   y="94"  class="hc-lbl">MANAGEMENT</text>
-        <rect x="148" y="80"  width="334" height="14" rx="2" class="hc-human"/>
-        <text x="557" y="94"  class="hc-pct">20.9%</text>
-        <!-- Technology 19.0% → 304px — clearly different color -->
-        <text x="0"   y="130" class="hc-lbl">TECHNOLOGY</text>
-        <rect x="148" y="116" width="304" height="14" rx="2" class="hc-tech"/>
-        <text x="557" y="130" class="hc-pct">19.0%</text>
-        <!-- source -->
-        <text x="148" y="162" font-family="Space Mono,monospace" font-size="9" fill="#5b6672">
-          Sukathong et al., 2021 · structural equation model · n=212 manufacturing SMEs
-        </text>
-      </svg>
-    </figure>
+      <div>
+        <p class="eyebrow">Process engineering · <b>by Facundo Luluaga</b></p>
+        <h1>People don't resist change.<br><span class="dim">They resist changing what they can't&nbsp;see.</span></h1>
+        <p class="lede">Most industrial projects aren't lost on the technology. They're lost on an operation nobody can fully see — and a change that gets handed down on top of it.</p>
 
-    <span class="scrollcue mono"><span class="ln"></span>read on</span>
+        <!-- research chart: what actually drives manufacturing tech adoption -->
+        <figure class="hero-chart" aria-label="Bar chart showing factor weights for manufacturing technology adoption">
+          <figcaption class="hero-chart-title mono">What drives technology adoption in manufacturing</figcaption>
+          <svg viewBox="0 0 640 174" role="img"
+               aria-label="Four horizontal bars. Strategy 21.3%, Org Culture 21.0%, Management 20.9%, Technology 19.0% — technology ranks last.">
+            <style>
+              .hc-lbl   { font-family:"Space Mono",monospace; font-size:11px; fill:#94a0ac; }
+              .hc-pct   { font-family:"Space Mono",monospace; font-size:11px; fill:#e9ebee; font-weight:700; }
+              .hc-track { fill:#1e2830; }
+              .hc-human { fill:#f2b01e; opacity:.45; }
+              .hc-tech  { fill:#4e6070; }
+            </style>
+            <!-- scale = 400px represents 25%; bars = value/25*400 -->
+            <rect x="148" y="8"   width="400" height="14" rx="2" class="hc-track"/>
+            <rect x="148" y="44"  width="400" height="14" rx="2" class="hc-track"/>
+            <rect x="148" y="80"  width="400" height="14" rx="2" class="hc-track"/>
+            <rect x="148" y="116" width="400" height="14" rx="2" class="hc-track"/>
+            <text x="0"   y="22"  class="hc-lbl">STRATEGY</text>
+            <rect x="148" y="8"   width="341" height="14" rx="2" class="hc-human"/>
+            <text x="557" y="22"  class="hc-pct">21.3%</text>
+            <text x="0"   y="58"  class="hc-lbl">ORG CULTURE</text>
+            <rect x="148" y="44"  width="336" height="14" rx="2" class="hc-human"/>
+            <text x="557" y="58"  class="hc-pct">21.0%</text>
+            <text x="0"   y="94"  class="hc-lbl">MANAGEMENT</text>
+            <rect x="148" y="80"  width="334" height="14" rx="2" class="hc-human"/>
+            <text x="557" y="94"  class="hc-pct">20.9%</text>
+            <text x="0"   y="130" class="hc-lbl">TECHNOLOGY</text>
+            <rect x="148" y="116" width="304" height="14" rx="2" class="hc-tech"/>
+            <text x="557" y="130" class="hc-pct">19.0%</text>
+            <text x="148" y="162" font-family="Space Mono,monospace" font-size="9" fill="#5b6672">
+              Sukathong et al., 2021 · structural equation model · n=212 manufacturing SMEs
+            </text>
+          </svg>
+        </figure>
+
+        <span class="scrollcue mono"><span class="ln"></span>read on</span>
+      </div>
+
+      <figure class="hero-right">
+        <img src="Assets/cases/Industry%20Change/ELON1.jpeg"
+             alt="A person standing between two FANUC industrial robot arms on a factory floor"
+             class="hero-img">
+        <figcaption class="hero-cap">Few symbols of industrial transformation generate stronger reactions — admiration or resistance. That reaction has a name: fear of the unknown. And it's not irrational.</figcaption>
+      </figure>
+
+    </div>
   </div>
 </section>
 
@@ -97,7 +104,7 @@
           <text x="0"   y="58"  class="sc-lbl">TECHNOLOGY</text>
           <rect x="128" y="44"  width="380" height="14" rx="2" fill="#e8ebe0" opacity=".7"/>
           <rect x="128" y="44"  width="338" height="14" rx="2" fill="#94a0ac" opacity=".6"/>
-          <text x="472" y="58"  class="sc-val">299</text>
+          <text x="340" y="58"  class="sc-val" fill="#f6f7f8">299 · 89%</text>
           <!-- source -->
           <text x="0"   y="84"  class="sc-src">Of 336 Industry 4.0 manufacturing implementation studies,</text>
           <text x="0"   y="100" class="sc-src">only 37 examined the human side · Reiman et al., 2021</text>
