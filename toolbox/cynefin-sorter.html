@@ -3,91 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BESSÓ Systems — Cynefin sorter (working prototype)</title>
+<meta name="description" content="BESSÓ Systems — Cynefin sorter: five questions about a problem, a domain result, and the first move that fits.">
+<title>BESSÓ Systems — Cynefin sorter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/v3-style.css">
 <style>
-  :root{
-    --ink:#13171c; --ink-soft:#1b212a;
-    --paper:#eceef0; --paper-2:#f6f7f8;
-    --text:#e9ebee; --muted:#94a0ac;
-    --text-ink:#1b212a; --muted-ink:#5d6b78;
-    --line:#2a323c; --line-ink:#d6dbe0;
-    --accent:#f2b01e; --accent-deep:#b97f08;
-    --brand:#4d8dff;
-    --maxw:1000px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--text-ink);
-    font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .mono{font-family:"Space Mono",monospace}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-
-  .bar{background:var(--ink);color:var(--text);border-bottom:1px solid var(--line)}
-  .bar .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{font-weight:700;letter-spacing:.04em;font-size:15px}
-  .brand span{color:var(--brand)}
+  /* tool-specific styles — shared CSS handles nav, brand, tokens */
   .back{font-family:"Space Mono",monospace;font-size:12px;color:var(--muted);text-decoration:none}
   .back:hover{color:var(--text)}
 
-  .head{background:var(--ink);color:var(--text)}
-  .head .wrap{padding:48px 24px 40px}
-  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-  .eyebrow b{color:var(--accent);font-weight:700}
+  .head{background:var(--ink);color:var(--text)} .head .wrap{padding:46px 24px 38px}
   .head h1{font-weight:800;letter-spacing:-.02em;font-size:clamp(28px,4.4vw,42px);margin:14px 0 0}
-  .head p{margin:14px 0 0;max-width:60ch;color:#c3ccd5;font-size:16px}
+  .head p{margin:14px 0 0;max-width:62ch;color:#c3ccd5;font-size:16px}
   .head .aid{margin-top:12px;font-family:"Space Mono",monospace;font-size:12px;color:var(--accent)}
 
   .tool{background:var(--paper)}
-  .tool .wrap{padding:34px 24px 50px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
-  @media(max-width:780px){.tool .wrap{grid-template-columns:1fr;gap:24px}}
+  .tool .wrap{padding:32px 24px 50px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  @media(max-width:820px){.tool .wrap{grid-template-columns:1fr;gap:24px}}
 
-  /* map */
   .mapwrap{position:sticky;top:18px;background:#fff;border:1px solid var(--line-ink);border-radius:12px;padding:18px}
-  @media(max-width:780px){.mapwrap{position:static}}
+  @media(max-width:820px){.mapwrap{position:static}}
   .map{display:block;width:100%;height:auto}
   #marker{transition:transform .45s cubic-bezier(.4,1.3,.5,1)}
   @media(prefers-reduced-motion:reduce){#marker{transition:none}}
   .maptip{margin-top:10px;font-family:"Space Mono",monospace;font-size:11px;color:var(--muted-ink);text-align:center}
 
-  /* question panel */
-  .panel{min-height:300px}
+  .panel{min-height:320px}
   .progress{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-ink)}
-  .qtext{font-size:clamp(18px,2.6vw,23px);font-weight:700;margin:10px 0 18px;letter-spacing:-.01em}
-  .opts{display:flex;flex-direction:column;gap:10px}
-  .opt{text-align:left;font-family:inherit;font-size:15px;color:var(--text-ink);background:#fff;
-    border:1px solid var(--line-ink);border-radius:10px;padding:14px 16px;cursor:pointer;transition:border-color .15s,transform .1s}
-  .opt:hover{border-color:var(--accent)}
-  .opt:active{transform:scale(.99)}
-  .nav-btns{margin-top:18px;display:flex;gap:12px}
+  .qtext{font-size:clamp(17px,2.4vw,22px);font-weight:700;margin:10px 0 16px;letter-spacing:-.01em}
+  .opts{display:flex;flex-direction:column;gap:9px}
+  .opt{text-align:left;font-family:inherit;font-size:14.5px;color:var(--text-ink);background:#fff;border:1px solid var(--line-ink);border-radius:10px;padding:13px 15px;cursor:pointer;transition:border-color .15s,transform .1s}
+  .opt:hover{border-color:var(--accent)} .opt:active{transform:scale(.99)}
+  .nav-btns{margin-top:16px;display:flex;gap:12px}
   .btn{font-family:"Space Mono",monospace;font-size:12px;padding:9px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--line-ink);background:#fff;color:var(--text-ink)}
-  .btn:hover{border-color:var(--accent)}
-  .btn[disabled]{opacity:.4;cursor:default}
+  .btn:hover{border-color:var(--accent)} .btn[disabled]{opacity:.4;cursor:default}
+  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-  /* result */
-  .result{display:none}
-  .result.show{display:block;animation:fade .4s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  .r-domain{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
-  .r-name{font-size:clamp(22px,3.2vw,30px);font-weight:800;margin:6px 0 0}
-  .r-stance{font-size:17px;margin:14px 0 0;color:#28323c}
-  .r-blurb{font-size:15px;margin:12px 0 0;color:#3a444d}
-  .r-links{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
-  .r-links a{font-family:"Space Mono",monospace;font-size:11.5px;text-decoration:none;border:1px solid var(--line-ink);
-    border-radius:6px;padding:6px 10px;color:#3a444d}
+  .describe label{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-ink)}
+  .describe textarea{width:100%;margin-top:8px;min-height:90px;border:1px solid var(--line-ink);border-radius:10px;padding:12px 14px;font-family:inherit;font-size:15px;resize:vertical}
+  .describe .hint{margin-top:8px;font-size:12.5px;color:var(--muted-ink)}
+  .describe .hint b{color:var(--accent-deep);font-weight:600}
+
+  .result{display:none} .result.show{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .r-kicker{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
+  .r-name{font-size:clamp(21px,3.2vw,29px);font-weight:800;margin:6px 0 0}
+  .r-stance{font-size:16.5px;margin:12px 0 0;color:#28323c}
+  .r-blurb{font-size:14.5px;margin:10px 0 0;color:#3a444d}
+  .echo{margin-top:14px;background:var(--paper-2);border:1px solid var(--line-ink);border-radius:8px;padding:11px 14px;font-size:13.5px;color:#3a444d}
+  .echo b{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-ink);font-weight:400;display:block;margin-bottom:4px}
+  .profile{margin-top:18px}
+  .profile .pl{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:8px}
+  .prow{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+  .prow .pn{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted-ink);width:92px}
+  .ptrack{flex:1;height:10px;background:#e6e9ec;border-radius:5px;overflow:hidden}
+  .pfill{height:100%;background:var(--line-ink)}
+  .pfill.win{background:var(--accent)}
+  .prow .pc{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted-ink);width:18px;text-align:right}
+  .mixed{background:#fff8e9;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:14px;font-size:14px;color:#6f5713}
+  .r-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .r-links a{font-family:"Space Mono",monospace;font-size:11.5px;text-decoration:none;border:1px solid var(--line-ink);border-radius:6px;padding:6px 10px;color:#3a444d}
   .r-links a:hover{border-color:var(--accent);color:var(--accent-deep)}
-  .agile{margin-top:14px;background:#fffdf6;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;font-size:14px;color:#6f5713;display:none}
-  .agile.show{display:block}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
-    <div class="brand">BESSÓ <span>Systems</span></div>
-    <a class="back" href="#">← Toolbox</a>
+    <a class="brand" href="../">BESSÓ <span>Systems</span></a>
+    <a class="back" href="../toolbox/">← Toolbox</a>
   </div>
 </header>
 
@@ -95,17 +81,15 @@
   <div class="wrap">
     <p class="eyebrow">Toolbox · <b>an instrument that makes you think</b></p>
     <h1>Cynefin sorter</h1>
-    <p>Answer five questions about a problem you're facing, and watch where it lands on the Cynefin map — and which way of acting actually fits it.</p>
+    <p>Describe a problem you're facing, answer five questions, and see the <em>decision context</em> it sits in — and the first move that fits. It surfaces a profile, not a verdict: if your answers cohere you have a provisional domain; if they split, the problem is mixed and needs breaking down.</p>
     <p class="aid">A thinking aid, not an oracle. The value is in the questions — what they make you notice.</p>
   </div>
 </section>
 
 <section class="tool">
   <div class="wrap">
-
-    <!-- live map -->
     <div class="mapwrap">
-      <svg class="map" viewBox="0 0 420 360" role="img" aria-label="Cynefin map; a marker moves toward a domain as you answer.">
+      <svg class="map" viewBox="0 0 420 360" role="img" aria-label="Cynefin map; a marker moves as you answer.">
         <line x1="210" y1="20" x2="210" y2="340" stroke="#e2e6ea"/>
         <line x1="30" y1="180" x2="390" y2="180" stroke="#e2e6ea"/>
         <g font-family="Space Mono, monospace">
@@ -125,147 +109,209 @@
           <circle r="7" fill="#f2b01e" stroke="#fff" stroke-width="2"/>
         </g>
       </svg>
-      <div class="maptip">your problem, finding its domain</div>
+      <div class="maptip">your problem, finding its decision context</div>
     </div>
 
-    <!-- questions / result -->
     <div class="panel">
       <div id="quiz">
-        <div class="progress" id="progress">Question 1 / 5</div>
-        <div class="qtext" id="qtext"></div>
-        <div class="opts" id="opts"></div>
-        <div class="nav-btns"><button class="btn" id="back" disabled>← back</button></div>
+        <div id="describe" class="describe">
+          <div class="progress">Before we start</div>
+          <div class="qtext">What problem are you facing?</div>
+          <label for="prob">describe it — one line is enough</label>
+          <textarea id="prob" placeholder="e.g. a new alarm logic nobody trusts · a line that won't hold takt · choosing a replacement MES"></textarea>
+          <p class="hint">Keep it to one concrete decision. <b>If it's big</b> ("digital transformation"), narrow it — a broad issue almost always spans several domains at once.</p>
+          <div class="nav-btns"><button class="btn primary" id="start">Start →</button></div>
+        </div>
+        <div id="qbody" style="display:none">
+          <div class="progress" id="progress"></div>
+          <div class="qtext" id="qtext"></div>
+          <div class="opts" id="opts"></div>
+          <div class="nav-btns"><button class="btn" id="back">← back</button></div>
+        </div>
       </div>
 
       <div class="result" id="result">
-        <div class="r-domain">Your problem looks</div>
+        <div class="r-kicker" id="rkicker">Your answers suggest</div>
         <div class="r-name" id="rname"></div>
         <div class="r-stance" id="rstance"></div>
         <div class="r-blurb" id="rblurb"></div>
-        <div class="agile" id="agile">In a complex domain you don't find the answer — you grow it. Manage it iteratively: small, safe-to-fail experiments, deliver value in increments, sense what happens, respond. This is exactly where Agile belongs.</div>
+        <div class="mixed" id="mixed" style="display:none"></div>
+        <div class="echo" id="echo" style="display:none"></div>
+        <div class="profile">
+          <div class="pl">your profile across the five questions</div>
+          <div id="bars"></div>
+        </div>
         <div class="r-links" id="rlinks"></div>
         <div class="nav-btns"><button class="btn" id="restart">↺ start over</button></div>
       </div>
     </div>
-
   </div>
 </section>
 
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="../about/">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../about/">Contact</a></span>
+  </div>
+</footer>
+
 <script>
-// ---- CONTENT AS DATA (authored judgment; edit here, logic untouched) ----
 const Q = [
-  { q: "Change one thing on the line. Can you predict the result?",
-    o: [
-      {t:"Yes — a known rule covers it.",        w:{clear:2}},
-      {t:"With study, an expert can.",           w:{complicated:2}},
-      {t:"Only by trying it and watching.",      w:{complex:2}},
-      {t:"Nothing's predictable — it's breaking down.", w:{chaotic:2}},
-    ]},
-  { q: "Who holds the right answer?",
-    o: [
-      {t:"It's obvious / procedure covers it.",  w:{clear:2}},
-      {t:"An expert, given time to analyze.",    w:{complicated:2}},
-      {t:"No one — it has to emerge.",           w:{complex:2}},
-      {t:"There's no time to ask anyone.",       w:{chaotic:2}},
-    ]},
-  { q: "Same inputs, same output?",
-    o: [
-      {t:"Always.",                              w:{clear:2}},
-      {t:"Usually, if conditions are controlled.", w:{complicated:2, clear:1}},
-      {t:"Not reliably — context keeps shifting.", w:{complex:2}},
-      {t:"Wildly unpredictable right now.",      w:{chaotic:2}},
-    ]},
-  { q: "How much does the human / social side drive the outcome?",
-    o: [
-      {t:"Barely — it's mechanical.",            w:{clear:1, complicated:1}},
-      {t:"Some, but the technical dominates.",   w:{complicated:2}},
-      {t:"It's the main variable.",              w:{complex:2}},
-    ]},
-  { q: "What's the safest next move?",
-    o: [
-      {t:"Apply the known procedure.",           w:{clear:2}},
-      {t:"Study it, then decide.",               w:{complicated:2}},
-      {t:"Run a small, safe-to-fail experiment.", w:{complex:2}},
-      {t:"Act now to stabilize, analyze later.", w:{chaotic:2}},
-    ]},
+  { q:"Change one setting on the line. Do you know what will happen before you try it?",
+    o:[ {t:"Yes — it's obvious to anyone who knows the line.", d:"clear"},
+        {t:"Not obvious, but an expert could work it out with analysis.", d:"complicated"},
+        {t:"Only by trying it and watching — it shows itself afterward.", d:"complex"},
+        {t:"Can't tell — things are too turbulent right now.", d:"chaotic"} ]},
+  { q:"Run the same intervention again next week, similar conditions. Same result?",
+    o:[ {t:"Reliably the same — stable enough for standard procedure.", d:"clear"},
+        {t:"Likely, if the diagnosis or method is sound.", d:"complicated"},
+        {t:"Not really — interactions shift the outcome.", d:"complex"},
+        {t:"Too unstable for the question to even mean anything.", d:"chaotic"} ]},
+  { q:"Before you act, what's the honest way to know what to do?",
+    o:[ {t:"Match it to a known rule, checklist or standard.", d:"clear"},
+        {t:"Analyze it, model it, or bring in an expert.", d:"complicated"},
+        {t:"Run a small safe-to-fail probe and learn from the response.", d:"complex"},
+        {t:"Act first to stop the bleeding; analysis can wait.", d:"chaotic"} ]},
+  { q:"What's holding the situation in place?",
+    o:[ {t:"Fixed, rigid rules — it can only go one way.", d:"clear"},
+        {t:"Expert-set boundaries — methods and specs govern it.", d:"complicated"},
+        {t:"Many interdependencies and local workarounds — loosely held.", d:"complex"},
+        {t:"The usual constraints have broken or are collapsing.", d:"chaotic"} ]},
+  { q:"What's the most responsible first move here?",
+    o:[ {t:"Apply the standard procedure and monitor.", d:"clear"},
+        {t:"Diagnose carefully, then choose among good practices.", d:"complicated"},
+        {t:"Increase sensing, keep options open, intervene experimentally.", d:"complex"},
+        {t:"Stabilize now, impose temporary order, then reassess.", d:"chaotic"} ]},
 ];
 
 const CENTER = { complex:[110,95], complicated:[310,95], chaotic:[110,265], clear:[310,265] };
-
-const RESULT = {
-  clear:       { name:"Clear", stance:"Sense → categorize → respond.",
-    blurb:"There's a right answer and a known procedure. Apply best practice — and watch it doesn't quietly drift into something more complex." },
-  complicated: { name:"Complicated", stance:"Sense → analyze → respond.",
-    blurb:"There's a right answer, but it takes expertise to find. Bring in the analysis, weigh the options, then act. Good practice, not the only practice." },
-  complex:     { name:"Complex", stance:"Probe → sense → respond.",
-    blurb:"There's no answer to find — it has to emerge. Cause and effect only make sense in hindsight." },
-  chaotic:     { name:"Chaotic", stance:"Act → sense → respond.",
-    blurb:"No time to analyze. Act to stabilize first, then find out what domain you're really in." },
+const NAME   = { clear:"Clear", complicated:"Complicated", complex:"Complex", chaotic:"Chaotic" };
+const RES = {
+  clear:{
+    stance:"Sense → categorize → respond.",
+    blurb:"There's a right answer and a known procedure. Apply best practice — and watch it doesn't quietly drift into something more complex.",
+    links:[["Standard work → Toolbox","../toolbox/"],["best practice → Knowledge","../knowledge/"]]
+  },
+  complicated:{
+    stance:"Sense → analyze → respond.",
+    blurb:"There's a right answer, but it takes expertise to find. Diagnose, weigh the options, then act. Your standard methods live here.",
+    links:[["SMED · A3 → Knowledge shelf","../knowledge/"],["calculators → Toolbox","../toolbox/"]]
+  },
+  complex:{
+    stance:"Probe → sense → respond.",
+    blurb:"There's no answer to find — it has to emerge. Don't plan the whole change; grow it in small, safe-to-fail increments and correct as you learn. This is where Agile belongs.",
+    links:[["Agile → Knowledge F8","../knowledge/"],["Cynefin frame → Knowledge","../knowledge/"]]
+  },
+  chaotic:{
+    stance:"Act → sense → respond.",
+    blurb:"No time to analyze. Act to stabilize first, impose temporary order, then find out which domain you're really in — and run this again once it's calmer.",
+    links:[["Cynefin frame → Knowledge","../knowledge/"]]
+  },
 };
 
-// ---- LOGIC + RENDER (vanilla JS) ----
 let step = 0;
+let problem = "";
 const answers = new Array(Q.length).fill(null);
 
-const qtext = document.getElementById('qtext');
-const opts  = document.getElementById('opts');
-const prog  = document.getElementById('progress');
-const backBtn = document.getElementById('back');
-const marker = document.getElementById('marker');
+const qbody    = document.getElementById('qbody');
+const describe = document.getElementById('describe');
+const qtext    = document.getElementById('qtext');
+const opts     = document.getElementById('opts');
+const prog     = document.getElementById('progress');
+const marker   = document.getElementById('marker');
 
-function totals(){
-  const t = {clear:0, complicated:0, complex:0, chaotic:0};
-  answers.forEach((a,i)=>{ if(a!=null){ const w=Q[i].o[a].w; for(const k in w) t[k]+=w[k]; }});
-  return t;
-}
+function counts(){ const c={clear:0,complicated:0,complex:0,chaotic:0}; answers.forEach(a=>{if(a)c[a]++}); return c; }
+
 function moveMarker(){
-  const t = totals(); const sum = t.clear+t.complicated+t.complex+t.chaotic;
+  const c=counts(), s=Object.values(c).reduce((a,b)=>a+b,0);
   let x=210, y=180;
-  if(sum>0){ x=0;y=0; for(const d in CENTER){ x+=CENTER[d][0]*t[d]; y+=CENTER[d][1]*t[d]; } x/=sum; y/=sum; }
-  marker.setAttribute('transform', `translate(${x.toFixed(1)},${y.toFixed(1)})`);
+  if(s>0){ x=0; y=0; for(const d in CENTER){ x+=CENTER[d][0]*c[d]; y+=CENTER[d][1]*c[d]; } x/=s; y/=s; }
+  marker.setAttribute('transform',`translate(${x.toFixed(1)},${y.toFixed(1)})`);
 }
-function dominant(){
-  const t = totals(); let best='complex', max=-1;
-  // tie-break toward complex (the honest default for human-industrial problems)
-  ['clear','complicated','chaotic','complex'].forEach(d=>{ if(t[d]>max){max=t[d];best=d;} });
-  return best;
+
+function classify(){
+  const c=counts();
+  if(c.chaotic>=2 && (answers[0]==='chaotic'||answers[4]==='chaotic')) return {domain:'chaotic',mixed:false,c};
+  let top='clear', max=-1;
+  for(const d of ['clear','complicated','complex','chaotic']){ if(c[d]>max){max=c[d];top=d;} }
+  if(max>=3) return {domain:top,mixed:false,c};
+  return {domain:null,mixed:true,c};
 }
-function renderQ(){
-  document.getElementById('quiz').style.display='block';
+
+document.getElementById('start').onclick = () => {
+  problem = document.getElementById('prob').value.trim();
+  step = 1; renderQ();
+};
+document.getElementById('back').onclick = () => {
+  if(step>1){ step--; renderQ(); }
+  else { step=0; describe.style.display='block'; qbody.style.display='none'; }
+};
+document.getElementById('restart').onclick = () => {
+  step=0; problem=""; answers.fill(null);
+  document.getElementById('prob').value="";
+  moveMarker();
   document.getElementById('result').classList.remove('show');
-  prog.textContent = `Question ${step+1} / ${Q.length}`;
-  qtext.textContent = Q[step].q;
+  describe.style.display='block'; qbody.style.display='none';
+};
+
+function renderQ(){
+  document.getElementById('result').classList.remove('show');
+  describe.style.display='none'; qbody.style.display='block';
+  const i=step-1;
+  prog.textContent=`Question ${step} / ${Q.length}`;
+  qtext.textContent=Q[i].q;
   opts.innerHTML='';
-  Q[step].o.forEach((o,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=o.t;
-    if(answers[step]===i){ b.style.borderColor='var(--accent)'; }
-    b.onclick=()=>{ answers[step]=i; moveMarker(); next(); };
+  Q[i].o.forEach(o=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=o.t;
+    if(answers[i]===o.d) b.style.borderColor='var(--accent)';
+    b.onclick=()=>{ answers[i]=o.d; moveMarker(); if(step<Q.length){step++;renderQ();}else showResult(); };
     opts.appendChild(b);
   });
-  backBtn.disabled = step===0;
 }
-function next(){
-  if(step < Q.length-1){ step++; renderQ(); }
-  else { showResult(); }
-}
-document.getElementById('back').onclick=()=>{ if(step>0){step--; renderQ();} };
-document.getElementById('restart').onclick=()=>{ step=0; answers.fill(null); moveMarker(); renderQ(); };
 
 function showResult(){
-  document.getElementById('quiz').style.display='none';
-  const d = dominant(); const r = RESULT[d];
-  document.getElementById('rname').textContent = r.name;
-  document.getElementById('rstance').textContent = r.stance;
-  document.getElementById('rblurb').textContent = r.blurb;
-  document.getElementById('agile').classList.toggle('show', d==='complex');
-  const links = document.getElementById('rlinks');
-  links.innerHTML = '<a href="#">Read the frame → Cynefin (Knowledge)</a>'
-    + (d==='complex' ? '<a href="#">See it in a case → Case 03</a>' : '<a href="#">See it in a case → Cases</a>');
-  document.getElementById('result').classList.add('show');
+  qbody.style.display='none';
+  const r=classify();
+  const res=document.getElementById('result');
+  const mixedBox=document.getElementById('mixed');
+  const echo=document.getElementById('echo');
+
+  if(r.mixed){
+    document.getElementById('rkicker').textContent="This looks";
+    document.getElementById('rname').textContent="Mixed / Confused";
+    document.getElementById('rstance').textContent="Your answers don't cluster on one domain.";
+    document.getElementById('rblurb').textContent="That isn't a failure — it usually means the issue is framed too broadly, or is several problems at once that need different responses.";
+    mixedBox.style.display='block';
+    mixedBox.innerHTML="<b>Next move:</b> break it into one concrete decision context and run the sorter again on each part. Forcing a single domain here would be false certainty.";
+    document.getElementById('rlinks').innerHTML='<a href="../knowledge/">read the frame → Cynefin</a>';
+  } else {
+    const info=RES[r.domain];
+    document.getElementById('rkicker').textContent=r.domain==='chaotic'?"Stabilize first — this looks":"Your answers cluster on";
+    document.getElementById('rname').textContent=NAME[r.domain];
+    document.getElementById('rstance').textContent=info.stance;
+    document.getElementById('rblurb').textContent=info.blurb;
+    mixedBox.style.display='none';
+    document.getElementById('rlinks').innerHTML=info.links.map(l=>`<a href="${l[1]}">${l[0]}</a>`).join('');
+  }
+
+  if(problem){
+    echo.style.display='block';
+    echo.innerHTML='<b>you described</b>'+escapeHtml(problem)+(r.mixed?" — narrow it to one decision and re-run.":"");
+  } else { echo.style.display='none'; }
+
+  const c=r.c, bars=document.getElementById('bars'); bars.innerHTML='';
+  const winner=r.mixed?null:r.domain;
+  for(const d of ['clear','complicated','complex','chaotic']){
+    const row=document.createElement('div'); row.className='prow';
+    row.innerHTML=`<span class="pn">${NAME[d]}</span><div class="ptrack"><div class="pfill ${d===winner?'win':''}" style="width:${(c[d]/Q.length*100).toFixed(0)}%"></div></div><span class="pc">${c[d]}</span>`;
+    bars.appendChild(row);
+  }
+  res.classList.add('show');
 }
 
-renderQ();
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
 </script>
 </body>
 </html>

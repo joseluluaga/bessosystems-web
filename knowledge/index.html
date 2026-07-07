@@ -1,123 +1,716 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Knowledge Base — Technical articles on process improvement, SCADA/MES, Lean, energy management and digital operations.">
-  <title>Knowledge Base — BESSÓ Systems</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BESSÓ Systems — Frames for reading industrial operations: Cynefin, legibility, tacit knowledge, metrics that lie, sociotechnical seam, resistance as information.">
+<title>BESSÓ Systems — Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/v3-style.css">
 </head>
 <body>
 
-  <!-- NAV (depth: 1) -->
-  <nav class="site-nav">
-    <div class="container nav-inner">
-      <a href="../" class="nav-logo">
-        <span class="logo-sigil">BS</span>
-        <span>BESSÓ Systems</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="../toolbox/">Toolbox</a></li>
-        <li><a href="../knowledge/" class="active">Knowledge</a></li>
-        <li><a href="../cases/">Cases</a></li>
-        <li><a href="../about/">About</a></li>
-        <li><a href="../contact/">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-    </div>
-  </nav>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../">BESSÓ <span>Systems</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../cases/">Cases</a><a href="../knowledge/" class="active">Knowledge</a><a href="../Lab/">Lab</a>
+      <a href="../toolbox/">Toolbox</a><a href="../about/">About</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- MAIN -->
-  <main class="page-body">
-    <div class="container">
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Knowledge · <b>how change becomes safe</b></p>
+    <h1>Eight frames for reading a floor.</h1>
+    <p class="lede">Improving an operation means changing it. People don't resist change — they resist changing what they can't see. These frames trace the sequence that makes a change safe to attempt: how to read it, order it, and manage it. Read them in order.</p>
+  </div>
+</section>
 
-      <!-- PAGE HEADER ========================================== -->
-      <div class="page-header">
-        <p class="overline">Knowledge Base</p>
-        <h1>Technical Articles</h1>
-        <p>Structured articles on process improvement, SCADA/MES, Lean and digital operations. Written to be practical, not theoretical.</p>
-      </div>
+<!-- FRAMES -->
+<section class="frames">
+  <div class="wrap">
+    <div class="sec-lbl">Frames</div>
+    <p class="sec-sub">Eight frames — the sequence behind a safe change. Read them in order.</p>
 
-      <!-- CATEGORY FILTER ====================================== -->
-      <div class="cat-filter">
-        <button class="cat-btn active" onclick="filterArticles(this, 'all')">All</button>
-        <button class="cat-btn" onclick="filterArticles(this, 'Process Improvement')">Process Improvement</button>
-        <button class="cat-btn" onclick="filterArticles(this, 'MES / SCADA')">MES / SCADA</button>
-        <button class="cat-btn" onclick="filterArticles(this, 'Lean &amp; Industrial Engineering')">Lean &amp; Industrial Engineering</button>
-      </div>
+    <!-- F1 Cynefin -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F1</span><span class="f-tag">decision-making</span></div>
+      <h2>Cynefin — choose the method by the domain</h2>
+      <p class="angle"><span class="hl">Most "method failures" are domain errors.</span> Before you plan a change, know where the problem actually sits — complicated problems respond to analysis and best practice; complex ones require probing first. A complicated-world tool used on a complex problem fails not because it's bad, but because it's in the wrong domain. When standard work drifts despite training, when a metric looks fine but the operation isn't, the first question isn't "how do we push harder?" It's "are we in the right domain?"</p>
+      <div class="graphic" style="padding:0;overflow:hidden">
+        <div id="cynefin-map-wrap">
+<svg width="100%" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cynefin-title cynefin-desc" style="display:block">
+  <title id="cynefin-title">BESSÓ Systems — Cynefin Operational Map</title>
+  <desc id="cynefin-desc">Interactive Cynefin map — click a domain to see its detail card.</desc>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7F9FA"/>
+      <stop offset="45%" stop-color="#EDF1F4"/>
+      <stop offset="100%" stop-color="#F8F8F4"/>
+    </linearGradient>
+    <linearGradient id="complexGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EAF2F7"/><stop offset="100%" stop-color="#F9FBFC"/>
+    </linearGradient>
+    <linearGradient id="complicatedGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5F2EA"/><stop offset="100%" stop-color="#FCFBF6"/>
+    </linearGradient>
+    <linearGradient id="clearGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F2F6EF"/><stop offset="100%" stop-color="#FCFCF8"/>
+    </linearGradient>
+    <linearGradient id="chaoticGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7EEEE"/><stop offset="100%" stop-color="#FCFAF9"/>
+    </linearGradient>
+    <linearGradient id="disorderSurfaceGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1118"/>
+      <stop offset="55%" stop-color="#111820"/>
+      <stop offset="100%" stop-color="#202934"/>
+    </linearGradient>
+    <radialGradient id="disorderCenterGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#F2B43B" stop-opacity=".32"/>
+      <stop offset="70%" stop-color="#D99A18" stop-opacity=".09"/>
+      <stop offset="100%" stop-color="#D99A18" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dotGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.2" fill="#77838F" opacity="0.16"/>
+    </pattern>
+    <pattern id="blackGrid" width="18" height="18" patternUnits="userSpaceOnUse">
+      <path d="M 18 0 L 0 0 0 18" fill="none" stroke="#FFFFFF" stroke-width=".7" opacity=".06"/>
+    </pattern>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0E151C" flood-opacity="0.13"/>
+    </filter>
+    <filter id="domainHoverGlow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#D99A18" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0E151C" flood-opacity="0.10"/>
+    </filter>
+    <filter id="centerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#D99A18" flood-opacity="0.42"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#0E151C" flood-opacity=".22"/>
+    </filter>
+    <style><![CDATA[
+      .c-domain-path{stroke:#D4DDE3;stroke-width:2;cursor:pointer;transition:220ms ease}
+      .c-domain-group:hover .c-domain-path,.c-domain-group:focus .c-domain-path{stroke:#D99A18;stroke-width:4;filter:url(#domainHoverGlow)}
+      .c-domain-group:hover .c-domain-accent{opacity:1;transform:translateY(-4px)}
+      .c-domain-group:hover .c-domain-title{fill:#0E151C}
+      .c-domain-group:hover .c-icon-line{stroke:#D99A18;opacity:1}
+      .c-domain-group:focus,.c-center-domain:focus{outline:none}
+      .c-domain-accent{opacity:.48;transition:220ms ease;transform-box:fill-box;transform-origin:center}
+      .c-domain-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:34px;font-weight:760;letter-spacing:2.6px;fill:#111820}
+      .c-domain-subtitle{font-family:"Space Mono",ui-monospace,monospace;font-size:16px;font-weight:620;letter-spacing:.4px;fill:#5B6875}
+      .c-domain-example{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:18px;font-weight:530;fill:#5B6875}
+      .c-icon-line{stroke:#81909C;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;fill:none;opacity:.78;transition:220ms ease}
+      .c-icon-fill{fill:#81909C;opacity:.14}
+      .c-method-pill{fill:#FFFFFF;stroke:#D7E0E6;stroke-width:1.2}
+      .c-method-text{font-family:"Space Mono",ui-monospace,monospace;font-size:12px;font-weight:740;letter-spacing:.5px;fill:#60707D}
+      .c-disorder-surface{fill:url(#disorderSurfaceGrad);stroke:#26313B;stroke-width:2;opacity:.98;pointer-events:none}
+      .c-disorder-surface-grid{fill:url(#blackGrid);opacity:.85;pointer-events:none}
+      .c-disorder-label{font-family:"Space Mono",ui-monospace,monospace;font-size:12px;font-weight:780;letter-spacing:1.8px;fill:#E5A92D;opacity:.88;pointer-events:none}
+      .c-center-domain{cursor:pointer;transition:250ms ease}
+      .c-center-domain:hover .c-center-core{filter:url(#centerGlow);stroke:#F0B33A}
+      .c-center-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:22px;font-weight:820;letter-spacing:1.8px;fill:#F5B940}
+      .c-center-small{font-family:"Space Mono",ui-monospace,monospace;font-size:12px;font-weight:700;letter-spacing:.6px;fill:#DDE6ED;opacity:.92}
+      .c-pulse-ring{transform-origin:800px 515px;animation:cynefin-pulse 3.2s ease-in-out infinite}
+      @keyframes cynefin-pulse{0%,100%{opacity:.18;transform:scale(.96)}50%{opacity:.34;transform:scale(1.05)}}
+    ]]></style>
+  </defs>
 
-      <!-- ARTICLE CARDS ======================================== -->
-      <div class="grid-3" id="articleGrid">
+  <rect x="80" y="60" width="1440" height="780" rx="42" fill="url(#bgGrad)" stroke="#DDE4E8" stroke-width="1.4" filter="url(#softShadow)"/>
+  <rect x="80" y="60" width="1440" height="780" rx="42" fill="url(#dotGrid)" opacity=".55"/>
+  <rect x="112" y="92" width="1376" height="716" rx="30" fill="white" opacity=".52"/>
 
-        <a href="diagnose.html" class="article-card" data-cat="Process Improvement">
-          <p class="a-cat">Process Improvement</p>
-          <h3>How to Diagnose a Process Before Automating It</h3>
-          <p>A systematic approach to understanding what a process actually does before applying technology or redesigning it.</p>
-          <div class="tags" style="margin-top:14px;">
-            <span class="tag">VSM</span>
-            <span class="tag">PDCA</span>
-            <span class="tag">Process Mapping</span>
-          </div>
-        </a>
+  <g transform="translate(155 120)">
+    <rect x="0" y="0" width="1290" height="610" rx="34" fill="#F7F9FA" stroke="#DEE6EB" stroke-width="1.5"/>
 
-        <a href="scada-mes.html" class="article-card" data-cat="MES / SCADA">
-          <p class="a-cat">MES / SCADA</p>
-          <h3>SCADA vs MES: Practical Differences That Matter</h3>
-          <p>What the two systems actually do, where they overlap, and how to decide which you need — or whether you need both.</p>
-          <div class="tags" style="margin-top:14px;">
-            <span class="tag">SCADA</span>
-            <span class="tag">MES</span>
-            <span class="tag">OT/IT</span>
-          </div>
-        </a>
+    <a href="#complex" aria-label="Complex domain">
+      <g id="domain-complex" class="c-domain-group" tabindex="0">
+        <path class="c-domain-path" fill="url(#complexGrad)"
+          d="M52,52 C168,22 312,30 456,46 C566,58 628,96 653,174 C674,242 642,303 591,329 C523,363 440,337 365,335 C265,331 165,365 94,320 C32,280 24,183 52,52 Z"/>
+        <path d="M85,88 C220,58 390,70 530,100 C595,114 625,156 635,195" stroke="#D99A18" stroke-width="5" stroke-linecap="round" class="c-domain-accent"/>
+        <rect x="70" y="258" width="176" height="31" rx="15.5" class="c-method-pill"/>
+        <text x="88" y="279" class="c-method-text">PROBE · SENSE · RESPOND</text>
+        <text x="78" y="115" class="c-domain-title">COMPLEX</text>
+        <text x="82" y="153" class="c-domain-subtitle">patterns emerge</text>
+        <text x="82" y="197" class="c-domain-example">
+          <tspan x="82">new launch · unstable process</tspan>
+          <tspan x="82" dy="26">operators learning</tspan>
+        </text>
+        <g transform="translate(470 206)">
+          <circle cx="10" cy="28" r="8" fill="#D99A18" opacity=".85"/>
+          <circle cx="72" cy="8" r="7" fill="#8795A2" opacity=".8"/>
+          <circle cx="103" cy="58" r="9" fill="#8795A2" opacity=".78"/>
+          <circle cx="45" cy="90" r="6" fill="#8795A2" opacity=".68"/>
+          <path d="M18 26 L65 10 M77 14 L99 50 M94 62 L51 87 M17 34 L42 84 M48 87 L71 15" class="c-icon-line"/>
+        </g>
+      </g>
+    </a>
 
-        <a href="shopfloor-a3.html" class="article-card" data-cat="Lean &amp; Industrial Engineering">
-          <p class="a-cat">Lean &amp; Industrial Engineering</p>
-          <h3>From Shopfloor Observation to A3</h3>
-          <p>How to translate what you see on the floor into a structured A3 — without losing the nuance that makes the analysis useful.</p>
-          <div class="tags" style="margin-top:14px;">
-            <span class="tag">A3</span>
-            <span class="tag">Lean</span>
-            <span class="tag">Gemba</span>
-          </div>
-        </a>
+    <a href="#complicated" aria-label="Complicated domain">
+      <g id="domain-complicated" class="c-domain-group" tabindex="0">
+        <path class="c-domain-path" fill="url(#complicatedGrad)"
+          d="M698,54 C842,25 1005,24 1214,56 C1272,155 1265,281 1196,327 C1127,374 1016,341 920,334 C834,328 761,361 703,324 C642,285 646,203 670,140 C680,113 687,82 698,54 Z"/>
+        <path d="M721,86 C853,60 1023,62 1177,92 C1225,102 1246,132 1256,162" stroke="#D99A18" stroke-width="5" stroke-linecap="round" class="c-domain-accent"/>
+        <rect x="722" y="258" width="180" height="31" rx="15.5" class="c-method-pill"/>
+        <text x="739" y="279" class="c-method-text">SENSE · ANALYZE · RESPOND</text>
+        <text x="722" y="115" class="c-domain-title">COMPLICATED</text>
+        <text x="726" y="153" class="c-domain-subtitle">expert analysis</text>
+        <text x="726" y="197" class="c-domain-example">
+          <tspan x="726">recurring OEE loss</tspan>
+          <tspan x="726" dy="26">technical root cause</tspan>
+        </text>
+        <g transform="translate(1085 195)">
+          <path d="M0 98 H138" class="c-icon-line"/>
+          <path d="M18 92 V52 M55 92 V28 M92 92 V70 M126 92 V16" class="c-icon-line"/>
+          <path d="M16 52 L55 28 L91 70 L126 16" class="c-icon-line"/>
+          <circle cx="126" cy="16" r="8" fill="#D99A18" opacity=".9"/>
+        </g>
+      </g>
+    </a>
 
-      </div>
+    <a href="#chaotic" aria-label="Chaotic domain">
+      <g id="domain-chaotic" class="c-domain-group" tabindex="0">
+        <path class="c-domain-path" fill="url(#chaoticGrad)"
+          d="M72,358 C150,314 264,344 371,343 C464,343 540,317 598,359 C644,392 668,455 637,516 C602,586 470,592 354,584 C236,576 112,600 58,524 C18,468 25,385 72,358 Z"/>
+        <path d="M98,386 C207,352 371,363 511,370 C578,374 616,408 630,452" stroke="#D99A18" stroke-width="5" stroke-linecap="round" class="c-domain-accent"/>
+        <rect x="83" y="512" width="166" height="31" rx="15.5" class="c-method-pill"/>
+        <text x="101" y="533" class="c-method-text">ACT · SENSE · RESPOND</text>
+        <text x="82" y="428" class="c-domain-title">CHAOTIC</text>
+        <text x="86" y="466" class="c-domain-subtitle">stabilize first</text>
+        <text x="307" y="438" class="c-domain-example">
+          <tspan x="307">safety risk · line down</tspan>
+          <tspan x="307" dy="26">quality spill</tspan>
+        </text>
+        <g transform="translate(448 478)">
+          <path d="M3 42 L30 0 L57 42 Z" class="c-icon-line"/>
+          <path d="M30 14 V27" class="c-icon-line"/>
+          <circle cx="30" cy="35" r="2.8" fill="#D99A18"/>
+          <path d="M78 24 C92 2 100 48 113 24 C126 0 137 48 150 24" class="c-icon-line"/>
+        </g>
+      </g>
+    </a>
 
-    </div>
-  </main>
+    <a href="#clear" aria-label="Clear domain">
+      <g id="domain-clear" class="c-domain-group" tabindex="0">
+        <path class="c-domain-path" fill="url(#clearGrad)"
+          d="M700,359 C773,318 853,344 936,345 C1031,347 1147,319 1214,365 C1278,409 1267,522 1217,560 C1148,611 1015,580 911,582 C809,584 729,601 680,541 C634,484 640,393 700,359 Z"/>
+        <path d="M730,386 C850,358 1025,364 1162,384 C1215,392 1244,420 1254,456" stroke="#D99A18" stroke-width="5" stroke-linecap="round" class="c-domain-accent"/>
+        <rect x="724" y="512" width="205" height="31" rx="15.5" class="c-method-pill"/>
+        <text x="742" y="533" class="c-method-text">SENSE · CATEGORIZE · RESPOND</text>
+        <text x="724" y="428" class="c-domain-title">CLEAR</text>
+        <text x="728" y="466" class="c-domain-subtitle">known standard</text>
+        <text x="948" y="438" class="c-domain-example">
+          <tspan x="948">standard work</tspan>
+          <tspan x="948" dy="26">known defect · checklist</tspan>
+        </text>
+        <g transform="translate(1068 482)">
+          <rect x="0" y="0" width="112" height="82" rx="8" class="c-icon-fill"/>
+          <path d="M18 24 L30 36 L54 14" class="c-icon-line"/>
+          <path d="M68 26 H98" class="c-icon-line"/>
+          <path d="M18 58 L30 70 L54 48" class="c-icon-line"/>
+          <path d="M68 60 H98" class="c-icon-line"/>
+        </g>
+      </g>
+    </a>
 
-  <script>
-  function filterArticles(btn, cat) {
-    document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    document.querySelectorAll('#articleGrid .article-card').forEach(function(card) {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
-    });
-  }
-  </script>
+    <g id="disorder-surface-visual" aria-hidden="true">
+      <path class="c-disorder-surface"
+        d="M642,46 C618,132 625,222 592,304 C580,333 580,355 595,384 C624,440 620,514 602,584 L731,584 C706,509 704,439 734,382 C749,354 747,330 732,302 C690,225 695,132 706,46 Z"/>
+      <path class="c-disorder-surface"
+        d="M54,305 C222,319 393,303 572,314 C618,317 647,330 671,356 C699,324 731,316 778,314 C951,306 1110,319 1238,305 L1238,394 C1087,379 930,389 780,382 C730,380 703,390 671,424 C642,392 612,381 566,382 C397,390 222,377 54,394 Z"/>
+      <path class="c-disorder-surface-grid"
+        d="M642,46 C618,132 625,222 592,304 C580,333 580,355 595,384 C624,440 620,514 602,584 L731,584 C706,509 704,439 734,382 C749,354 747,330 732,302 C690,225 695,132 706,46 Z"/>
+      <path class="c-disorder-surface-grid"
+        d="M54,305 C222,319 393,303 572,314 C618,317 647,330 671,356 C699,324 731,316 778,314 C951,306 1110,319 1238,305 L1238,394 C1087,379 930,389 780,382 C730,380 703,390 671,424 C642,392 612,381 566,382 C397,390 222,377 54,394 Z"/>
+      <path d="M650 65 C635 178 642 250 612 316 C596 350 610 380 638 410 C658 474 640 527 626 568"
+        stroke="#D99A18" stroke-width="2.4" stroke-linecap="round" opacity=".42"/>
+      <path d="M82 341 C250 349 421 333 573 344 C622 348 647 361 671 386 C700 359 733 348 782 344 C956 334 1104 349 1212 341"
+        stroke="#D99A18" stroke-width="2.4" stroke-linecap="round" opacity=".42"/>
+      <text x="315" y="343" class="c-disorder-label">DOMAIN UNCLEAR</text>
+      <text x="855" y="343" class="c-disorder-label">WRONG RESPONSE LOGIC</text>
+    </g>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-sigil">BS</span>
-          <span>BESSÓ Systems</span>
+    <a href="#disorder" aria-label="Disorder domain">
+      <g id="domain-disorder" class="c-center-domain" tabindex="0">
+        <circle cx="671" cy="356" r="98" fill="url(#disorderCenterGlow)" class="c-pulse-ring"/>
+        <circle cx="671" cy="356" r="72" fill="#111820" stroke="#27313A" stroke-width="6" class="c-center-core"/>
+        <circle cx="671" cy="356" r="53" fill="none" stroke="#D99A18" stroke-width="2.2" opacity=".65" stroke-dasharray="8 8"/>
+        <text x="671" y="336" text-anchor="middle" class="c-center-title">DISORDER</text>
+        <text x="671" y="363" text-anchor="middle" class="c-center-small">choose domain</text>
+        <text x="671" y="382" text-anchor="middle" class="c-center-small">before tool</text>
+      </g>
+    </a>
+  </g>
+</svg>
         </div>
-        <div class="footer-meta">
-          <span class="status-dot"></span>
-          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
-        </div>
+        <img id="cynefin-detail" src="" alt="" style="display:none;width:100%;height:auto;cursor:pointer;border-radius:10px">
       </div>
-      <p class="footer-copy">© 2026 BESSÓ Systems</p>
-    </div>
-  </footer>
+      <script>
+        (function(){
+          var imgs = {
+            complex:     '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_complex_domain.png',
+            complicated: '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_complicated_domain.png',
+            clear:       '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_clear_domain.png',
+            chaotic:     '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_chaotic_domain.png',
+            disorder:    '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_disorder_domain.png'
+          };
+          var wrap   = document.getElementById('cynefin-map-wrap');
+          var detail = document.getElementById('cynefin-detail');
+          ['complex','complicated','clear','chaotic','disorder'].forEach(function(key){
+            var el = document.getElementById('domain-' + key);
+            if(!el) return;
+            el.addEventListener('click', function(e){
+              e.preventDefault();
+              detail.src = imgs[key];
+              detail.alt = key;
+              wrap.style.display = 'none';
+              detail.style.display = 'block';
+            });
+          });
+          detail.addEventListener('click', function(){
+            detail.style.display = 'none';
+            wrap.style.display = 'block';
+          });
+        })();
+      </script>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>Snowden's framework sorts a situation by the kind of cause-and-effect at play, and prescribes a different way of acting in each.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../cases/#case-03">Case 03</a><a class="chip" href="../Lab/">Lab opener</a></div></div>
+        <div><div class="l">Sources</div><p>Snowden &amp; Boone, HBR 2007</p></div>
+      </div>
+    </article>
 
-  <script src="../assets/js/nav.js"></script>
+    <div class="trans"><span class="dot"></span><div class="ln"></div><p>Know the domain, and the order of change settles. ↓</p></div>
+
+    <!-- F2 Legibility chain -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F2</span><span class="f-tag">the sequence</span></div>
+      <h2>Legibility first — standardize → automate</h2>
+      <p class="angle"><span class="hl">Standardize → automate is an order, not a menu — but how strictly depends on the domain (→ F1).</span> Standardized data is the precondition for automation, digital twins and reporting anyone trusts. In a complicated, knowable environment — much of software — you can probe and automate with a lighter standard, because the same inputs reliably give the same outputs. On a complex floor, where they don't, skipping legibility is exactly what puts the project on sand. And resistance to a mandated standard is rational when the thing being changed is still invisible — the fix isn't to push harder, it's to make it legible first.</p>
+      <div class="graphic">
+        <svg viewBox="0 0 680 130" role="img" aria-label="The chain legible to standardize to automate, with a broken shortcut arrow jumping straight to automate." font-family="Space Mono, monospace">
+          <g font-size="12" fill="#5d6b78">
+            <rect x="20" y="50" width="170" height="44" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="105" y="77" text-anchor="middle">LEGIBLE</text>
+            <rect x="255" y="50" width="170" height="44" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="340" y="77" text-anchor="middle">STANDARDIZE</text>
+            <rect x="490" y="50" width="170" height="44" rx="8" fill="#13171c" stroke="#f2b01e"/>
+            <text x="575" y="77" fill="#f2b01e" text-anchor="middle">AUTOMATE</text>
+            <g stroke="#9aa6b2" stroke-width="2" fill="#9aa6b2">
+              <line x1="190" y1="72" x2="253" y2="72"/><path d="M253,72 l-9,-5 v10 z"/>
+              <line x1="425" y1="72" x2="488" y2="72"/><path d="M488,72 l-9,-5 v10 z"/>
+            </g>
+            <path d="M105,46 C260,8 430,8 575,46" stroke="#c0463a" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+            <rect x="224" y="9" width="232" height="18" fill="white" rx="3"/>
+            <text x="340" y="22" fill="#c0463a" font-size="10" font-weight="600" text-anchor="middle">the shortcut that snaps ✕</text>
+          </g>
+        </svg>
+      </div>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>You can't improve, standardize or automate what you can't see. Standardization is the act of making an operation legible.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../cases/#case-01">Case 01</a><a class="chip" href="../cases/#case-02">Case 02</a><a class="chip" href="../cases/">all</a></div></div>
+        <div><div class="l">Sources</div><p><a href="https://www.lean.org/lexicon-terms/standardized-work/" target="_blank" rel="noopener">Lean Enterprise Institute — Standardized Work ↗</a> · Ohno, T. (1988) <em>Toyota Production System</em></p></div>
+      </div>
+    </article>
+
+    <div class="trans"><span class="dot"></span><div class="ln"></div><p>That order works for one reason — it lowers the cost of changing, for people. ↓</p></div>
+
+    <!-- F3 Shared signals -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F3</span><span class="f-tag">the social layer</span></div>
+      <h2>Shared signals — legibility as coordination</h2>
+      <p class="angle"><span class="hl">Most operational complexity is social.</span> Many people, tacit knowledge scattered across them, and the constant cost of staying in sync — that's n² coordination links: every order, check, conversation. A shared signal cuts that to n: each person connects to the signal, not to every other person. Sun Tzu commanded armies this way — not by watching every soldier, but by drum and flag. Andon, a kanban card, 5S floor tape: the same logic, 2,500 years on. And it closes a loop: when the gap between the real method and the documented one is visible to everyone — including the person doing the job — the operation converges on the standard with no one enforcing it. Legibility doesn't just communicate; it coordinates. (This is also where Agile lives → F8.)</p>
+      <div class="graphic">
+        <svg viewBox="0 0 720 250" role="img" aria-label="A shared signal moves a socially complex system (scattered, n² coordination) toward an ordered one (star around one signal, n coordination)." font-family="Space Mono, monospace">
+          <text x="40" y="24" fill="#5d6b78" font-size="14" letter-spacing="1">COMPLEX</text>
+          <text x="40" y="42" fill="#9aa6b2" font-size="10">emergent · no center · social</text>
+          <text x="478" y="24" fill="#5d6b78" font-size="14" letter-spacing="1">COMPLICATED</text>
+          <text x="478" y="42" fill="#9aa6b2" font-size="10">ordered by one shared signal</text>
+          <g stroke="#cfd6dd" stroke-width="1">
+            <line x1="70" y1="95" x2="180" y2="140"/><line x1="70" y1="95" x2="130" y2="190"/>
+            <line x1="180" y1="85" x2="120" y2="170"/><line x1="180" y1="85" x2="240" y2="150"/>
+            <line x1="120" y1="170" x2="240" y2="150"/><line x1="130" y1="190" x2="240" y2="150"/>
+            <line x1="70" y1="95" x2="180" y2="85"/><line x1="180" y1="140" x2="120" y2="170"/>
+            <line x1="180" y1="140" x2="240" y2="150"/>
+          </g>
+          <g fill="#8a96a2">
+            <circle cx="70" cy="95" r="7"/><circle cx="180" cy="85" r="7"/><circle cx="180" cy="140" r="7"/>
+            <circle cx="120" cy="170" r="7"/><circle cx="130" cy="190" r="7"/><circle cx="240" cy="150" r="7"/>
+          </g>
+          <text x="40" y="228" fill="#c0463a" font-size="11">coordinate by watching · n² links — every check, order, chat</text>
+          <g transform="translate(300,135)">
+            <line x1="0" y1="0" x2="80" y2="0" stroke="#f2b01e" stroke-width="2"/>
+            <path d="M80,0 l-11,-6 v12 z" fill="#f2b01e"/>
+            <text x="40" y="-26" fill="#f2b01e" font-size="11" text-anchor="middle">a shared signal</text>
+            <text x="40" y="-12" fill="#f2b01e" font-size="11" text-anchor="middle">tames social complexity</text>
+          </g>
+          <g transform="translate(560,80)"><circle r="13" fill="rgba(242,176,30,.22)"/><circle r="6" fill="#f2b01e"/></g>
+          <g stroke="#e6c77f" stroke-width="1.5">
+            <line x1="560" y1="80" x2="470" y2="150"/><line x1="560" y1="80" x2="520" y2="180"/>
+            <line x1="560" y1="80" x2="560" y2="185"/><line x1="560" y1="80" x2="600" y2="180"/>
+            <line x1="560" y1="80" x2="650" y2="150"/>
+          </g>
+          <g fill="#5d6b78">
+            <circle cx="470" cy="150" r="7"/><circle cx="520" cy="180" r="7"/><circle cx="560" cy="185" r="7"/>
+            <circle cx="600" cy="180" r="7"/><circle cx="650" cy="150" r="7"/>
+          </g>
+          <text x="478" y="228" fill="#2f8a52" font-size="11">coordinate by signal · n links — each linked only to the signal</text>
+        </svg>
+        <p class="legend">nodes = people · left links = orders/checks/conversations · right links = the one shared signal · arrow = the domain shift it produces</p>
+      </div>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>Visual management — 5S, andon, kanban — coordinates work through signals everyone can read, instead of through supervision, orders or meetings.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../cases/#case-01">Case 01</a><a class="chip" href="../Lab/">Lab</a></div></div>
+        <div><div class="l">Sources</div><p>Sun Tzu, <em>The Art of War</em> · Ohno (andon, kanban) · Hirano (5S) · Shingo (poka-yoke)</p></div>
+      </div>
+    </article>
+
+    <div class="trans"><span class="dot"></span><div class="ln"></div><p>But some of what must change resists being made visible. ↓</p></div>
+
+    <!-- F4 Tacit iceberg (was F3) -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F4</span><span class="f-tag">knowledge</span></div>
+      <h2>Tacit vs explicit — why the manual fails</h2>
+      <p class="angle"><span class="hl">A standard is an attempt to externalize tacit knowledge — and it's always partial.</span> The drift between the documented method and the real one is almost never negligence; it's tacit knowledge correcting an incomplete standard. The operator who skips step 3 isn't being careless — they've learned that step 3 as written doesn't account for the variation that arrives every Tuesday. The retiring expert doesn't take their knowledge out the door because they're secretive; the knowledge was never legible enough to write down. The drift is a signal: it's the floor telling you the standard is wrong.</p>
+      <div class="graphic">
+        <svg viewBox="0 0 800 180" role="img" aria-label="An iceberg: explicit knowledge above the waterline, tacit knowledge below." font-family="Space Mono, monospace">
+          <rect x="0" y="92" width="800" height="88" fill="#eef4fb"/>
+          <line x1="0" y1="92" x2="800" y2="92" stroke="#9cc1e6" stroke-width="1.5"/>
+          <polygon points="340,24 300,92 380,92" fill="#fff" stroke="#d6dbe0"/>
+          <polygon points="300,92 380,92 430,168 250,168" fill="#dbe7f3" stroke="#bcd2e8"/>
+          <text x="470" y="60" fill="#5d6b78" font-size="12">EXPLICIT — SOPs, work instructions</text>
+          <text x="470" y="138" fill="#5d6b78" font-size="12">TACIT — feel, judgment,</text>
+          <text x="470" y="156" fill="#5d6b78" font-size="12">the workaround nobody wrote down</text>
+        </svg>
+      </div>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>Explicit knowledge can be written; tacit ("we know more than we can tell," Polanyi) resists codification. SECI describes the conversion.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../cases/#case-01">Case 01</a><a class="chip" href="../Lab/">Lab · retiring expert</a></div></div>
+        <div><div class="l">Sources</div><p>Polanyi · Nonaka &amp; Takeuchi (SECI)</p></div>
+      </div>
+    </article>
+
+    <div class="trans"><span class="dot"></span><div class="ln"></div><p>And where the work stays invisible, the numbers start to flatter. ↓</p></div>
+
+    <!-- F5 Vanity metrics (was F4) -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F5</span><span class="f-tag">metrics</span></div>
+      <h2>Vanity metrics — what OEE hides (Goodhart)</h2>
+      <p class="angle"><span class="hl">A green OEE can hide the exact loss it's meant to expose</span> — not through dishonesty, but because that's what any single metric does once it becomes a target (Goodhart's law). OEE is an accounting metric: it's only as honest as the definition of "good" underneath it. File rework as "standard process" and a reworked unit still counts as good — OEE never sees it.</p>
+      <p class="angle">Goodhart isn't a dead end, though — it's a design rule. The way out isn't a more accurate OEE; it's anchoring at least one indicator to something you can't redefine. A physical metric — energy, mass, real time — obeys physics, not your accounting. An energy-per-unit indicator can't be flattered by overtime: rework burns the energy whether you book it as good or not. Read a physical measure against a counted one and the gap appears on its own — and that gap is the most useful signal you have. (This is exactly how an ISO 50001 energy indicator exposed an OEE that wasn't lying on paper — see <a href="../cases/#case-03">Case 03</a>.)</p>
+      <div class="graphic">
+        <svg viewBox="0 0 700 305" role="img" aria-label="Two indicators indexed to Q1 baseline: OEE accounting metric stays flat at index 100; energy-per-unit physical metric rises to 124. The widening gap is rework — invisible to OEE, captured by energy." font-family="Space Mono, monospace">
+          <!-- Y-axis -->
+          <line x1="85" y1="28" x2="85" y2="248" stroke="#d6dbe0"/>
+          <!-- X-axis -->
+          <line x1="85" y1="248" x2="655" y2="248" stroke="#d6dbe0"/>
+
+          <!-- Y-axis tick marks — scale: 4 px per index unit; y=185 → 100 -->
+          <line x1="79" y1="225" x2="85" y2="225" stroke="#d6dbe0"/>
+          <text x="74" y="229" fill="#9aa6b2" font-size="9" text-anchor="end">90</text>
+          <line x1="79" y1="185" x2="85" y2="185" stroke="#5d6b78"/>
+          <text x="74" y="189" fill="#5d6b78" font-size="9.5" text-anchor="end" font-weight="600">100</text>
+          <line x1="79" y1="145" x2="85" y2="145" stroke="#d6dbe0"/>
+          <text x="74" y="149" fill="#9aa6b2" font-size="9" text-anchor="end">110</text>
+          <line x1="79" y1="105" x2="85" y2="105" stroke="#d6dbe0"/>
+          <text x="74" y="109" fill="#9aa6b2" font-size="9" text-anchor="end">120</text>
+
+          <!-- Y-axis label -->
+          <text x="22" y="140" fill="#5d6b78" font-size="10" text-anchor="middle" transform="rotate(-90 22,140)">index (Q1 baseline = 100)</text>
+          <!-- Direction note — short text, left of dashed line (x=310) -->
+          <text x="88" y="24" fill="#9aa6b2" font-size="9">↑ rising = worse</text>
+
+          <!-- Light gridlines at 110 and 120 -->
+          <line x1="85" y1="145" x2="655" y2="145" stroke="#f0f2f4" stroke-dasharray="3 6"/>
+          <line x1="85" y1="105" x2="655" y2="105" stroke="#f0f2f4" stroke-dasharray="3 6"/>
+          <!-- Baseline solid gridline -->
+          <line x1="85" y1="185" x2="655" y2="185" stroke="#e0e4e8"/>
+
+          <!-- X-axis label -->
+          <text x="370" y="272" fill="#5d6b78" font-size="11" text-anchor="middle">time — one production quarter</text>
+
+          <!-- Gap shading (after divergence x=310) -->
+          <path d="M310,178 C410,162 530,130 655,90 L655,185 L310,185 Z" fill="rgba(192,70,58,.10)"/>
+
+          <!-- OEE: flat at index 100 (y=185) -->
+          <line x1="85" y1="185" x2="655" y2="185" stroke="#2f8a52" stroke-width="3"/>
+
+          <!-- Energy/unit: rises from baseline -->
+          <path d="M85,185 C200,185 270,182 310,178 C410,162 530,130 655,90" fill="none" stroke="#c0463a" stroke-width="3"/>
+
+          <!-- Divergence marker at x=310 — right of the legend chips -->
+          <line x1="310" y1="34" x2="310" y2="248" stroke="#b9c1c9" stroke-width="1" stroke-dasharray="4 4"/>
+          <circle cx="310" cy="185" r="4" fill="#2f8a52"/>
+          <circle cx="310" cy="178" r="4" fill="#c0463a"/>
+
+          <!-- Gap callout — inside gap, clear of both lines (red ≈y=128 · OEE y=185 at x=520) -->
+          <text x="520" y="153" fill="#b97f08" font-size="11" text-anchor="middle">gap = rework</text>
+          <text x="520" y="168" fill="#9aa6b2" font-size="9.5" text-anchor="middle">burns energy · never books as a loss</text>
+
+          <!-- Read together -->
+          <text x="490" y="238" fill="#5d6b78" font-size="9.5" text-anchor="middle">read together → the gap shows</text>
+
+          <!-- Energy/unit legend — top-right, x=400 so dashed line (x=310) is safely to the left -->
+          <rect x="400" y="42" width="230" height="22" rx="4" fill="#fff" stroke="#d6dbe0"/>
+          <circle cx="412" cy="53" r="4" fill="#c0463a"/>
+          <text x="424" y="57" fill="#1b212a" font-size="9.5">energy / unit — physical metric</text>
+
+          <!-- OEE legend — bottom-left, below baseline, white background -->
+          <rect x="90" y="194" width="188" height="22" rx="4" fill="#fff" stroke="#d6dbe0"/>
+          <circle cx="102" cy="205" r="4" fill="#2f8a52"/>
+          <text x="114" y="209" fill="#1b212a" font-size="9.5">OEE — accounting metric</text>
+        </svg>
+        <p class="legend">scale: 4 px per index unit · y=185 → 100 · y=105 → 120 · green = OEE (accounting, flat) · red = energy/unit (physical, rising to ~124) · shaded = rework hidden by OEE, captured by energy · dashed = divergence point</p>
+      </div>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>OEE = availability × performance × quality — an accounting metric. Goodhart's law: once a measure becomes a target, it stops measuring well. The fix: pair it with one anchored to physics, which can't be gamed by a definition.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../cases/#case-03">Case 03</a></div></div>
+        <div><div class="l">Sources</div><p>Nakajima (OEE) · Goodhart's law</p></div>
+      </div>
+    </article>
+
+    <div class="trans"><span class="dot"></span><div class="ln"></div><p>Fake the measure and the change fails exactly where no one is looking. ↓</p></div>
+
+    <!-- F6 Sociotechnical seam (was F5) -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F6</span><span class="f-tag">where projects fail</span></div>
+      <h2>The sociotechnical seam — where change actually fails</h2>
+      <p class="angle"><span class="hl">Failures live at the interface between the technical design and the human system around it — joint causation, in the overlap.</span> The human and organizational factors weigh at least as much as the technical ones, and get a fraction of the planning. A robotic cell can be technically flawless and operationally stranded because the operators have no visibility into which program is running and no way to detect a wrong parameter. The seam is where the design ends and the human experience begins. Design for the seam — not as an afterthought, but as a constraint from the start.</p>
+      <div class="graphic">
+        <svg viewBox="0 0 760 440" role="img" aria-label="Venn diagram: TECHNICAL SYSTEM (left circle) and HUMAN SYSTEM (right circle), with THE SEAM in the overlap — a technically flawless robotic cell where no operator visibility makes it operationally stranded. Below: adoption factor bar showing human and organizational factors outweigh technology in manufacturing adoption." font-family="Space Mono, monospace">
+          <defs>
+            <filter id="f6-soft-card" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity=".07"/>
+            </filter>
+          </defs>
+
+          <!-- circles -->
+          <circle cx="300" cy="150" r="112" fill="rgba(19,23,28,.07)" stroke="#5d6b78" stroke-width="1.5"/>
+          <circle cx="460" cy="150" r="112" fill="rgba(242,176,30,.12)" stroke="#b97f08" stroke-width="1.5"/>
+
+          <!-- left card: TECHNICAL SYSTEM -->
+          <g filter="url(#f6-soft-card)">
+            <rect x="54" y="86" width="170" height="88" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="68" y="110" fill="#5d6b78" font-size="10" letter-spacing="1">TECHNICAL SYSTEM</text>
+            <line x1="68" y1="118" x2="210" y2="118" stroke="#d6dbe0" stroke-width="1"/>
+            <text x="68" y="135" fill="#9aa6b2" font-size="9">machine · HMI · PLC</text>
+            <text x="68" y="151" fill="#9aa6b2" font-size="9">parameters · data</text>
+          </g>
+          <path d="M224 130 C244 128 260 130 277 137" fill="none" stroke="#9aa6b2" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <!-- right card: HUMAN SYSTEM -->
+          <g filter="url(#f6-soft-card)">
+            <rect x="536" y="86" width="170" height="88" rx="8" fill="#fff" stroke="#d6dbe0"/>
+            <text x="550" y="110" fill="#b97f08" font-size="10" letter-spacing="1">HUMAN SYSTEM</text>
+            <line x1="550" y1="118" x2="692" y2="118" stroke="#d6dbe0" stroke-width="1"/>
+            <text x="550" y="135" fill="#9aa6b2" font-size="9">trust · habit · training</text>
+            <text x="550" y="151" fill="#9aa6b2" font-size="9">visibility · ownership</text>
+          </g>
+          <path d="M536 130 C516 128 500 130 483 137" fill="none" stroke="#9aa6b2" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <!-- center seam card: THE SEAM -->
+          <g filter="url(#f6-soft-card)">
+            <rect x="318" y="111" width="124" height="106" rx="8" fill="#fffdf7" stroke="#b97f08" stroke-width="1.5"/>
+            <text x="380" y="133" fill="#b97f08" font-size="10" letter-spacing="1" text-anchor="middle">THE SEAM</text>
+            <line x1="326" y1="141" x2="434" y2="141" stroke="#d6dbe0" stroke-width="1"/>
+            <text x="380" y="157" fill="#5d6b78" font-size="9" text-anchor="middle">flawless cell</text>
+            <text x="380" y="171" fill="#5d6b78" font-size="9" text-anchor="middle">+ no operator</text>
+            <text x="380" y="187" fill="#c0463a" font-size="9" text-anchor="middle">visibility = stranded</text>
+            <text x="380" y="203" fill="#9aa6b2" font-size="8" text-anchor="middle">joint causation</text>
+          </g>
+
+          <!-- adoption factor bar -->
+          <g transform="translate(0,330)">
+            <text x="60" y="14" fill="#5d6b78" font-size="9.5" letter-spacing=".5">what drives adoption (manufacturing) — human / org factors outweigh technology</text>
+            <rect x="60" y="26" width="640" height="24" rx="4" fill="rgba(157,167,178,.15)"/>
+            <rect x="60" y="26" width="518" height="24" rx="4" fill="rgba(242,176,30,.45)"/>
+            <rect x="578" y="26" width="122" height="24" rx="4" fill="rgba(157,167,178,.40)"/>
+            <line x1="319" y1="24" x2="319" y2="52" stroke="#d6dbe0" stroke-width="1"/>
+            <line x1="639" y1="24" x2="639" y2="52" stroke="#d6dbe0" stroke-width="1"/>
+            <text x="64" y="67" fill="#b97f08" font-size="9">human / org:</text>
+            <text x="64" y="80" fill="#b97f08" font-size="9">strategy 21.3 · org 21.0 · mgmt 20.9 · environment 17.9</text>
+            <text x="582" y="67" fill="#9aa6b2" font-size="9">technology</text>
+            <text x="582" y="80" fill="#9aa6b2" font-size="9">19.0</text>
+            <text x="60" y="100" fill="#9aa6b2" font-size="9">Sukathong et al., 2021 · SEM · n=212 manufacturing SMEs</text>
+          </g>
+        </svg>
+      </div>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>Sociotechnical theory (Tavistock): work is a joint technical-and-social system; optimize one half alone and you degrade the whole.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../cases/#case-02">Case 02</a><a class="chip" href="../cases/#case-01">Case 01</a></div></div>
+        <div><div class="l">Sources</div><p>Trist &amp; Bamforth · Sukathong 2021 · Reiman 2021 · Blut 2022</p></div>
+      </div>
+    </article>
+
+    <div class="trans"><span class="dot"></span><div class="ln"></div><p>Which is why the resistance you meet is usually telling the truth. ↓</p></div>
+
+    <!-- F7 70% myth (was F6) -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F7</span><span class="f-tag">change</span></div>
+      <h2>The 70% myth, and resistance as information</h2>
+      <p class="angle"><span class="hl">It's a phantom statistic — the sources cite each other in a loop, with no empirical ground.</span> No one can trace it to data; the original author disowned it. The field can't agree on a definition of "change failure," which is itself a sign we're in a complex domain — one where the answer isn't measured, it's interpreted. The myth does real damage: it scripts resistance as something to overcome with more communication and more change management budget. But resistance is information. When people push back on a change, they're usually telling you something true about the gap between the plan and the floor. Investigate it — don't overcome it.</p>
+      <div class="graphic">
+        <svg viewBox="0 0 680 160" role="img" aria-label="A loop of sources citing one another with no empirical ground at the centre." font-family="Space Mono, monospace">
+          <g font-size="11" fill="#5d6b78">
+            <circle cx="200" cy="50" r="26" fill="#fff" stroke="#d6dbe0"/><text x="200" y="54" text-anchor="middle">src A</text>
+            <circle cx="480" cy="50" r="26" fill="#fff" stroke="#d6dbe0"/><text x="480" y="54" text-anchor="middle">src B</text>
+            <circle cx="480" cy="120" r="26" fill="#fff" stroke="#d6dbe0"/><text x="480" y="124" text-anchor="middle">src C</text>
+            <circle cx="200" cy="120" r="26" fill="#fff" stroke="#d6dbe0"/><text x="200" y="124" text-anchor="middle">src D</text>
+            <g stroke="#9aa6b2" stroke-width="1.5" fill="#9aa6b2">
+              <line x1="226" y1="50" x2="452" y2="50"/><path d="M452,50 l-9,-5 v10 z"/>
+              <line x1="480" y1="76" x2="480" y2="92"/><path d="M480,92 l-5,-9 h10 z"/>
+              <line x1="454" y1="120" x2="228" y2="120"/><path d="M228,120 l9,5 v-10 z"/>
+              <line x1="200" y1="94" x2="200" y2="78"/><path d="M200,78 l-5,9 h10 z"/>
+            </g>
+            <text x="340" y="89" fill="#c0463a" font-size="11" text-anchor="middle">no evidence</text>
+          </g>
+        </svg>
+      </div>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>The cited "70% of change fails" has no valid empirical basis; the original author disowned it.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../cases/#case-03">Case 03</a><a class="chip" href="../">Home thesis</a></div></div>
+        <div><div class="l">Sources</div><p>Hughes 2011 · Smith 2002 · Jones 2018 · McKinsey 2009</p></div>
+      </div>
+    </article>
+
+    <div class="trans"><span class="dot"></span><div class="ln"></div><p>So you don't overpower a complex change — you grow it, in increments. ↓</p></div>
+
+    <!-- F8 Agile -->
+    <article class="frame">
+      <div class="f-top"><span class="f-num">F8</span><span class="f-tag">the management answer</span></div>
+      <h2>Agile — growing change in the complex domain</h2>
+      <p class="angle"><span class="hl">You can't plan a change whose outcome can't be known in advance.</span> In the complex domain (F1), cause and effect only line up in hindsight — so a long, detailed plan aimed at a fixed target is a bet that the target won't move. It always moves. Agile is the answer: don't plan the whole change, grow it — deliver value in increments small enough that you learn and correct before the change has already failed. Probe, sense, respond.</p>
+      <p class="angle">Agile was written for software, and bolting "sprints" onto a furnace is naive — you can't iterate a casting cycle. What transfers isn't the ceremonies; it's the logic underneath: empiricism over prediction, tight feedback loops, working output over documentation. That logic is the only honest way to run a change you can't fully foresee — on a line or in a codebase.</p>
+      <div class="graphic">
+        <svg viewBox="0 0 820 320" role="img" aria-label="A plan-driven path aims once at where the target was and misses; an iterative path corrects step by step toward where the target actually moved." font-family="Space Mono, monospace">
+
+          <!-- Y axis -->
+          <line x1="52" y1="50" x2="52" y2="272" stroke="#d6dbe0" stroke-width="1"/>
+          <path d="M52,50 l-5,10 l10,0 z" fill="#d6dbe0"/>
+          <text x="16" y="165" fill="#9aa6b2" font-size="9" text-anchor="middle" transform="rotate(-90,16,165)">TARGET POSITION</text>
+
+          <!-- X axis -->
+          <line x1="52" y1="272" x2="782" y2="272" stroke="#d6dbe0" stroke-width="1"/>
+          <path d="M782,272 l-10,-5 l0,10 z" fill="#d6dbe0"/>
+          <text x="738" y="287" fill="#9aa6b2" font-size="9">TIME →</text>
+
+          <!-- start dot + label -->
+          <circle cx="78" cy="165" r="6" fill="#13171c"/>
+          <text x="58" y="191" font-size="10" fill="#5d6b78">start of</text>
+          <text x="58" y="204" font-size="10" fill="#5d6b78">the change</text>
+
+          <!-- initial target (where you aimed) -->
+          <circle cx="630" cy="78" r="13" fill="none" stroke="#b9c1c9" stroke-dasharray="3 3"/>
+          <g stroke="#c0463a" stroke-width="2"><line x1="621" y1="69" x2="639" y2="87"/><line x1="639" y1="69" x2="621" y2="87"/></g>
+          <text x="650" y="74" fill="#9aa6b2" font-size="9.5">initial target</text>
+          <text x="650" y="87" fill="#9aa6b2" font-size="9.5">(where you aimed)</text>
+
+          <!-- dashed shift arrow -->
+          <line x1="620" y1="93" x2="625" y2="218" stroke="#d9dee3" stroke-dasharray="4 4" stroke-width="1.5"/>
+          <path d="M625,218 l-5,-10 l10,0 z" fill="#d9dee3"/>
+          <text x="635" y="155" fill="#9aa6b2" font-size="9.5">target</text>
+          <text x="635" y="168" fill="#9aa6b2" font-size="9.5">shifts</text>
+
+          <!-- actual target (where it moved) -->
+          <circle cx="630" cy="232" r="12" fill="rgba(242,176,30,.25)"/>
+          <circle cx="630" cy="232" r="5" fill="#f2b01e"/>
+          <text x="648" y="228" fill="#b97f08" font-size="9.5">actual target</text>
+          <text x="648" y="241" fill="#b97f08" font-size="9.5">(where it moved)</text>
+
+          <!-- plan-driven (red) line — label high above to clear the rising line -->
+          <line x1="84" y1="162" x2="614" y2="82" stroke="#c0463a" stroke-width="2.5"/>
+          <path d="M614,82 l-13,-2 l7,11 z" fill="#c0463a"/>
+          <text x="94" y="62" font-size="11" fill="#c0463a">PLAN-DRIVEN — one long bet, aimed where the target was</text>
+
+          <!-- iterative (green) polyline -->
+          <polyline points="84,168 196,183 306,173 416,195 526,207 620,222 630,232" fill="none" stroke="#2f8a52" stroke-width="2.5"/>
+          <g fill="#2f8a52">
+            <circle cx="196" cy="183" r="4"/><circle cx="306" cy="173" r="4"/>
+            <circle cx="416" cy="195" r="4"/><circle cx="526" cy="207" r="4"/>
+            <circle cx="620" cy="222" r="4"/>
+          </g>
+          <text x="84" y="307" font-size="11" fill="#2f8a52">ITERATIVE — probe, sense, respond; each increment corrects toward where it moved</text>
+        </svg>
+        <p class="legend">X = time · Y = where the change is aimed · red = plan-driven (aims once, misses when target moves) · green = iterative (each increment re-aims)</p>
+      </div>
+
+      <p class="angle"><span class="hl">The discipline is knowing which domain you're in.</span> Agile on a complicated, knowable problem is overhead an expert could have planned away; a fixed plan on a complex one is the expensive bet. Most operations are both at once — the machine is complicated, the people changing around it are complex.</p>
+      <div class="graphic">
+        <svg viewBox="0 0 760 150" role="img" aria-label="Complicated problems: plan and execute with standard methods. Complex problems: probe and iterate with Agile." font-family="Space Mono, monospace">
+          <rect x="30" y="26" width="330" height="84" rx="10" fill="rgba(77,141,255,.06)" stroke="#9fb4cb"/>
+          <text x="50" y="52" font-size="13" fill="#46566a">COMPLICATED</text>
+          <text x="50" y="74" font-size="11" fill="#5d6b78">knowable — plan &amp; execute</text>
+          <text x="50" y="92" font-size="11" fill="#8a96a2">standard methods: SMED, A3, line balancing</text>
+          <rect x="400" y="26" width="330" height="84" rx="10" fill="rgba(242,176,30,.12)" stroke="#d8b24a"/>
+          <text x="420" y="52" font-size="13" fill="#b97f08">COMPLEX</text>
+          <text x="420" y="74" font-size="11" fill="#6f5713">emergent — probe &amp; iterate</text>
+          <text x="420" y="92" font-size="11" fill="#9c8338">Agile: short loops, working output</text>
+          <text x="30" y="134" font-size="10.5" fill="#9aa6b2">Know which you're in (F1). The wrong posture wastes effort on one side and gambles on the other.</text>
+        </svg>
+        <p class="legend">match posture to domain (F1) — Agile belongs on the right</p>
+      </div>
+
+      <p class="angle">Which is why this frame sits at the end. Everything before it makes a change <em>visible</em> — the domain (F1), the sequence (F2), the signals that coordinate it (F3), what resists being made visible (F4), what hides in the numbers (F5), where it fails at the seam (F6), why it's resisted (F7). Agile is what makes a change <em>correctable</em>. <strong>A change becomes safe when it's both — see it, and grow it.</strong></p>
+      <div class="f-meta">
+        <div><div class="l">In short</div><p>Agile (Manifesto, 2001): empiricism, tight feedback, working output over plans. The posture for the complex domain — not the ceremonies, the logic.</p></div>
+        <div><div class="l">Seen in</div><div class="chips"><a class="chip" href="../toolbox/">Cynefin sorter</a></div></div>
+        <div><div class="l">Sources</div><p>Agile Manifesto (2001) · Snowden (Cynefin) · Boehm &amp; Turner</p></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- SHELF -->
+<section class="shelf">
+  <div class="wrap">
+    <h2>Methods &amp; systems</h2>
+    <p class="intro">The reference shelf — standard methods, anchored to where I used them. Subordinate to the frames above.</p>
+    <div class="sgrid">
+      <article class="sitem">
+        <h3>SMED — and why "seeing" was the bottleneck</h3>
+        <p>The logic was never the hard part; observing every changeover was.</p>
+        <div class="meta">Seen in: Case 02 · Lab 01 · Source: Shingo</div>
+      </article>
+      <article class="sitem">
+        <h3>The automation pyramid — SCADA vs MES</h3>
+        <p>Which layer owns which decision, and why reporting breaks when they're confused.</p>
+        <div class="meta">Seen in: Case 03 · Source: ISA-95</div>
+      </article>
+      <article class="sitem">
+        <h3>ISO 50001 / EnPI — energy as a discipline</h3>
+        <p>The certificate is visible; the engine is committing to watch numbers you used to ignore.</p>
+        <div class="meta">Seen in: Case 03 · Source: ISO 50001</div>
+      </article>
+      <article class="sitem">
+        <h3>Flow &amp; the seven wastes (VSM)</h3>
+        <p>Waste is invisible until the flow is drawn.</p>
+        <div class="meta">Seen in: Lab · layout · Source: Rother &amp; Shook</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close">
+  <div class="wrap">
+    <h2>Frames are for using, not filing.</h2>
+    <p>Every entry here came out of a real operation and points back into one.</p>
+    <div class="ctas">
+      <a href="../cases/">See them at work → Cases</a>
+      <a href="../Lab/">Where they're heading → Lab</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="../about/">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../about/">Contact</a></span>
+  </div>
+</footer>
 
 </body>
 </html>

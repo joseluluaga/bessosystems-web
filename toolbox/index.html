@@ -1,254 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Engineering Toolbox — Calculators and templates for industrial engineering and process improvement.">
-  <title>Engineering Toolbox — BESSÓ Systems</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BESSÓ Systems — Toolbox: instruments and live calculators that make an operation legible. OEE, Takt, Capacity, EnPI — and a Cynefin sorter for the decision context.">
+<title>BESSÓ Systems — Toolbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/v3-style.css">
 </head>
 <body>
 
-  <!-- NAV (depth: 1) -->
-  <nav class="site-nav">
-    <div class="container nav-inner">
-      <a href="../" class="nav-logo">
-        <span class="logo-sigil">BS</span>
-        <span>BESSÓ Systems</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="../toolbox/" class="active">Toolbox</a></li>
-        <li><a href="../knowledge/">Knowledge</a></li>
-        <li><a href="../cases/">Cases</a></li>
-        <li><a href="../about/">About</a></li>
-        <li><a href="../contact/">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../">BESSÓ <span>Systems</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../cases/">Cases</a><a href="../knowledge/">Knowledge</a><a href="../Lab/">Lab</a>
+      <a href="../toolbox/" class="active">Toolbox</a><a href="../about/">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Toolbox · <b>legibility you can touch</b></p>
+    <h1>Tools that make a number honest.</h1>
+    <p class="lede">A calculator gives you a number. These give you the number — and tell you what it's hiding and what to look at next. Each ties back to a frame and a case. Use them now; no sign-up.</p>
+  </div>
+</section>
+
+<!-- ── TIER 1 — INSTRUMENTS ─────────────────────────────────────────────── -->
+<section class="tier">
+  <div class="wrap">
+    <div class="sec-lbl">Instruments</div>
+    <h2 class="sec-h">Tools that make you think</h2>
+    <p class="sec-sub">Frames turned usable. Knowledge explains the idea; here you apply it to your own problem.</p>
+    <div class="igrid">
+
+      <article class="inst">
+        <svg class="gly" viewBox="0 0 120 54" aria-hidden="true">
+          <line x1="60" y1="6" x2="60" y2="48" stroke="#e2e6ea"/>
+          <line x1="18" y1="27" x2="102" y2="27" stroke="#e2e6ea"/>
+          <circle cx="40" cy="17" r="9" fill="rgba(242,176,30,.2)"/>
+          <circle cx="40" cy="17" r="4.5" fill="#f2b01e"/>
+          <text x="22" y="52" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">your problem → its domain</text>
+        </svg>
+        <h3>Cynefin sorter</h3>
+        <p>Describe a problem, answer five questions, and see the decision context it sits in — and the first move that fits.</p>
+        <div class="meta">embodies <b>F1 · Cynefin</b> → routes complex to Agile (F8)</div>
+        <a class="cta" href="cynefin-sorter.html">Open the sorter →</a>
+      </article>
+
+      <article class="inst">
+        <svg class="gly" viewBox="0 0 120 54" aria-hidden="true">
+          <g stroke="#f2b01e" stroke-width="2" fill="none">
+            <path d="M16,16 l4,4 l7,-9"/><path d="M16,34 l4,4 l7,-9"/>
+          </g>
+          <line x1="36" y1="18" x2="104" y2="18" stroke="#d6dbe0" stroke-width="6" stroke-linecap="round"/>
+          <line x1="36" y1="36" x2="80" y2="36" stroke="#d6dbe0" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <h3>Automate-readiness check</h3>
+        <p>Is it legible? Standardized? Measured? Trusted? Returns "ready" — or "you're about to build on sand."</p>
+        <div class="meta">embodies <b>F2 · standardize → automate</b></div>
+        <a class="cta soon" href="#">Build next ◷</a>
+      </article>
+
+      <article class="inst">
+        <svg class="gly" viewBox="0 0 120 54" aria-hidden="true">
+          <path d="M24,46 A26,26 0 0 1 96,46" fill="none" stroke="#e3e7eb" stroke-width="7"/>
+          <path d="M24,46 A26,26 0 0 1 64,22" fill="none" stroke="#f2b01e" stroke-width="7"/>
+          <line x1="64" y1="46" x2="64" y2="22" stroke="#d6dbe0" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <text x="50" y="40" font-size="7.5" fill="#c0463a" font-family="Space Mono,monospace">gap</text>
+        </svg>
+        <h3>OEE ↔ EnPI pair</h3>
+        <p>Read OEE (contable) against EnPI — energy per unit (physical) — on the same axis. The gap is the rework the OEE wasn't showing.</p>
+        <div class="meta">embodies <b>F5 · two metrics in tension</b></div>
+        <a class="cta soon" href="#">Build next ◷</a>
+      </article>
+
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- MAIN -->
-  <main class="page-body">
-    <div class="container">
+<!-- ── TIER 2 — LIVE CALCULATORS ─────────────────────────────────────────── -->
+<section class="tier alt">
+  <div class="wrap">
+    <div class="sec-lbl">Calculators</div>
+    <h2 class="sec-h">Direct utility — with the catch built in</h2>
+    <p class="sec-sub">Each updates live as you type — and tells you what the number hides.</p>
+    <div class="cgrid">
 
-      <!-- PAGE HEADER ========================================== -->
-      <div class="page-header">
-        <p class="overline">Engineering Toolbox</p>
-        <h1>Calculators &amp; Templates</h1>
-        <p>Practical tools for shopfloor analysis, process improvement and industrial operations.<br>
-        Calculators run entirely in the browser — no data is sent anywhere.</p>
-      </div>
-
-      <!-- TOOL GRID ============================================ -->
-      <div class="grid-2">
-
-        <!-- TAKT TIME CALCULATOR -->
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-header-info">
-              <h3>Takt Time Calculator</h3>
-              <p>Net Available Time ÷ Customer Demand</p>
-            </div>
-            <span class="badge badge-green">Live</span>
-          </div>
-          <div class="tool-body">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="tt-shift">Shift Duration</label>
-                <input id="tt-shift" type="number" min="0" placeholder="480" value="480">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">minutes</span>
-              </div>
-              <div class="form-group">
-                <label for="tt-breaks">Planned Breaks</label>
-                <input id="tt-breaks" type="number" min="0" placeholder="30" value="30">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">minutes</span>
-              </div>
-              <div class="form-group">
-                <label for="tt-demand">Daily Demand</label>
-                <input id="tt-demand" type="number" min="1" placeholder="200">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">units / shift</span>
-              </div>
-            </div>
-            <div class="form-action">
-              <button class="btn btn-primary" onclick="calcTaktTime()">Calculate</button>
-            </div>
-            <div class="calc-result" id="tt-result">
-              <div class="r-empty">Enter demand to calculate.</div>
-            </div>
-          </div>
+      <!-- OEE -->
+      <article class="calc" data-calc="oee">
+        <div class="viz">
+          <svg viewBox="0 0 120 90" aria-label="OEE live chart" role="img">
+            <text x="14" y="12" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">Availability</text>
+            <rect x="14" y="16" width="92" height="10" rx="2" fill="#e6e9ec"/>
+            <rect id="bA" x="14" y="16" width="78" height="10" rx="2" fill="#3fae66"/>
+            <text x="14" y="36" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">Performance</text>
+            <rect x="14" y="40" width="92" height="10" rx="2" fill="#e6e9ec"/>
+            <rect id="bP" x="14" y="40" width="70" height="10" rx="2" fill="#f2b01e"/>
+            <text x="14" y="60" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">Quality</text>
+            <rect x="14" y="64" width="92" height="10" rx="2" fill="#e6e9ec"/>
+            <rect id="bQ" x="14" y="64" width="66" height="10" rx="2" fill="#86b8e8"/>
+            <rect id="bOEE" x="14" y="64" width="66" height="10" rx="2" fill="#86b8e8" style="display:none"/>
+            <text id="lOEE" x="112" y="86" font-size="8" fill="#b97f08" text-anchor="end" font-family="Space Mono,monospace">—</text>
+          </svg>
         </div>
-
-        <!-- OEE CALCULATOR -->
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-header-info">
-              <h3>OEE Calculator</h3>
-              <p>Availability × Performance × Quality</p>
-            </div>
-            <span class="badge badge-green">Live</span>
+        <div class="body">
+          <h3>OEE calculator <span class="status live">live</span></h3>
+          <div class="cinputs">
+            <label>A% <input class="ci" type="number" min="0" max="100" value="85" data-ci="A"></label>
+            <label>P% <input class="ci" type="number" min="0" max="100" value="90" data-ci="P"></label>
+            <label>Q% <input class="ci" type="number" min="0" max="100" value="95" data-ci="Q"></label>
           </div>
-          <div class="tool-body">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="oee-a">Availability</label>
-                <input id="oee-a" type="number" min="0" max="100" placeholder="90">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">%</span>
-              </div>
-              <div class="form-group">
-                <label for="oee-p">Performance</label>
-                <input id="oee-p" type="number" min="0" max="100" placeholder="95">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">%</span>
-              </div>
-              <div class="form-group">
-                <label for="oee-q">Quality</label>
-                <input id="oee-q" type="number" min="0" max="100" placeholder="99">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">%</span>
-              </div>
-            </div>
-            <div class="form-action">
-              <button class="btn btn-primary" onclick="calcOEE()">Calculate</button>
-            </div>
-            <div class="calc-result" id="oee-result">
-              <div class="r-empty">Enter A, P and Q values.</div>
-            </div>
-          </div>
+          <div class="cresult"></div>
+          <p class="hides"><b>what it hides</b> a green OEE can mask rework counted as process and overtime masking the gap — pair it with EnPI to see the full picture.</p>
+          <div class="calc links"><a class="chip" href="../knowledge/">F4 · vanity metrics</a><a class="chip" href="../cases/">Case 03</a></div>
         </div>
+      </article>
 
-        <!-- CAPACITY CALCULATOR -->
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-header-info">
-              <h3>Capacity Calculator</h3>
-              <p>Theoretical daily and weekly output based on machines, shifts and cycle time</p>
-            </div>
-            <span class="badge badge-green">Live</span>
-          </div>
-          <div class="tool-body">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="cap-machines">Machines</label>
-                <input id="cap-machines" type="number" min="1" placeholder="1" value="1">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">workstations</span>
-              </div>
-              <div class="form-group">
-                <label for="cap-shifts">Shifts / Day</label>
-                <input id="cap-shifts" type="number" min="1" placeholder="2" value="2">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">shifts</span>
-              </div>
-              <div class="form-group">
-                <label for="cap-hours">Hours / Shift</label>
-                <input id="cap-hours" type="number" min="1" placeholder="8" value="8">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">hours</span>
-              </div>
-              <div class="form-group">
-                <label for="cap-cycle">Cycle Time</label>
-                <input id="cap-cycle" type="number" min="1" placeholder="45">
-                <span style="font-size:.72rem; color:var(--text-3); font-family:var(--mono);">seconds / unit</span>
-              </div>
-            </div>
-            <div class="form-action">
-              <button class="btn btn-primary" onclick="calcCapacity()">Calculate</button>
-            </div>
-            <div class="calc-result" id="cap-result">
-              <div class="r-empty">Enter cycle time to calculate.</div>
-            </div>
-          </div>
+      <!-- Takt -->
+      <article class="calc" data-calc="takt">
+        <div class="viz">
+          <svg viewBox="0 0 120 90" aria-label="Takt time live chart" role="img">
+            <line x1="14" y1="82" x2="106" y2="82" stroke="#d6dbe0"/>
+            <rect x="20" y="40" width="16" height="42" rx="2" fill="#86b8e8"/>
+            <rect x="44" y="28" width="16" height="54" rx="2" fill="#86b8e8"/>
+            <rect x="68" y="52" width="16" height="30" rx="2" fill="#86b8e8"/>
+            <line id="bTakt" x1="14" y1="50" x2="106" y2="50" stroke="#f2b01e" stroke-width="2" stroke-dasharray="4,3"/>
+            <text id="lTakt" x="108" y="49" font-size="7" fill="#b97f08" font-family="Space Mono,monospace">—</text>
+            <text x="14" y="86" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">takt line</text>
+          </svg>
         </div>
+        <div class="body">
+          <h3>Takt time <span class="status live">live</span></h3>
+          <div class="cinputs">
+            <label>Time (min) <input class="ci" type="number" min="1" value="480" data-ci="time" style="width:62px"></label>
+            <label>Demand (u) <input class="ci" type="number" min="1" value="60" data-ci="demand" style="width:62px"></label>
+          </div>
+          <div class="cresult"></div>
+          <p class="hides"><b>what it hides</b> takt assumes steady demand and uptime — look at the variation and changeovers it smooths over.</p>
+          <div class="calc links"><a class="chip" href="../knowledge/">Flow (F6)</a><a class="chip" href="../cases/">Cases</a></div>
+        </div>
+      </article>
 
-        <!-- A3 TEMPLATE (STUB) -->
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-header-info">
-              <h3>A3 Problem Solving Template</h3>
-              <p>Structured format for problem definition, root cause analysis and countermeasures</p>
-            </div>
-            <span class="badge badge-muted">Template</span>
-          </div>
-          <div class="tool-body">
-            <div class="tool-placeholder">
-              <p>Single-page A3 template following the standard sections: Background, Current State, Target State, Root Cause Analysis, Countermeasures, Implementation Plan and Follow-Up.</p>
-              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
-            </div>
-          </div>
+      <!-- Capacity -->
+      <article class="calc" data-calc="capacity">
+        <div class="viz">
+          <svg viewBox="0 0 120 90" aria-label="Capacity / bottleneck live chart" role="img">
+            <line x1="14" y1="82" x2="106" y2="82" stroke="#d6dbe0"/>
+            <rect id="bC1" x="20" y="42" width="20" height="40" rx="2" fill="#86b8e8"/>
+            <rect id="bC2" x="50" y="20" width="20" height="62" rx="2" fill="#f2b01e"/>
+            <rect id="bC3" x="80" y="54" width="20" height="28" rx="2" fill="#86b8e8"/>
+            <text id="lC1" x="30" y="38" font-size="7" fill="#9aa6b2" text-anchor="middle" font-family="Space Mono,monospace">—</text>
+            <text id="lC2" x="60" y="16" font-size="7" fill="#b97f08" text-anchor="middle" font-family="Space Mono,monospace">—</text>
+            <text id="lC3" x="90" y="50" font-size="7" fill="#9aa6b2" text-anchor="middle" font-family="Space Mono,monospace">—</text>
+          </svg>
         </div>
+        <div class="body">
+          <h3>Capacity &amp; bottleneck <span class="status live">live</span></h3>
+          <div class="cinputs">
+            <label>WS1 <input class="ci" type="number" min="0.1" step="0.1" value="3.0" data-ci="ct1"></label>
+            <label>WS2 <input class="ci" type="number" min="0.1" step="0.1" value="5.5" data-ci="ct2"></label>
+            <label>WS3 <input class="ci" type="number" min="0.1" step="0.1" value="2.0" data-ci="ct3"></label>
+          </div>
+          <div class="cresult"></div>
+          <p class="hides"><b>what it hides</b> theoretical capacity ≠ real; the bottleneck decides the line, not the average station.</p>
+          <div class="calc links"><a class="chip" href="../knowledge/">Flow / TOC</a><a class="chip" href="../cases/">Case 02</a></div>
+        </div>
+      </article>
 
-        <!-- PROCESS AUDIT CHECKLIST (STUB) -->
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-header-info">
-              <h3>Process Audit Checklist</h3>
-              <p>Structured checklist for shopfloor and production process audits</p>
-            </div>
-            <span class="badge badge-muted">Checklist</span>
-          </div>
-          <div class="tool-body">
-            <div class="tool-placeholder">
-              <p>Covers standard work compliance, material flow, workplace organisation, visual management, safety conditions and documentation status. Adaptable to discrete and process manufacturing.</p>
-              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
-            </div>
-          </div>
+      <!-- EnPI -->
+      <article class="calc" data-calc="enpi">
+        <div class="viz">
+          <svg viewBox="0 0 120 90" aria-label="EnPI energy-per-unit live chart" role="img">
+            <text x="14" y="12" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">EnPI (actual)</text>
+            <rect x="14" y="16" width="92" height="10" rx="2" fill="#e6e9ec"/>
+            <rect id="bEnPI" x="14" y="16" width="70" height="10" rx="2" fill="#f2b01e"/>
+            <text id="lEnPI" x="112" y="26" font-size="7" fill="#b97f08" text-anchor="end" font-family="Space Mono,monospace">—</text>
+            <text x="14" y="40" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">Reference</text>
+            <rect x="14" y="44" width="92" height="10" rx="2" fill="#e6e9ec"/>
+            <rect id="bRef" x="14" y="44" width="60" height="10" rx="2" fill="#86b8e8"/>
+            <text id="lGap" x="112" y="72" font-size="8" text-anchor="end" fill="#c0463a" font-family="Space Mono,monospace">—</text>
+            <text x="14" y="72" font-size="7" fill="#9aa6b2" font-family="Space Mono,monospace">vs ref</text>
+          </svg>
         </div>
+        <div class="body">
+          <h3>EnPI — energy / unit <span class="status live">live</span></h3>
+          <div class="cinputs">
+            <label>Energy (kWh) <input class="ci" type="number" min="0.01" value="1000" data-ci="energy" style="width:66px"></label>
+            <label>Units <input class="ci" type="number" min="1" value="100" data-ci="units"></label>
+            <label>Ref (kWh/u) <input class="ci" type="number" min="0.01" step="0.1" value="12" data-ci="ref" style="width:60px"></label>
+          </div>
+          <div class="cresult"></div>
+          <p class="hides"><b>what it hides</b> OEE can be green while EnPI rises — the gap between them is the rework F5 exposes. Read them together.</p>
+          <div class="calc links"><a class="chip" href="../knowledge/">F5 · EnPI vs OEE</a><a class="chip" href="../cases/">Case 03</a></div>
+        </div>
+      </article>
 
-        <!-- MES / SCADA READINESS (STUB) -->
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-header-info">
-              <h3>MES / SCADA Readiness Checklist</h3>
-              <p>Functional and technical readiness assessment before system implementation</p>
-            </div>
-            <span class="badge badge-muted">Checklist</span>
-          </div>
-          <div class="tool-body">
-            <div class="tool-placeholder">
-              <p>Evaluates data availability, OT/IT network readiness, process variable definition, alarm philosophy, operator acceptance and integration requirements with ERP or other upstream systems.</p>
-              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ISO 50001 CHECKLIST (STUB) -->
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-header-info">
-              <h3>ISO 50001 Readiness Checklist</h3>
-              <p>Energy management system compliance and gap assessment</p>
-            </div>
-            <span class="badge badge-muted">Checklist</span>
-          </div>
-          <div class="tool-body">
-            <div class="tool-placeholder">
-              <p>Structured assessment aligned with ISO 50001:2018 clause structure. Covers energy review, SEU identification, energy baseline, EnPIs, action plans and management review requirements.</p>
-              <p style="color:var(--text-3); font-size:.8rem; font-family:var(--mono);">— In development</p>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /grid-2 -->
-    </div><!-- /container -->
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-sigil">BS</span>
-          <span>BESSÓ Systems</span>
-        </div>
-        <div class="footer-meta">
-          <span class="status-dot"></span>
-          <span>Engineering Toolbox &amp; Digital Operations Lab</span>
-        </div>
-      </div>
-      <p class="footer-copy">© 2026 BESSÓ Systems</p>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="../assets/js/nav.js"></script>
-  <script src="../assets/js/calc.js"></script>
+<!-- ── TEMPLATES ──────────────────────────────────────────────────────────── -->
+<section class="tier">
+  <div class="wrap" style="padding-top:28px;padding-bottom:36px">
+    <div class="sec-lbl">Templates</div>
+    <p class="sec-sub" style="margin-bottom:14px">Starting structures — useful when the discipline matters more than the form.</p>
+    <div class="simple-grid">
+      <div class="simple"><h4>A3 template</h4><p>Structured problem-solving on one page. The discipline is the structure, not the form.</p></div>
+      <div class="simple"><h4>Standard work sheet</h4><p>Externalizes tacit knowledge — always partial; the drift is the signal. F3 · Case 01.</p></div>
+      <div class="simple"><h4>SMED split worksheet</h4><p>Internal vs external is the whole game. F6 · Case 02 · Lab 01.</p></div>
+    </div>
+  </div>
+</section>
 
+<section class="note">
+  <div class="wrap"><b>Curation rule:</b> a tool earns a place only if it makes something legible in the browser and ties to a frame and a case. Templates are here as starting structures, not as instruments.</div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Every tool here came from a real problem.</h2>
+    <div class="ctas">
+      <a href="../knowledge/">The thinking behind them → Knowledge</a>
+      <a href="../cases/">Where I used them → Cases</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>BESSÓ Systems — process engineering &amp; digital operations</span>
+    <span><a href="../about/">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../about/">Contact</a></span>
+  </div>
+</footer>
+
+<script src="../assets/js/calc.js"></script>
 </body>
 </html>
