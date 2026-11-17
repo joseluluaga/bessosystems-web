@@ -53,6 +53,7 @@ En Windows, este servidor **no** detecta errores de mayúsculas: `/lab/` funcion
    - Un clic fuera del menú lo cierra.
    - Al pasar a escritorio con el menú abierto, se cierra.
    - Con JavaScript desactivado, los enlaces se ven igual.
+   - Páginas v1.5 (☰): Enter/Espacio abre, Tab entra a los enlaces, Esc cierra y devuelve el foco, salir del último enlace o un clic fuera lo cierra.
 4. **Interactivos.**
    - Toolbox: al cambiar un valor de cada calculadora, el resultado se actualiza.
    - Knowledge: cada dominio del diagrama Cynefin abre su imagen con clic o con Enter, y se vuelve con clic o con Esc.
@@ -63,12 +64,11 @@ No hay tests, linter ni CI dentro del repositorio. Las herramientas que automati
 
 ## Publicar
 
-**Comprobado:**
-- GitHub Pages en modo *deploy from branch*; el único workflow es el automático `pages-build-deployment`.
+**Comprobado** (`gh api repos/joseluluaga/bessosystems-web/pages`, 2026-11-17):
+- GitHub Pages en modo *deploy from branch* (`build_type: legacy`), origen `/` de `main`, HTTPS forzado, dominio `bessosystems.com`.
+- El único workflow es el automático `pages-build-deployment`, que solo se ejecuta con pushes a la rama de origen. Un push a otra rama no publica.
 - Un push a `main` dispara la publicación. En el último deploy pasó menos de un minuto entre el push y el sitio actualizado.
 - El dominio resuelve a las IPs de GitHub Pages.
-
-**No verificado** (requiere `gh auth login`): carpeta de origen (presumiblemente `/` de `main`) y si HTTPS está forzado.
 
 Flujo previsto: trabajar en una rama → verificar → merge a `main` → push.
 
