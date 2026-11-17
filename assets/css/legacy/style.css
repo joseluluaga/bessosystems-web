@@ -1,0 +1,16 @@
+/* ================================================================
+   BESSO Systems — style.css  (entry point)
+   Imports all CSS modules in dependency order.
+   Edit the individual modules — do not add styles here.
+
+   Load order:
+     1. tokens.css     → CSS variables (design tokens)
+     2. base.css       → reset, typography, utilities
+     3. layout.css     → nav, footer, containers, hero
+     4. components.css → all UI components
+================================================================ */
+
+@import url('./tokens.css');
+@import url('./base.css');
+@import url('./layout.css');
+@import url('./components.css');

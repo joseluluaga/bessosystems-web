@@ -1,0 +1,135 @@
+/* Breakpoints. Imported LAST from v3-style.css so these rules win over the
+   base rules of v3-components.css (same specificity; the later rule wins).
+   Moved verbatim from the end of v3-layout.css, where they were overridden. */
+
+@media (max-width: 840px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .rail {
+    position: static;
+  }
+}
+
+@media (max-width: 820px) {
+  .ogrid,
+  .igrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .paths,
+  .desc {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .pagehead.has-portrait .wrap,
+  .about-head .wrap,
+  .cgrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .sgrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Primary navigation on small screens ----
+   Without JS: links stay visible and wrap under the brand.
+   With assets/js/v3-nav.js: .bar gets .nav-js and the links fold into a
+   disclosure menu opened by .nav-toggle. */
+
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .bar:not(.nav-js) .wrap {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .bar:not(.nav-js) .nav {
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+
+  .bar.nav-js {
+    position: relative;
+    z-index: 30;
+  }
+
+  .bar.nav-js .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 0 14px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: 700 11px/1 "Space Mono", monospace;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .bar.nav-js .nav-toggle:hover,
+  .bar.nav-js.nav-open .nav-toggle {
+    border-color: var(--accent);
+  }
+
+  .nav-toggle-bars {
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    box-shadow: 0 -4px 0 currentColor, 0 4px 0 currentColor;
+  }
+
+  .bar.nav-js.nav-open .nav-toggle-bars {
+    box-shadow: none;
+  }
+
+  .bar.nav-js .nav {
+    display: none;
+  }
+
+  .bar.nav-js.nav-open .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 6px 24px 14px;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+
+  .bar.nav-js.nav-open .nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar.nav-js.nav-open .nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .bar.nav-js.nav-open .nav a.active {
+    padding: 13px 0 13px 12px;
+    box-shadow: inset 2px 0 0 var(--accent);
+  }
+}

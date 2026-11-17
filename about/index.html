@@ -14,7 +14,8 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="../">BESSÓ <span>Systems</span></a>
-    <nav class="nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="../cases/">Cases</a>
       <a href="../knowledge/">Knowledge</a>
       <a href="../Lab/">Lab</a>
@@ -32,7 +33,7 @@
       <p class="sub">Not a CV. The origin of a lens — why I read a floor the way the rest of this site does.</p>
     </div>
     <div class="portrait">
-      <img src="../Assets/About/facundo-portrait.png" alt="Facundo Luluaga">
+      <img src="../assets/img/about/facundo-portrait.png" alt="Facundo Luluaga">
     </div>
   </div>
 </section>
@@ -129,5 +130,6 @@
   </div>
 </footer>
 
+<script src="../assets/js/v3-nav.js"></script>
 </body>
 </html>

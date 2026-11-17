@@ -11,7 +11,8 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="../">BESSÓ <span>Systems</span></a>
-    <nav class="nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="../cases/" class="active">Cases</a><a href="../knowledge/">Knowledge</a><a href="../Lab/">Lab</a>
       <a href="../toolbox/">Toolbox</a><a href="../about/">About</a>
     </nav>
@@ -36,7 +37,7 @@
       <h2 class="case-h">The standard, where the work happens</h2>
 
       <figure class="figure" aria-label="Parts bins and instruction reference at the assembly station." style="padding:0;overflow:hidden">
-        <img src="../Assets/cases/besso_bgh_case_assets_v7/bgh_v7_02_parts_bins_balanced_real_1600x900.webp" alt="Parts bins with instruction reference visible at the assembly station" style="width:100%;height:100%;object-fit:cover">
+        <img src="../assets/img/cases/bgh-line/bgh_v7_02_parts_bins_balanced_real_1600x900.webp" alt="Parts bins with instruction reference visible at the assembly station" style="width:100%;height:100%;object-fit:cover">
       </figure>
 
       <div class="block"><div class="lbl">Context</div>
@@ -52,7 +53,7 @@
         <p>The documentation was placed on screens at each section of the line — every station showing its current instruction right where the task is done, updated the moment the method changed. Zero budget: the monitors were pulled from scrap in the plant's own monitor-production area. People were skeptical at first; by the end they were asking for it. They leaned on it hardest for spare parts — checking features and part codes against the screen — and began flagging wrong documentation themselves, which pushed the team into structured, shared work instead of private know-how. The paper that used to stain and wear was gone; the line looked clean, ordered, deliberate — and stayed that way. The client's external audits read the change as 9001-compliant. The lesson under all of it: the resistance was never to change — it was to changing something invisible. Make the standard visible, literally at the post, and the same people who resisted start demanding it.</p></div>
 
       <figure class="figure small" aria-label="Close view of monitor screen showing digital work instruction at the station." style="padding:0;overflow:hidden">
-        <img src="../Assets/cases/besso_bgh_case_assets_v7/bgh_v7_03c_monitor_screen_close_balanced_real_1600x900.webp" alt="Close-up of the monitor screen displaying a digital work instruction at the workstation" style="width:100%;height:100%;object-fit:cover">
+        <img src="../assets/img/cases/bgh-line/bgh_v7_03c_monitor_screen_close_balanced_real_1600x900.webp" alt="Close-up of the monitor screen displaying a digital work instruction at the workstation" style="width:100%;height:100%;object-fit:cover">
       </figure>
 
       <div class="block"><div class="lbl">Go deeper</div>
@@ -86,7 +87,7 @@
       <h2 class="case-h">Automation the floor could actually run</h2>
 
       <figure class="figure" aria-label="CAD layout and factory evidence of the robotic cell installation." style="padding:8px;overflow:hidden;background:#f6f7f8">
-        <img src="../Assets/cases/bgh-cell/besso_robot_case_assets_v2_clean/robot_v2_clean_00_recommended_before_after_hero_no_titles_1600x900.webp" alt="Cell layout plan and factory photos showing the robotic cell in the production floor" style="width:100%;height:100%;object-fit:contain">
+        <img src="../assets/img/cases/bgh-cell/robot-v2/robot_v2_clean_00_recommended_before_after_hero_no_titles_1600x900.webp" alt="Cell layout plan and factory photos showing the robotic cell in the production floor" style="width:100%;height:100%;object-fit:contain">
       </figure>
 
       <div class="block"><div class="lbl">Context</div>
@@ -102,7 +103,7 @@
         <p>The cell was taken end to end — layout, robot programming, the safety envelope, operator training — with one goal beyond "it works": make the cell legible to the people who'd live with it. What it does, where it stops, how to recover it, how to change it over for the next product. Automation that's understood is automation that survives the next launch. The cell became part of the floor's routine instead of an island only engineering could touch.</p></div>
 
       <figure class="figure small" aria-label="Factory floor context with annotated technical plan overlay." style="padding:0;overflow:hidden">
-        <img src="../Assets/cases/bgh-cell/besso_robot_case_assets_v2_clean/robot_v2_clean_c04_photo_plus_annotated_plan_overlay_no_titles_1600x900.webp" alt="Production floor with annotated technical layout card showing cell positioning" style="width:100%;height:100%;object-fit:cover">
+        <img src="../assets/img/cases/bgh-cell/robot-v2/robot_v2_clean_c04_photo_plus_annotated_plan_overlay_no_titles_1600x900.webp" alt="Production floor with annotated technical layout card showing cell positioning" style="width:100%;height:100%;object-fit:cover">
       </figure>
 
       <div class="block"><div class="lbl">Go deeper</div>
@@ -191,9 +192,10 @@
 <footer class="foot">
   <div class="wrap">
     <span>BESSÓ Systems — process engineering &amp; digital operations</span>
-    <span><a href="../about/">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../about/">Contact</a></span>
+    <span><a href="https://linkedin.com/in/facundo-luluaga-quo/" target="_blank" rel="noopener">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../contact/">Contact</a></span>
   </div>
 </footer>
 
+<script src="../assets/js/v3-nav.js"></script>
 </body>
 </html>

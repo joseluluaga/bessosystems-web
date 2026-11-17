@@ -12,7 +12,8 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="./">BESSÓ <span>Systems</span></a>
-    <nav class="nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="cases/">Cases</a><a href="knowledge/">Knowledge</a><a href="Lab/">Lab</a>
       <a href="toolbox/">Toolbox</a><a href="about/">About</a>
     </nav>
@@ -68,7 +69,7 @@
       </div>
 
       <figure class="hero-right">
-        <img src="Assets/cases/Industry%20Change/ELON1.jpeg"
+        <img src="assets/img/cases/industry-change/elon-1.jpeg"
              alt="A person standing between two FANUC industrial robot arms on a factory floor"
              class="hero-img">
         <figcaption class="hero-cap">Few symbols of industrial transformation generate stronger reactions — admiration or resistance. That reaction has a name: fear of the unknown. And it's not irrational.</figcaption>
@@ -179,9 +180,10 @@
 <footer class="foot">
   <div class="wrap">
     <span>BESSÓ Systems — process engineering &amp; digital operations</span>
-    <span><a href="#">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="#">Contact</a></span>
+    <span><a href="https://linkedin.com/in/facundo-luluaga-quo/" target="_blank" rel="noopener">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="contact/">Contact</a></span>
   </div>
 </footer>
 
+<script src="assets/js/v3-nav.js"></script>
 </body>
 </html>

@@ -15,7 +15,8 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="../">BESSÓ <span>Systems</span></a>
-    <nav class="nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="../cases/">Cases</a><a href="../knowledge/" class="active">Knowledge</a><a href="../Lab/">Lab</a>
       <a href="../toolbox/">Toolbox</a><a href="../about/">About</a>
     </nav>
@@ -97,7 +98,7 @@
       .c-domain-group:hover .c-domain-accent{opacity:1;transform:translateY(-4px)}
       .c-domain-group:hover .c-domain-title{fill:#0E151C}
       .c-domain-group:hover .c-icon-line{stroke:#D99A18;opacity:1}
-      .c-domain-group:focus,.c-center-domain:focus{outline:none}
+      .c-domain-group:focus{outline:none}
       .c-domain-accent{opacity:.48;transition:220ms ease;transform-box:fill-box;transform-origin:center}
       .c-domain-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:34px;font-weight:760;letter-spacing:2.6px;fill:#111820}
       .c-domain-subtitle{font-family:"Space Mono",ui-monospace,monospace;font-size:16px;font-weight:620;letter-spacing:.4px;fill:#5B6875}
@@ -245,33 +246,47 @@
   </g>
 </svg>
         </div>
-        <img id="cynefin-detail" src="" alt="" style="display:none;width:100%;height:auto;cursor:pointer;border-radius:10px">
+        <img id="cynefin-detail" alt="" role="button" tabindex="0" title="Back to the diagram" style="display:none;width:100%;height:auto;cursor:pointer;border-radius:10px">
       </div>
       <script>
         (function(){
           var imgs = {
-            complex:     '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_complex_domain.png',
-            complicated: '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_complicated_domain.png',
-            clear:       '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_clear_domain.png',
-            chaotic:     '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_chaotic_domain.png',
-            disorder:    '../Assets/Knowledge/besso_cynefin_domain_assets_en/besso_cynefin_disorder_domain.png'
+            complex:     '../assets/img/knowledge/cynefin/cynefin-complex.png',
+            complicated: '../assets/img/knowledge/cynefin/cynefin-complicated.png',
+            clear:       '../assets/img/knowledge/cynefin/cynefin-clear.png',
+            chaotic:     '../assets/img/knowledge/cynefin/cynefin-chaotic.png',
+            disorder:    '../assets/img/knowledge/cynefin/cynefin-disorder.png'
           };
           var wrap   = document.getElementById('cynefin-map-wrap');
           var detail = document.getElementById('cynefin-detail');
           ['complex','complicated','clear','chaotic','disorder'].forEach(function(key){
             var el = document.getElementById('domain-' + key);
             if(!el) return;
-            el.addEventListener('click', function(e){
+            el.setAttribute('role', 'button');
+            el.setAttribute('aria-label', 'Show the ' + key + ' domain in detail');
+            function open(e){
               e.preventDefault();
               detail.src = imgs[key];
-              detail.alt = key;
+              detail.alt = 'Cynefin, ' + key + ' domain in detail. Activate to return to the diagram.';
+              detail.dataset.from = key;
               wrap.style.display = 'none';
               detail.style.display = 'block';
+              detail.focus();
+            }
+            el.addEventListener('click', open);
+            el.addEventListener('keydown', function(e){
+              if (e.key === 'Enter' || e.key === ' ') open(e);
             });
           });
-          detail.addEventListener('click', function(){
+          function closeDetail(){
             detail.style.display = 'none';
             wrap.style.display = 'block';
+            var back = document.getElementById('domain-' + detail.dataset.from);
+            if (back) back.focus();
+          }
+          detail.addEventListener('click', closeDetail);
+          detail.addEventListener('keydown', function(e){
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { e.preventDefault(); closeDetail(); }
           });
         })();
       </script>
@@ -708,9 +723,10 @@
 <footer class="foot">
   <div class="wrap">
     <span>BESSÓ Systems — process engineering &amp; digital operations</span>
-    <span><a href="../about/">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../about/">Contact</a></span>
+    <span><a href="https://linkedin.com/in/facundo-luluaga-quo/" target="_blank" rel="noopener">LinkedIn ↗</a> &nbsp;·&nbsp; <a href="../contact/">Contact</a></span>
   </div>
 </footer>
 
+<script src="../assets/js/v3-nav.js"></script>
 </body>
 </html>
